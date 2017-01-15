@@ -1,0 +1,11 @@
+toolbar:
+    formatselect | fontsizeselect | bold italic  | undo redo |  alignleft aligncenter alignright alignjustify | bullist numlist outdent indent  | link | unlink |  tableprops | forecolor
+menubar: false
+fontsize_formats: '12pt 14pt 16pt 18pt 20pt 24pt 30pt 36pt'
+plugins:
+    link
+    table
+    lists
+    autoresize
+    autosave
+    textcolor

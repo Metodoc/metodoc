@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Doc Type Configs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doc_type_configs.each do |doc_type_config| %>
+      <tr>
+        <td><%= link_to 'Show', doc_type_config %></td>
+        <td><%= link_to 'Edit', edit_doc_type_config_path(doc_type_config) %></td>
+        <td><%= link_to 'Destroy', doc_type_config, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doc Type Config', new_doc_type_config_path %>

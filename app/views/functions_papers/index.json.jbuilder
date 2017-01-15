@@ -1,0 +1,1 @@
+json.array! @functions_papers, partial: 'functions_papers/functions_paper', as: :functions_paper

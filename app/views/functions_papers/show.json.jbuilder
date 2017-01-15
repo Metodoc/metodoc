@@ -1,0 +1,1 @@
+json.partial! "functions_papers/functions_paper", functions_paper: @functions_paper

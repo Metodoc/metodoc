@@ -1,0 +1,58 @@
+
+<style>
+    a.btdocument-edit-min, a.btdownload, a.btnewtab{
+        padding: 3px 11px;
+    }
+
+    a.text{
+        color:rgb(77, 77, 77);
+        font-size:12px;
+    }
+
+    div.content-menu-lateral{
+        width: 190px;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        direction: ltr;
+    }
+
+
+
+</style>
+<div class="content-menu-lateral">
+    <ul>
+        <li class="circ">
+          <%= link_to "#{@ontology.name}(V.#{@version.number})", {controller: 'versions', action: 'show', id: @version.id, ontology_id: @ontology.id}, {:style=>'color:rgb(77, 77, 77);'} %>
+            <ul>
+                <% @version.document.each do |d|%> 
+
+                <%configEspec = d.doc_type.doc_type_config.first%>
+
+                <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
+                <%destino = configEspec.doc_config_espec.destination.split(',')%>
+                <li><li>
+                <%=link_to '', {:controller=>destino[0], :action=>destino[1], :document_id=>d.id, :version_id=>@version.id},{:class=>'btdocument-edit-min'}%>
+                <%=link_to d.doc_type.name, {:controller=>destino[0], :action=>destino[1], :document_id=>d.id, :version_id=>@version.id},{:class=>'text'}%>
+                </li>
+                <%else%>
+                <li>
+                    <%=link_to '', {:controller => 'document', :action =>'show', :id=>d.id, :version_id=>@version.id},{:class=>'btdocument-edit-min'}%>
+                    <%=link_to d.doc_type.name, { :controller => 'document', :action => 'edit', :id=>d.id, :version_id =>@version.id},{:class=>'text'}%>
+
+                    <%end%>
+
+                    <%end%>    
+                <li>
+                    <%=link_to '',{:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:class=>'btdownload'}%>
+                    <%=link_to 'Gerar OWL', {:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
+                <li>
+                    <%=link_to '', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:class=>'btnewtab'}%>
+                    <%=link_to 'Documento Completo', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);', :target=>"_blank"}%></li>
+
+            </ul>
+        </li>
+
+    </ul>
+</div>

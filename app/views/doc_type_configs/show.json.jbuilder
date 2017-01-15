@@ -1,0 +1,1 @@
+json.partial! "doc_type_configs/doc_type_config", doc_type_config: @doc_type_config

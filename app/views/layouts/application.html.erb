@@ -1,0 +1,189 @@
+<!--<!DOCTYPE html>
+<html >
+<head>
+
+
+</head>
+
+<body>
+<div class="container">
+<%#= render 'layouts/header' %>
+<%# flash.each do |message_type, message| %>
+<%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+<%# end %>
+<%#= yield %>
+<%#= render 'layouts/footer' %>
+<% #debug(params) if Rails.env.development? %>
+</div>
+<%#= tinymce_assets %>
+<%#= tinymce %>
+</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%= t(:titleSite) %></title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+        <%= stylesheet_link_tag "default" %>
+        <%=yield :css%> 
+
+
+        <link href="/javascripts/jquery-ui-1.9.2/css/base/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+        <!--        <script src="/javascripts/jquery-ui-1.9.2/js/jquery-1.8.3.js"></script>-->
+        <script src="/javascripts/jquery-ui-1.9.2/js/jquery-ui-1.9.2.custom.js"></script>
+
+        <script src="/javascripts/default.js"></script>
+
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <%= render 'layouts/header' %>
+            <div id="wrap">  	
+                <div>
+                    <a href="/">
+                        <span id="logo">
+                            <h1 class="hidden">MetoDoc</h1>
+                            <p class="hidden">
+                                Ferramenta para auxílio na construção e documentação de ontologias
+                            </p>
+                        </span> 
+                    </a>
+                    <div class="clear">  
+                    </div> 
+                    <% if logged_in? %>
+                        <div id="mainnav">
+                            <ul>
+                                <!-- <li><%#=link_to 'Perfil', :controller=>'user', :action=>'perfil', :id=>session[:user_id]%></li>-->
+                                <li><%= link_to t(:projects), ontologies_path %></li>
+                                <li><%= link_to t(:methodologies), methodologies_path %></li>
+                                <li><%= link_to t(:settings), "#{users_path}/settings/#{session[:user_id]}" %></li>
+                                <li><%= link_to t(:activities), "#{users_path}/atividades/#{session[:user_id]}" %></li>
+
+                            </ul>
+                        </div>  
+                    <% end %>
+                    <div id="header">
+
+                        <div class="clear">  
+                        </div>
+                        <div class="middle">
+                            <div class="content-header">
+                                <%=yield :content_header%>
+                            </div>
+                            <% flash.each do |message_type, message| %>
+                            <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                            <% end %>
+                            <%=yield%>
+                            <%#= render 'layouts/footer' %>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="mascara"></div>
+            </div>
+        </div>
+    </body>
+
+    <%= javascript_include_tag 'tiny_mce/tiny_mce.js' %>
+
+    <%= javascript_include_tag 'jquery-ui-1.9.2/js/jquery-1.8.3.js' %>
+    <%= javascript_include_tag 'jquery-ui-1.9.2/js/jquery-ui-1.9.2.custom.js' %>
+    <%= javascript_include_tag 'default.js' %>
+
+
+
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode : "textareas",
+            theme : "advanced"
+        });
+
+    </script>
+    <!--    Script das abas das etapas da versao -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var isVisible = $('.window').is(':visible');
+            if (isVisible){
+                var alturaTela = $(document).height();
+                var larguraTela = $(window).width();
+                $('#mascara').css({'width':larguraTela,'height':alturaTela});
+                $('#mascara').fadeIn(1000);
+                $('#mascara').fadeTo("slow",0.7);
+            }
+
+            var pagina = '<%=params[:pag]%>';
+
+            if (pagina && pagina.contains('stage')){
+                init = pagina.indexOf('-');
+                pag = pagina.charAt(init-1);
+                etapa = pagina.substring(init+1,pagina.lenght);
+
+                var janela = '#janela'+etapa;
+                var titulo = $('a[href='+janela+']').attr("titulo");
+
+                openWindow(janela,titulo,etapa);
+
+                $(janela).css({'top':'40px'});
+
+                $('[class^=stage]').hide();
+
+                $("#"+pagina).show();
+                $("#"+pagina).focus();
+
+                $(janela+' #abas-nav li a').removeClass('page-current');
+                $(janela+' #abas-nav li a').eq(parseInt(pag)-1).addClass('page-current');
+            }else{
+                $('[id^=stage1]').show();
+                $('a[href^=#stage1]').addClass('page-current');
+            }
+        });
+        var controller = '<%=params[:controller]%>';
+        if (controller.contains('authentication')){
+            $('#mainnav ul li a').removeClass('page-current');
+            $('#mainnav ul li a').eq(0).addClass('page-current');
+        }
+        else if (controller.contains('user')){
+            $('#mainnav ul li a').removeClass('page-current');
+            $('#mainnav ul li a').eq(1).addClass('page-current');
+        }
+        else if (controller.contains('methodology')){
+            $('#mainnav ul li a').removeClass('page-current');
+            $('#mainnav ul li a').eq(3).addClass('page-current');
+        }
+        else if (controller.contains('ontology') || controller.contains('version') || controller.contains('document')){
+            $('#mainnav ul li a').removeClass('page-current');
+            $('#mainnav ul li a').eq(2).addClass('page-current');
+        }
+        else{
+            $('#mainnav ul li a').removeClass('page-current');
+            $('#mainnav ul li a').eq(2).addClass('page-current');
+        }
+
+        var action = '<%=params[:action]%>';
+        if (action.contains('edit')){
+            $('.aba ul li').removeClass('aba-current');
+            $('.aba ul li a[class^=bted]').parent().addClass('aba-current');
+        }
+        else if (action.contains('details')){
+            $('.aba ul li').removeClass('aba-current');
+            $('.aba ul li a[class^=btdt]').parent().addClass('aba-current');
+        }
+        else if (action.contains('add_user')){
+            $('.aba ul li').removeClass('aba-current');
+            $('.aba ul li a[class^=btaddU]').parent().addClass('aba-current');
+        }else{
+            $('.aba ul li').eq(0).addClass('aba-current');
+        }
+    </script>
+    <%=yield :scripts%>
+</html>

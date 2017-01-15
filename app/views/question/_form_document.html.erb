@@ -1,0 +1,67 @@
+<%if @documento.doc_reference.nil?%>
+
+<%  @questoes = @documento.questions%>
+
+<div style="margin-left: 10px;">
+
+    <table style="clear: left;">
+
+        <%@questoes.each do |q|%>
+        <tr id="tr<%=q.id%>">
+            <td><%=q.question%></td>
+        </tr>
+        <%end%>
+    </table>
+</div>
+<%else%>
+<%doc_reference = Document.find(@documento.doc_reference)%>
+<%@questoes = doc_reference.questions%>
+<%@respostas = @documento.answer%>
+
+<div style="margin-left: 10px;">
+
+    <table style="clear: left;">
+
+        <%@questoes.each do |q|%>
+
+        <%@resposta = @respostas.select { |r| r.question_id == q.id }%>
+        <tr id="tr<%=q.id%>">
+            <td>Questão: <%=q.question%></td>
+        </tr>
+        <tr>
+            <%@resposta.each do |r|%>
+            <%if q.answer_type == 3 %>
+            <td><%=r.type_answer.description.html_safe%></td>
+            <%else%>
+            <td><%=r.answer.html_safe%></td>
+            <%end%>
+            <%end%>
+        </tr>
+        <%end%>
+    </table>
+</div>
+
+<%end%>
+
+<style>
+
+    table{
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+    td{
+        text-align:left!important;
+        border: 0px!important;
+        border-bottom: 1px solid rgb(221, 221, 221)!important;
+    }
+    thead th{
+        text-align:left!important;
+        border: 0px!important;
+        border-bottom: 2px solid rgb(221, 221, 221)!important;
+    }
+
+</style>

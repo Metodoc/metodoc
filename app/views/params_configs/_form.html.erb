@@ -1,0 +1,17 @@
+<%= form_for(params_config) do |f| %>
+  <% if params_config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(params_config.errors.count, "error") %> prohibited this params_config from being saved:</h2>
+
+      <ul>
+      <% params_config.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

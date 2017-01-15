@@ -1,0 +1,26 @@
+<%= form_for(methodology) do |f| %>
+<% if methodology.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(methodology.errors.count, "error") %> prohibited this methodology from being saved:</h2>
+
+    <ul>
+        <% methodology.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+<div class="actions">
+    <label for="methodology_name">Nome da Methodologia:</label><br />
+    <%= f.text_field :name %><br />
+</div>
+
+<div class="actions">
+    <label for="methodology_description">Descrição da Metodologia:</label><br />
+    <%= f.text_area :description, :rows => 20, :cols =>100%><br />
+</div>
+
+<div class="actions">
+    <%= f.submit %>
+</div>
+<% end %>

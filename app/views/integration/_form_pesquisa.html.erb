@@ -1,0 +1,15 @@
+<div style="padding-bottom: 20px;">
+<div class="search">
+    <input id="strBusca" class="input-search" type="text" placeholder="Pesquise por prefixo">
+    <input id="btBusca" class="button-search" type="button">
+</div>
+</div>
+<div class="follow">
+<%if !@entries.nil? %>
+     <%@entries.each do |entry|%>
+	<%=radio_button :integration, :uri, entry['href']%><a href="<%=entry['href']%>" target="_blank"><%=entry['href']%></a><br>	
+     <%end%>
+<%else%>
+    <p>Nada foi encontrado</p>
+<%end%>
+</div>

@@ -1,0 +1,1 @@
+json.array! @doc_type_configs, partial: 'doc_type_configs/doc_type_config', as: :doc_type_config

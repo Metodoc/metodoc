@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Params Configs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @params_configs.each do |params_config| %>
+      <tr>
+        <td><%= link_to 'Show', params_config %></td>
+        <td><%= link_to 'Edit', edit_params_config_path(params_config) %></td>
+        <td><%= link_to 'Destroy', params_config, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Params Config', new_params_config_path %>

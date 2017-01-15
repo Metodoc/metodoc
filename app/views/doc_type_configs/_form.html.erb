@@ -1,0 +1,17 @@
+<%= form_for(doc_type_config) do |f| %>
+  <% if doc_type_config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(doc_type_config.errors.count, "error") %> prohibited this doc_type_config from being saved:</h2>
+
+      <ul>
+      <% doc_type_config.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

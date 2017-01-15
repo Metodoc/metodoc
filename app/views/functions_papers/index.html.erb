@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Functions Papers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @functions_papers.each do |functions_paper| %>
+      <tr>
+        <td><%= link_to 'Show', functions_paper %></td>
+        <td><%= link_to 'Edit', edit_functions_paper_path(functions_paper) %></td>
+        <td><%= link_to 'Destroy', functions_paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Functions Paper', new_functions_paper_path %>

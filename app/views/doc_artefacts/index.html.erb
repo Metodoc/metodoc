@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Doc Artefacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doc_artefacts.each do |doc_artefact| %>
+      <tr>
+        <td><%= link_to 'Show', doc_artefact %></td>
+        <td><%= link_to 'Edit', edit_doc_artefact_path(doc_artefact) %></td>
+        <td><%= link_to 'Destroy', doc_artefact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Doc Artefact', new_doc_artefact_path %>

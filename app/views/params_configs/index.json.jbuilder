@@ -1,0 +1,1 @@
+json.array! @params_configs, partial: 'params_configs/params_config', as: :params_config

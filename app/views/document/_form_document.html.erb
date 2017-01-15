@@ -1,0 +1,13 @@
+<style>
+    .info{
+        padding-top:5px;
+        padding-left:10px;
+    }
+</style>
+
+<%@documento.doc_artefact.each do |a| %>
+<div class="info">
+    <%=a.params_config_type_doc.description.html_safe%>:
+    <%=a.answer.html_safe%>
+</div>
+<%end%>

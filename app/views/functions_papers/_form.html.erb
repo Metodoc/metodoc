@@ -1,0 +1,17 @@
+<%= form_for(functions_paper) do |f| %>
+  <% if functions_paper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(functions_paper.errors.count, "error") %> prohibited this functions_paper from being saved:</h2>
+
+      <ul>
+      <% functions_paper.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

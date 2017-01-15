@@ -1,0 +1,47 @@
+
+<%  @integracoes = @documento.integration%>
+
+<div style="margin-left: 10px;">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Prefixo</th>
+                <th>URI</th>
+                <th>Propósito</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%@integracoes.each do |integracao|%>
+            <tr>
+                <td><%=integracao.name%></td>
+                <td><%=integracao.prefix%></td>
+                <td><a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></td>
+                <td><%=integracao.purpose%></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>
+
+<style>
+
+    table{
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+    td{
+        text-align:left!important;
+        border: 0px!important;
+        border-bottom: 1px solid rgb(221, 221, 221)!important;
+    }
+    thead th{
+        text-align:left!important;
+        border: 0px!important;
+        border-bottom: 2px solid rgb(221, 221, 221)!important;
+    }
+</style>

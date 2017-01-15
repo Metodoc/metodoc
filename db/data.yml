@@ -1,0 +1,3123 @@
+
+---
+activity_shedules:
+  columns:
+  - id
+  - name
+  - description
+  - deadline
+  - priority
+  - user_id
+  - document_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Definir questões de competência
+    - Elaborar questões que definam o escopo da ontologia a ser projetada
+    - '2015-12-21'
+    - 2
+    - 3
+    - 24
+    - 15-10-2015
+    - '2016-05-27 01:48:59'
+  - - 3
+    - Responder Questões de competência
+    - Responder questões de competência com linguagem natural
+    - '2015-11-26'
+    - 
+    - 1
+    - 24
+    - '2015-11-05 23:36:38'
+    - '2016-05-27 01:50:34'
+  - - 8
+    - Definir colaboradores
+    - Definir colaboradores da ontologia
+    - '2015-12-24'
+    - 
+    - 3
+    - 24
+    - '2015-12-09 07:52:24'
+    - '2016-05-27 01:52:03'
+  - - 11
+    - Definir conceitos
+    - Definir conceitos (classes)
+    - '2015-12-30'
+    - 
+    - 1
+    - 24
+    - '2015-12-27 20:56:02'
+    - '2016-05-27 01:54:45'
+
+---
+answers:
+  columns:
+  - answer
+  - document_id
+  - question_id
+  - type_answer_id
+  - created_at
+  - updated_at
+  records: 
+  - - 
+    - 37
+    - 9
+    - 2
+    - '2016-05-17 17:55:19'
+    - '2016-05-17 17:55:19'
+  - - 
+    - 37
+    - 10
+    - 3
+    - '2016-05-17 17:55:20'
+    - '2016-05-17 17:55:20'
+  - - 
+    - 37
+    - 28
+    - 3
+    - '2017-01-08 22:49:08.253279'
+    - '2017-01-08 22:49:08.253279'
+  - - 
+    - 37
+    - 31
+    - 2
+    - '2017-01-08 22:49:08.381397'
+    - '2017-01-08 22:49:08.381397'
+  - - '<p>&nbsp;Quest&atilde;o respondida atrav&eacute;s do relacionamento "participa_de"(Dom&iacute;nio:
+      Docente, Imagem: Grupo Acad&ecirc;mico);</p>'
+    - 38
+    - 7
+    - 
+    - '2016-05-24 08:47:35'
+    - '2016-05-24 08:47:35'
+  - - <p>Quest&atilde;o respondida atrav&eacute;s da classe Docente";</p>
+    - 38
+    - 8
+    - 
+    - '2016-05-24 08:47:35'
+    - '2016-05-24 08:47:35'
+  - - '<p>Quest&atilde;o respondida atrav&eacute;s da propriedade "ativo"(Dom&iacute;nio:
+      Docente, Imagem: boolean);</p>'
+    - 38
+    - 12
+    - 
+    - '2016-05-24 08:47:35'
+    - '2016-05-24 08:47:35'
+  - - '<p>Quest&atilde;o respondida atrav&eacute;s da propriedade "curriculo_lattes"(Dom&iacute;nio:
+      Docente, Imagem: string);</p>'
+    - 38
+    - 16
+    - 
+    - '2016-05-24 08:47:36'
+    - '2016-05-24 08:47:36'
+  - - '<p>Quest&atilde;o respondida atrav&eacute;s da propriedade "e-mail"(Dom&iacute;nio:
+      Docente, Imagem: string);</p>'
+    - 38
+    - 14
+    - 
+    - '2016-05-24 08:47:35'
+    - '2016-05-24 08:47:35'
+  - - '<p>Quest&atilde;o respondida atrav&eacute;s da propriedade "email"(Dom&iacute;nio:
+      Docente, Imagem: string);</p>'
+    - 38
+    - 15
+    - 
+    - '2016-05-24 08:47:36'
+    - '2016-05-24 08:47:36'
+  - - '<p>Quest&atilde;o respondida atrav&eacute;s da propriedade "titularidade"(Dom&iacute;nio:
+      Docente, Imagem: string);</p>'
+    - 38
+    - 13
+    - 
+    - '2016-05-24 08:47:35'
+    - '2016-05-24 08:47:35'
+  - - '<p>Quest&atilde;o respondida atrav&eacute;s do relacionamento "coordena"(Dom&iacute;nio:
+      Docente, Imagem: Grupo Acad&ecirc;mico);</p>'
+    - 38
+    - 11
+    - 
+    - '2016-05-24 08:47:35'
+    - '2016-05-24 08:47:35'
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2017-01-07 05:18:40.276606'
+    - '2017-01-07 05:18:40.276606'
+
+---
+artefact_models:
+  columns:
+  - id
+  - name
+  - filename
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Modelo 1
+    - artefact_model_1
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 2
+    - Modelo 2
+    - artefact_model_2
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+
+---
+artefact_statuses:
+  columns:
+  - id
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Rascunho
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 2
+    - Revisão Pendente
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 3
+    - Revisado
+    - '2015-09-20'
+    - '2015-09-20'
+  - - 4
+    - Finalizado
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+
+---
+competence_issues:
+  columns:
+  - id
+  - version_id
+  - question
+  - created_at
+  - updated_at
+  - artefact_status_id
+  records: 
+  - - 1
+    - 1
+    - teste 1 ?
+    - '2015-09-26 15:24:57'
+    - '2015-09-26 15:24:57'
+    - 1
+
+---
+doc_artefacts:
+  columns:
+  - answer
+  - document_id
+  - params_config_type_doc_id
+  - created_at
+  - updated_at
+  records: 
+  - - ''
+    - 10
+    - 4
+    - '2015-10-08 15:09:10'
+    - '2015-10-08 15:09:10'
+  - - "<p>Aplica&ccedil;&otilde;es em sa&uacute;de, especificamente sistemas eletr&ocirc;nicos
+      em sa&uacute;de em ambientes distribu&iacute;do e baseado em servi&ccedil;os
+      e componentes.</p>"
+    - 40
+    - 14
+    - '2016-05-30 05:16:28'
+    - '2016-05-30 05:16:28'
+  - - "<p>Entrevistas  responda aqui Reuni&otilde;es  responda aqui!</p>"
+    - 18
+    - 9
+    - '2015-10-09 01:41:37'
+    - '2015-10-09 01:41:37'
+  - - "<p>Especialistas do Dom&iacute;nio  responda aqui Livros e Documentos  responda
+      aqui Internet (urls)  responda aqui Dicion&aacute;rios  responda aqui Tesauros</p>"
+    - 18
+    - 5
+    - '2015-10-09 01:41:37'
+    - '2015-10-09 01:41:37'
+  - - "<p>M&eacute;dicos, juntas m&eacute;dicas especializadas, e sistemas eletr&ocirc;nicos
+      em sa&uacute;de podem utilizar a ontologia SODOnt. O laborat&oacute;rio IMAGCOM,
+      do&nbsp; DFM - USP - FFCLRP mant&eacute;m a SODOnt.</p>"
+    - 40
+    - 13
+    - '2016-05-30 05:16:28'
+    - '2016-05-30 05:16:28'
+  - - "<p>Por que o ciclo de vida ser&aacute; executado na ontologia?</p>"
+    - 17
+    - 2
+    - '2015-10-09 01:18:13'
+    - '2015-10-09 01:18:13'
+  - - "<p>Trocar informa&ccedil;&otilde;es de segunda opini&atilde;o diagn&oacute;stica
+      compostas de sinais, sintomas, e diagn&oacute;sticos, e seus respectivos valores.</p>"
+    - 40
+    - 15
+    - 
+    - 
+  - - "<p>conclui ++ok</p>"
+    - 10
+    - 8
+    - '2015-10-08 15:09:10'
+    - '2015-10-08 15:09:10'
+  - - "<p>fg&ccedil;vk&ccedil;eklwv&ccedil;</p>"
+    - 10
+    - 3
+    - '2015-10-08 15:09:10'
+    - '2015-10-08 15:09:10'
+  - - "<p>objetivos</p>"
+    - 10
+    - 2
+    - '2015-10-08 15:09:10'
+    - '2015-10-08 15:09:10'
+  - - "<p>recursos</p>"
+    - 10
+    - 6
+    - '2015-10-08 15:09:10'
+    - '2015-10-08 15:09:10'
+  - - "<p>testando sss vai corinthians</p>"
+    - 9
+    - 2
+    - '2015-10-08 12:30:12'
+    - '2015-10-08 12:30:12'
+
+---
+doc_config_especs:
+  columns:
+  - id
+  - name
+  - destination
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Agendamento de atividades
+    - activity_shedule,edit
+    - 14-10-2015
+    - 14-10-2015
+  - - 2
+    - Questões de Competência
+    - question,
+    - 14-10-2015
+    - 14-10-2015
+  - - 3
+    - Lista de Termos
+    - glossary,manual
+    - 14-10-2015
+    - 14-10-2015
+  - - 4
+    - Resposta
+    - question,resposta
+    - 14-10-2015
+    - 14-10-2015
+  - - 5
+    - Integração
+    - integration,
+    - 24-04-2016
+    - 24-04-2016
+
+---
+doc_type_configs:
+  columns:
+  - answer
+  - doc_type_id
+  - params_config_Type_Doc_id
+  - doc_config_espec_id
+  - created_at
+  - updated_at
+  records: 
+  - - false
+    - 14
+    - 
+    - 1
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - false
+    - 18
+    - 
+    - 3
+    - '2015-10-18 03:54:09'
+    - '2015-10-18 03:54:09'
+  - - false
+    - 16
+    - 
+    - 4
+    - '2016-05-13 22:56:29'
+    - '2016-05-13 22:56:29'
+  - - false
+    - 32
+    - 
+    - 4
+    - '2016-05-13 22:56:29'
+    - '2016-05-13 22:56:29'
+  - - false
+    - 36
+    - 
+    - 5
+    - '2016-05-14 02:37:24'
+    - '2016-05-14 02:37:24'
+  - - false
+    - 37
+    - 
+    - 4
+    - '2016-05-14 02:38:53'
+    - '2016-05-14 02:38:53'
+  - - false
+    - 38
+    - 
+    - 4
+    - '2016-05-14 02:38:53'
+    - '2016-05-14 02:38:53'
+  - - false
+    - 45
+    - 
+    - 3
+    - '2016-05-14 02:59:16'
+    - '2016-05-14 02:59:16'
+  - - false
+    - 46
+    - 
+    - 1
+    - '2016-05-14 03:00:00'
+    - '2016-05-14 03:00:00'
+  - - false
+    - 48
+    - 
+    - 2
+    - '2016-05-14 03:29:03'
+    - '2016-05-14 03:29:03'
+  - - false
+    - 3
+    - 
+    - 2
+    - '2016-05-17 17:51:46'
+    - '2016-05-17 17:51:46'
+  - - false
+    - 52
+    - 
+    - 3
+    - '2016-05-30 04:59:45'
+    - '2016-05-30 04:59:45'
+  - - false
+    - 53
+    - 
+    - 5
+    - '2016-05-30 05:01:33'
+    - '2016-05-30 05:01:33'
+  - - false
+    - 51
+    - 
+    - 2
+    - '2016-05-30 05:20:39'
+    - '2016-05-30 05:20:39'
+  - - false
+    - 49
+    - 
+    - 5
+    - '2016-06-01 11:45:17'
+    - '2016-06-01 11:45:17'
+  - - true
+    - 10
+    - 2
+    - 
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 10
+    - 3
+    - 
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 10
+    - 6
+    - 
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 13
+    - 2
+    - 
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 13
+    - 3
+    - 
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 13
+    - 4
+    - 
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 13
+    - 6
+    - 
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 13
+    - 8
+    - ''
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 15
+    - ''
+    - 2
+    - '2015-10-15 20:17:23'
+    - '2015-10-15 20:17:23'
+  - - true
+    - 22
+    - 9
+    - 
+    - '2015-10-15 20:17:24'
+    - '2015-10-15 20:17:24'
+  - - true
+    - 1
+    - 2
+    - 
+    - '2016-02-28 15:20:41'
+    - '2016-02-28 15:20:41'
+  - - true
+    - 4
+    - 2
+    - 
+    - '2016-02-28 15:20:41'
+    - '2016-02-28 15:20:41'
+  - - true
+    - 4
+    - 3
+    - 
+    - '2016-02-28 15:20:41'
+    - '2016-02-28 15:20:41'
+  - - true
+    - 4
+    - 4
+    - 
+    - '2016-02-28 15:20:41'
+    - '2016-02-28 15:20:41'
+  - - true
+    - 4
+    - 6
+    - 
+    - '2016-02-28 15:20:41'
+    - '2016-02-28 15:20:41'
+  - - true
+    - 4
+    - 8
+    - 
+    - '2016-02-28 15:20:41'
+    - '2016-02-28 15:20:41'
+  - - true
+    - 39
+    - 4
+    - 
+    - '2016-05-14 02:56:19'
+    - '2016-05-14 02:56:19'
+  - - true
+    - 39
+    - 12
+    - 
+    - '2016-05-14 02:56:19'
+    - '2016-05-14 02:56:19'
+  - - true
+    - 42
+    - 5
+    - 
+    - '2016-05-14 02:56:19'
+    - '2016-05-14 02:56:19'
+  - - true
+    - 43
+    - 5
+    - 
+    - '2016-05-14 02:59:16'
+    - '2016-05-14 02:59:16'
+  - - true
+    - 47
+    - 4
+    - 
+    - '2016-05-14 03:27:53'
+    - '2016-05-14 03:27:53'
+  - - true
+    - 47
+    - 12
+    - 
+    - '2016-05-14 03:27:54'
+    - '2016-05-14 03:27:54'
+  - - true
+    - 2
+    - 5
+    - 
+    - '2016-05-17 17:51:46'
+    - '2016-05-17 17:51:46'
+  - - true
+    - 2
+    - 9
+    - 
+    - '2016-05-17 17:51:46'
+    - '2016-05-17 17:51:46'
+  - - true
+    - 50
+    - 13
+    - 
+    - '2016-05-30 05:20:39'
+    - '2016-05-30 05:20:39'
+  - - true
+    - 50
+    - 14
+    - 
+    - '2016-05-30 05:20:39'
+    - '2016-05-30 05:20:39'
+  - - true
+    - 50
+    - 15
+    - 
+    - '2016-05-30 05:20:39'
+    - '2016-05-30 05:20:39'
+
+---
+doc_types:
+  columns:
+  - id
+  - name
+  - methodstep_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Descrição do Projeto
+    - 1
+    - 1/10/2015
+    - '2016-04-26 23:34:27'
+  - - 2
+    - Fontes de Informação e Estratégia de Análise
+    - 3
+    - 1/10/2015
+    - '2015-10-08 04:56:43'
+  - - 3
+    - Questões de Competência
+    - 3
+    - 1/10/2015
+    - '2015-10-08 04:57:14'
+  - - 4
+    - Plano de Análise de Viabilidade
+    - 1
+    - '2015-10-07 20:44:14'
+    - '2015-10-08 04:51:37'
+  - - 10
+    - Descrição do Ciclo de Vida
+    - 2
+    - '2015-10-07 22:26:46'
+    - '2015-10-14 00:33:06'
+  - - 13
+    - Plano de Análise de Viabilidade
+    - 2
+    - '2015-10-08 04:54:10'
+    - '2015-10-08 04:54:46'
+  - - 14
+    - Cronograma de Atividades
+    - 2
+    - '2015-10-08 04:54:35'
+    - '2015-10-08 04:54:35'
+  - - 15
+    - Plano de Avaliação
+    - 2
+    - '2015-10-08 04:55:09'
+    - '2015-10-08 04:55:09'
+  - - 16
+    - Avaliação Técnica
+    - 5
+    - '2015-10-08 04:57:53'
+    - '2016-05-13 21:43:10'
+  - - 17
+    - Hierarquia de Componentes
+    - 4
+    - '2015-10-08 07:48:13'
+    - '2016-05-24 07:48:47'
+  - - 18
+    - Lista de Componentes
+    - 4
+    - '2015-10-08 07:48:49'
+    - '2016-05-24 07:48:29'
+  - - 32
+    - Avaliação de Usuário
+    - 5
+    - '2016-05-13 22:55:35'
+    - '2016-05-13 22:55:35'
+  - - 36
+    - Integração
+    - 25
+    - '2016-05-14 02:37:05'
+    - '2016-05-14 02:37:05'
+  - - 37
+    - Verificação
+    - 24
+    - '2016-05-14 02:37:52'
+    - '2016-05-14 02:37:52'
+  - - 38
+    - Validação
+    - 24
+    - '2016-05-14 02:38:11'
+    - '2016-05-14 02:38:11'
+  - - 39
+    - Propósito
+    - 17
+    - '2016-05-14 02:39:54'
+    - '2016-05-14 02:39:54'
+  - - 40
+    - Formalidade
+    - 17
+    - '2016-05-14 02:40:11'
+    - '2016-05-14 02:40:11'
+  - - 41
+    - Escopo
+    - 17
+    - '2016-05-14 02:40:32'
+    - '2016-05-14 02:40:32'
+  - - 42
+    - Aquisição de Conhecimento
+    - 17
+    - '2016-05-14 02:41:04'
+    - '2016-05-14 02:41:17'
+  - - 43
+    - Aquisição de Conhecimento
+    - 19
+    - '2016-05-14 02:41:43'
+    - '2016-05-14 02:41:43'
+  - - 44
+    - Glossario Preliminar
+    - 17
+    - '2016-05-14 02:58:10'
+    - '2016-05-14 02:58:10'
+  - - 45
+    - Conceitualização
+    - 19
+    - '2016-05-14 02:58:43'
+    - '2016-05-14 02:58:43'
+  - - 46
+    - Escalonamento e Controle
+    - 10
+    - '2016-05-14 02:59:44'
+    - '2016-05-14 02:59:44'
+  - - 47
+    - doc1
+    - 26
+    - '2016-05-14 03:26:47'
+    - '2016-05-14 03:26:47'
+  - - 48
+    - Questões de Competência (informal)
+    - 27
+    - '2016-05-14 03:28:25'
+    - '2016-05-14 03:28:41'
+  - - 49
+    - Integração
+    - 29
+    - '2016-05-17 17:57:38'
+    - '2016-06-01 11:45:30'
+  - - 50
+    - Domínio e Escopo
+    - 30
+    - '2016-05-30 04:49:58'
+    - '2016-05-30 04:49:58'
+  - - 51
+    - Determinação questões
+    - 30
+    - '2016-05-30 04:57:42'
+    - '2016-05-30 04:57:42'
+  - - 52
+    - Enumeração de termos importantes
+    - 31
+    - '2016-05-30 04:59:26'
+    - '2016-05-30 04:59:26'
+  - - 53
+    - Considerar Reuso
+    - 32
+    - '2016-05-30 05:01:12'
+    - '2016-05-30 05:01:12'
+  - - 54
+    - Novaa1
+    - 37
+    - '2017-01-08 18:48:57.210839'
+    - '2017-01-08 18:49:50.140236'
+
+---
+documents:
+  columns:
+  - id
+  - doc_type_id
+  - ontology_id
+  - version_id
+  - artefact_status_id
+  - doc_reference
+  - created_at
+  - updated_at
+  records: 
+  - - 9
+    - 1
+    - 1
+    - 1
+    - 1
+    - 
+    - '2015-10-08 12:30:12'
+    - '2017-01-08 21:54:00.646315'
+  - - 10
+    - 4
+    - 1
+    - 1
+    - 2
+    - 
+    - '2015-10-08 15:09:10'
+    - '2017-01-08 21:13:47.526865'
+  - - 13
+    - 4
+    - 1
+    - 1
+    - 1
+    - 
+    - '2015-10-08 15:39:36'
+    - '2015-10-08 15:39:36'
+  - - 16
+    - 15
+    - 
+    - 1
+    - 1
+    - 
+    - '2015-10-09 01:10:02'
+    - '2015-10-09 01:10:02'
+  - - 17
+    - 10
+    - 
+    - 1
+    - 1
+    - 
+    - '2015-10-09 01:18:13'
+    - '2015-10-09 01:18:13'
+  - - 18
+    - 2
+    - 
+    - 1
+    - 1
+    - 
+    - '2015-10-09 01:41:37'
+    - '2015-10-09 01:41:37'
+  - - 24
+    - 14
+    - 
+    - 1
+    - 1
+    - 
+    - '2015-10-09 23:59:33'
+    - '2015-10-09 23:59:33'
+  - - 26
+    - 18
+    - 
+    - 1
+    - 1
+    - 
+    - '2015-10-17'
+    - '2015-10-17'
+  - - 36
+    - 3
+    - 
+    - 1
+    - 1
+    - 
+    - '2016-05-17 17:49:21'
+    - '2016-05-17 17:49:21'
+  - - 37
+    - 32
+    - 
+    - 1
+    - 1
+    - 16
+    - '2016-05-17 17:55:04'
+    - '2016-05-17 17:55:04'
+  - - 38
+    - 16
+    - 
+    - 1
+    - 1
+    - 36
+    - '2016-05-24 08:39:28'
+    - '2016-05-24 08:39:28'
+  - - 39
+    - 49
+    - 
+    - 1
+    - 1
+    - 
+    - '2016-05-24 08:58:21'
+    - '2016-05-24 08:58:21'
+  - - 40
+    - 50
+    - 
+    - 4
+    - 4
+    - 
+    - '2016-05-30 05:16:28'
+    - '2016-05-30 05:31:04'
+  - - 41
+    - 51
+    - 
+    - 4
+    - 1
+    - 
+    - '2016-05-30 05:41:09'
+    - '2016-05-30 05:41:09'
+  - - 42
+    - 52
+    - 
+    - 4
+    - 1
+    - 
+    - '2016-05-30 05:48:03'
+    - '2016-05-30 05:48:03'
+  - - 43
+    - 18
+    - 
+    - 5
+    - 1
+    - 
+    - '2016-06-02 11:33:48'
+    - '2016-06-02 11:33:48'
+
+---
+formality_degrees:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Altamente Informal
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 2
+    - Semi-Informal
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 3
+    - Formal
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 4
+    - Altamente Formal
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+
+---
+functions:
+  columns:
+  - id
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Adesão de colaborador
+    - 26/09/2015
+    - 26/09/2015
+  - - 2
+    - Mudança de status para fechar
+    - 26/09/2015
+    - 26/09/2015
+  - - 3
+    - Atribuir responsáveis
+    - 26/09/2015
+    - 26/09/2015
+  - - 4
+    - Editar Metodologia Monto
+    - 26/09/2015
+    - 26/09/2015
+  - - 5
+    - Editar Manual do Usuário
+    - 26/09/2015
+    - 26/09/2015
+  - - 6
+    - Relacionar Funções e Papeis
+    - 26/09/2015
+    - 26/09/2015
+  - - 7
+    - Editardita Ontologia
+    - 29/09/2015
+    - 29/09/2015
+  - - 8
+    - Deletar Ontologia
+    - 29/09/2015
+    - 29/09/2015
+
+---
+functions_papers:
+  columns:
+  - function_id
+  - paper_id
+  records: 
+  - - 1
+    - 1
+  - - 1
+    - 2
+  - - 2
+    - 1
+  - - 2
+    - 2
+  - - 3
+    - 1
+  - - 3
+    - 2
+  - - 4
+    - 1
+  - - 5
+    - 1
+  - - 6
+    - 1
+
+---
+integrations:
+  columns:
+  - id
+  - name
+  - prefix
+  - uri
+  - purpose
+  - document_id
+  - created_at
+  - updated_at
+  records: 
+  - - 7
+    - Pessoa
+    - person
+    - http://www.w3.org/ns/person#
+    - ''
+    - 39
+    - '2016-05-24 09:04:46'
+    - '2016-05-24 09:04:46'
+  - - 11
+    - ''
+    - ''
+    - ''
+    - ''
+    - 39
+    - '2017-01-08 23:08:13.277688'
+    - '2017-01-08 23:08:13.394768'
+
+---
+methodologies:
+  columns:
+  - id
+  - name
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Monto
+    - "<h2>Etapas da Monto</h2>\r\n<p><br /> As principais etapas a serem abordadas
+      na elabora&ccedil;&atilde;o da Monto s&atilde;o:</p>\r\n<ul class=\"texto2\"
+      style=\"padding-left: 30px;\">\r\n<li class=\"disc\">Planejamento Inicial</li>\r\n<li
+      class=\"disc\">Etapas do ciclo de vida: \t             \r\n<ul>\r\n<li class=\"circ\">Planejamento
+      do Ciclo de Vida</li>\r\n<li class=\"circ\">Especifica&ccedil;&atilde;o</li>\r\n<li
+      class=\"circ\">Conceitualiza&ccedil;&atilde;o</li>\r\n<li class=\"circ\">Formaliza&ccedil;&atilde;o</li>\r\n<li
+      class=\"circ\">Integra&ccedil;&atilde;o</li>\r\n<li class=\"circ\">Disponibiliza&ccedil;&atilde;o</li>\r\n</ul>\r\n</li>\r\n<li
+      class=\"disc\">Etapas de Suporte:  \t             \r\n<ul>\r\n<li class=\"circ\">Avalia&ccedil;&atilde;o</li>\r\n<li
+      class=\"circ\">Documenta&ccedil;&atilde;o</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>A
+      Monto est&aacute; estruturada, apresentando todas as etapas organizadas de acordo
+      com a ordem de suas execu&ccedil;&otilde;es, permitindo que se possa entender,
+      avaliar e acompanhar passo a passo todo o processo de constru&ccedil;&atilde;o
+      de ontologias. Para iniciar suas atividades, a primeira etapa a ser executada
+      &eacute; de planejamento inicial. Depois se inicia o ciclo de vida executando
+      as etapas de especifica&ccedil;&atilde;o, conceitualiza&ccedil;&atilde;o, formaliza&ccedil;&atilde;o,
+      integra&ccedil;&atilde;o e disponibiliza&ccedil;&atilde;o, nessa ordem e sem
+      deixar de executar nem uma das etapas. Pode, no entento, haver a necessidade
+      de durante a fase de conceitualiza&ccedil;&atilde;o revisitar a etapa de especifica&ccedil;&atilde;o
+      e durante a fase de integra&ccedil;&atilde;o revisitar a etapa de conceitualiza&ccedil;&atilde;o.
+      As etapas de suporte, como avalia&ccedil;&atilde;o e documenta&ccedil;&atilde;o,
+      s&atilde;o executadas em paralelo com cada uma das etapas do ciclo de vida.<br
+      /><br /> <img style=\"display: block; margin-left: auto; margin-right: auto;\"
+      src=\"../../images/monto-atual.png\" alt=\"\" /></p>\r\n<p>&nbsp;</p>\r\n<p><strong
+      class=\"texto3\">Planejamento Inicial</strong><br /> O objetivo da etapa de
+      planejamento inicial &eacute; elaborar o plano de  constru&ccedil;&atilde;o
+      da ontologia, no qual deve ser detalhado a inten&ccedil;&atilde;o da implementa&ccedil;&atilde;o
+      do projeto  bem como o escopo e o prop&oacute;sito da ontologia que ser&aacute;
+      criada. Esta etapa visa tamb&eacute;m  estudar a viabilidade da constru&ccedil;&atilde;o
+      da ontologia, sendo um instrumento de diminui&ccedil;&atilde;o de  riscos para
+      o projeto; <br /><br /></p>\r\n<ul>\r\n<li class=\"disc\" dir=\"ltr\"> <strong
+      class=\"texto2\">Descrever o projeto:</strong> <br /> Especifica&ccedil;&atilde;o
+      Conceitualiza&ccedil;&atilde;o Formaliza&ccedil;&atilde;o Implanta&ccedil;&atilde;o
+      Etapas do ciclo de vida Manuten&ccedil;&atilde;o Planejamento Figura 3 &ndash;
+      Vis&atilde;o geral da Monto Aquisi&ccedil;&atilde;o de Conhecimento Documenta&ccedil;&atilde;o
+      Integra&ccedil;&atilde;o Avalia&ccedil;&atilde;o Etapas de Suporte. O objetivo
+      &eacute; obter uma vis&atilde;o global do projeto a ser desenvolvido e uma identifica&ccedil;&atilde;o
+      geral das &aacute;reas de conhecimento envolvidas.<br /><br /> \r\n<ul>\r\n<li
+      class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Entender o problema:</strong><br
+      class=\"kix-line-break\" /> Identifica&ccedil;&atilde;o do problema e defini&ccedil;&atilde;o
+      de porqu&ecirc; a ontologia deve ser constru&iacute;da. </li>\r\n<br />\r\n<li
+      class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Investigar o dom&iacute;nio
+      de conhecimento:</strong><br class=\"kix-line-break\" /> Identifica&ccedil;&atilde;o
+      do dom&iacute;nio de conhecimento da ontologia a ser constru&iacute;da e das
+      poss&iacute;veis &aacute;reas de conhecimento envolvidas, para um melhor entendimento
+      do projeto. </li>\r\n<br />\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Identificar
+      Grau de Formalidade:</strong><br class=\"kix-line-break\" /> Classifica&ccedil;&atilde;o
+      do grau de formalidade da ontologia, realizado com base na formalidade com que
+      o vocabul&aacute;rio &eacute; criado, bem como seu significado. Elas podem ser
+      classificadas como: altamente informais, que s&atilde;o expressas em linguagem
+      natural; semi&shy;informais, que &nbsp;s&atilde;o expressas em linguagem natural,
+      de forma restrita; semi&shy;formais, que s&atilde;o expressas em &nbsp;linguagem
+      artificial, definida formalmente, e as altamente formais, que s&atilde;o definidas
+      com sem&acirc;ntica formal, teoremas e provas (USHOLD e GRUNINGER, 1996). </li>\r\n<br
+      />\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Definir o objetivo
+      do projeto: </strong><br class=\"kix-line-break\" /> Descri&ccedil;&atilde;o
+      geral do projeto, descrevendo para que e como a ontologia ser&aacute; utilizada,
+      de forma concreta e clara, e dos poss&iacute;veis benef&iacute;cios esperados
+      para a institui&ccedil;&atilde;o. </li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<ul>\r\n<li
+      class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Planejar Viabilidade do
+      projeto:</strong>\r\n<p>&nbsp;</p>\r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\">
+      <strong class=\"texto2\">Analisar Oportunidades:</strong><br /> Descrever o
+      cen&aacute;rio atual de uma forma abrangente e mostrar o &nbsp;porqu&ecirc;
+      o desenvolvimento da ontologia realmente &eacute; necess&aacute;ria. Documentar
+      no artefato as &nbsp;oportunidades que demandam o desenvolvimento da ontologia
+      ou das aplica&ccedil;&otilde;es que far&atilde;o &nbsp;uso dela; </li>\r\n<br
+      />\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Analisar Problemas:</strong><br
+      /> Descrever problemas vis&iacute;veis que prejudicam ou prejudicar&atilde;o
+      o &nbsp;desenvolvimento do projeto como falta de fontes de conhecimento, informa&ccedil;&otilde;es
+      confi&aacute;veis, &nbsp;padronizadas, etc. Documentar no artefato estes problemas
+      que afetam o desenvolvimento da &nbsp;ontologia ou dos projetos que far&atilde;o
+      uso dela; </li>\r\n<br />\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Analisar
+      Solu&ccedil;&otilde;es Potenciais:</strong><br /> Descrever as potenciais solu&ccedil;&otilde;es
+      encontradas para erradicar ou &nbsp;minimizar os problemas descritos anteriormente;
+      </li>\r\n<br />\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Analisar
+      Recursos:</strong><br /> <span style=\"font-size: 16px; font-family: Arial;
+      color: #000000; background-color: transparent; font-weight: 400; font-style:
+      normal; font-variant: normal; text-decoration: none; vertical-align: baseline;\">Descrever
+      os meios utilizados para a execu&ccedil;&atilde;o das tarefas necess&aacute;rias
+      para &nbsp;a constru&ccedil;&atilde;o da ontologia. Documentar no artefato a
+      descri&ccedil;&atilde;o dos recursos humanos, tecnol&oacute;gicos (hardware,
+      linguagens, ferramentas) e financeiros.</span>\r\n<p>&nbsp;</p>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p><strong
+      class=\"texto3\">Planejamento do Ciclo de Vida</strong><br /> Cada ciclo de
+      vida na metodologia Monto deve ser iniciado &nbsp;com o planejamento de todo
+      o processo a executar (PEDROZO, 2009). Ent&atilde;o nesta etapa, &nbsp;busca&shy;se
+      definir as determina&ccedil;&otilde;es e objetivos que ser&atilde;o executados
+      e esperados com a &nbsp;realiza&ccedil;&atilde;o do ciclo de vida. Devem ser
+      tra&ccedil;ados e documentados a viabilidade para &nbsp;realiza&ccedil;&atilde;o
+      da itera&ccedil;&atilde;o assim como o planejamento da avalia&ccedil;&atilde;o
+      e organiza&ccedil;&atilde;o da execu&ccedil;&atilde;o.</p>\r\n<ul>\r\n<li class=\"disc\"
+      dir=\"ltr\"> <strong class=\"texto2\">Planejar organiza&ccedil;&atilde;o de
+      Ciclo de Vida:</strong><br /> O plano de organiza&ccedil;&atilde;o trata da
+      forma como o projeto ser&aacute; organizado para executar as atividades e atender
+      aos usu&aacute;rios de maneira eficiente, o que ser&aacute; de fundamental import&acirc;ncia
+      na determina&ccedil;&atilde;o do seu sucesso. A organiza&ccedil;&atilde;o visa
+      criar condi&ccedil;&otilde;es para que cada pessoa do grupo de trabalho consiga
+      realizar seu trabalho, satisfazendo os objetivos globais e os individuais. \t
+      \        \r\n<ul>\r\n<li> \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\"> <strong
+      class=\"texto2\">Organizar Equipes</strong><br /> - Equipe de ger&ecirc;ncia:
+      Atua no processo de planejar, organizar, controlar, pesquisar e gerenciar atividades
+      e recursos para alcan&ccedil;ar o objetivo.<br /> - Equipe de desenvolvedor:
+      Atua no processo de pesquisar, construir e avaliar a ontologia que est&aacute;
+      sendo desenvolvida. </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Construir
+      Cronograma</strong><br /> Constru&ccedil;&atilde;o de um cronograma para organizar
+      e controlar as atividades a serem realizadas. O cronograma conter&aacute; as
+      seguintes informa&ccedil;&otilde;es: <br /> - A data de in&iacute;cio e fim
+      de cada atividade; <br /> - A seq&uuml;&ecirc;ncia de execu&ccedil;&atilde;o
+      das atividades; <br /> - Quais os resultados esperados de cada atividade executada;
+      <br /> - Quem &eacute; a pessoa respons&aacute;vel por cada atividade; <br />
+      - Quais os recursos a serem utilizados para execu&ccedil;&atilde;o de cada atividade</li>\r\n<li
+      class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Definir Tarefas</strong><br
+      /> - Quais s&atilde;o as suas tarefas; <br /> - Quais s&atilde;o os resultados
+      esperados;<br /> - Quais s&atilde;o os passos e meios a serem utilizados para
+      obter os resultados esperados;<br /> - O padr&atilde;o de desempenho esperado;<br
+      /> - O relacionamento de uma determinada tarefa com outras tarefas; <br /> -
+      A quem deve responder; <br /> - A quem deve comandar; <br /> - O seu grau de
+      autoridade; <br /> - Qual a sua responsabilidade.</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<ul>\r\n<li
+      class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Planejar Organiza&ccedil;&atilde;o
+      do Ciclo de Vida:</strong><br /> Representa a principal fonte de refer&ecirc;ncia
+      e controle da resolu&ccedil;&atilde;o do projeto, sendo utilizado pelo grupo
+      de trabalho para conduzir suas atividades dentro dos par&acirc;metros planejados,
+      corrigir falhas e se adaptar &agrave;s novas condi&ccedil;&otilde;es decorrentes
+      de mudan&ccedil;as. A an&aacute;lise dos resultados obtidos em determinado per&iacute;odo
+      da constru&ccedil;&atilde;o de ontologia &eacute; extremamente importante para
+      que se possa avaliar o desempenho, a efici&ecirc;ncia, a confiabilidade, a reusabilidade,
+      a manutenibilidade, a interoperabilidade, a portabilidade e a corretitude, comparando
+      os resultados esperados com os resultados obtidos. Os crit&eacute;rios de qualidade
+      a serem adotados devem estar devidamente definidos para garantir a qualidade
+      da ontologia. 1 Os crit&eacute;rios de qualidade enumerados pela engenharia
+      de sistemas [Pressman, 1992] ser&atilde;o adotados para a constru&ccedil;&atilde;o
+      de ontologia. Estes crit&eacute;rios s&atilde;o: \t         \r\n<ul>\r\n<li>
+      \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Corretitude:</strong>
+      A ontologia est&aacute; de acordo com suas quest&otilde;es de compet&ecirc;ncia.
+      </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Confiabilidade:</strong>
+      A ontologia &eacute; confi&aacute;vel se o usu&aacute;rio pode depender dela,
+      se opera como esperado em um dado intervalo de tempo e se n&atilde;o ocorre
+      erro. </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Desempenho:</strong>
+      A ontologia &eacute; eficiente se ela usa economicamente os recursos de computa&ccedil;&atilde;o,
+      podendo reduzir a produtividade do usu&aacute;rio.\r\n<p>&nbsp;</p>\r\n</li>\r\n<li
+      class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Manutenibilidade:</strong>
+      Facilidade com que a ontologia pode ser corrigida. </li>\r\n<li class=\"circ\"
+      dir=\"ltr\"> <strong class=\"texto2\">Portabilidade:</strong> Capacidade de
+      poder ser utilizada em v&aacute;rios ambientes (hardware e software). </li>\r\n<li
+      class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Interoperabilidade:</strong>
+      Capacidade de a ontologia coexistir e cooperar com outras ontologias. </li>\r\n<li
+      class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Reusabilidade:</strong>
+      Capacidade de utilizar a ontologia novamente, em um outro ambiente, com poucas
+      mudan&ccedil;as. </li>\r\n</ul>\r\n</li>\r\n</ul>\r\nTamb&eacute;m ser&atilde;o
+      adotados os crit&eacute;rios de qualidade enumerados por [Gruber, 1995]. Estes
+      crit&eacute;rios est&atilde;o descritos a seguir:          \r\n<ul>\r\n<li>
+      \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Clareza:</strong>
+      Uma ontologia deve definir de forma objetiva o significado dos termos definidos.
+      As defini&ccedil;&otilde;es devem ser completas e documentadas em linguagem
+      natural, de modo a refor&ccedil;ar a clareza. </li>\r\n<li class=\"circ\" dir=\"ltr\">
+      <strong class=\"texto2\">Coer&ecirc;ncia:</strong> Uma ontologia deve ser coerente,
+      isto &eacute;, deve comportar apenas infer&ecirc;ncias consistentes com as defini&ccedil;&otilde;es.
+      Coer&ecirc;ncia deve ser observada, tamb&eacute;m, em rela&ccedil;&atilde;o
+      a conceitos definidos informalmente. Se uma senten&ccedil;a pass&iacute;vel
+      de ser inferida a partir dos axiomas da ontologia contradiz uma defini&ccedil;&atilde;o
+      ou exemplo dado informalmente, ent&atilde;o a ontologia &eacute; incoerente.
+      </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Extensibilidade:</strong>
+      Na ontologia deve ser poss&iacute;vel definir novos termos para usos especiais,
+      com base no vocabul&aacute;rio existente, sem haver necessidade de rever defini&ccedil;&otilde;es
+      existentes e, portanto, sua representa&ccedil;&atilde;o deve poder ser estendida
+      e especializada. </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Compromissos
+      de codifica&ccedil;&atilde;o m&iacute;nimos:</strong> A conceitua&ccedil;&atilde;o
+      deve ser especificada no n&iacute;vel de conhecimento sem depender de uma tecnologia
+      particular de representa&ccedil;&atilde;o de conhecimento. Uma tend&ecirc;ncia
+      de codifica&ccedil;&atilde;o surge quando escolhas de representa&ccedil;&atilde;o
+      s&atilde;o feitas puramente para a conveni&ecirc;ncia de nota&ccedil;&atilde;o
+      ou implementa&ccedil;&atilde;o. Assim, essa tend&ecirc;ncia deve ser minimizada,
+      j&aacute; que agentes compartilhando conhecimento podem ser implementados em
+      diferentes sistemas e paradigmas de representa&ccedil;&atilde;o. </li>\r\n<li
+      class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Compromissos ontol&oacute;gicos
+      m&iacute;nimos:</strong> O conjunto de compromissos ontol&oacute;gicos de uma
+      ontologia deve ser o menor poss&iacute;vel, capaz de suportar as atividades
+      planejadas de compartilhamento de conhecimento. Uma ontologia deve fazer t&atilde;o
+      poucas imposi&ccedil;&otilde;es quanto poss&iacute;vel sobre o mundo que est&aacute;
+      sendo modelado, permitindo que as partes comprometidas com a ontologia fiquem
+      livres para especializar e instanciar a ontologia na medida do necess&aacute;rio.
+      Uma vez que compromissos ontol&oacute;gicos s&atilde;o baseados no uso consistente
+      de um vocabul&aacute;rio, eles podem ser minimizados atrav&eacute;s da especifica&ccedil;&atilde;o
+      de uma teoria mais fraca (que admita um maior n&uacute;mero de modelos), contendo
+      defini&ccedil;&otilde;es restritas apenas para os termos essenciais &agrave;
+      comunica&ccedil;&atilde;o consistente do conhecimento da teoria. </li>\r\n</ul>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p><strong
+      class=\"texto3\">Especifica&ccedil;&atilde;o</strong><br /> O objetivo &eacute;
+      extrair, descobrir, obter, analisar e avaliar o m&aacute;ximo de informa&ccedil;&otilde;es
+      sobre o dom&iacute;nio de conhecimento para descrever as quest&otilde;es de
+      compet&ecirc;ncia que a ontologia dever&aacute; responder. <br /> Na fase de
+      especifica&ccedil;&atilde;o se inicia com o ciclo de Aquisi&ccedil;&atilde;o
+      de conhecimento, este consiste na extra&ccedil;&atilde;o de informa&ccedil;&otilde;es
+      de dom&iacute;nio e posteriormente estudando estas informa&ccedil;&otilde;es,
+      tal estudo pode gerar d&uacute;vidas sobre o dom&iacute;nio carecendo assim
+      a extra&ccedil;&atilde;o de novas informa&ccedil;&otilde;es, que acarreta em
+      um clico(Pedroso, 2009).</p>\r\n<ul>\r\n<li class=\"disc\" dir=\"ltr\"> <strong
+      class=\"texto2\">Adquirir Conhecimento:</strong> \r\n<ul>\r\n<li class=\"circ\"
+      dir=\"ltr\"> <strong class=\"texto2\">Extrair Informa&ccedil;&otilde;es do Dom&iacute;nio</strong><br
+      /> &Eacute; um processo explorat&oacute;rio, que deve servir de base para o
+      processo de constru&ccedil;&atilde;o de ontologias e auxiliar o entendimento
+      do problema, obtendo com os fornecedores das informa&ccedil;&otilde;es um conhecimento
+      b&aacute;sico do dom&iacute;nio de conhecimento.<br /> As atividades a serem
+      realizadas para obten&ccedil;&atilde;o das informa&ccedil;&otilde;es sobre o
+      dom&iacute;nio de conhecimento da ontologia s&atilde;o descritas a seguir: <br
+      /> \r\n<ul>\r\n<li class=\"square\" dir=\"ltr\"> Identificar as pessoas que
+      entendem o dom&iacute;nio de conhecimento; </li>\r\n<li class=\"square\" dir=\"ltr\">
+      Identificar as fontes de informa&ccedil;&otilde;es a serem analisadas; </li>\r\n<li
+      class=\"square\" dir=\"ltr\"> Obter diferentes vis&otilde;es do dom&iacute;nio
+      de conhecimento; </li>\r\n<li class=\"square\" dir=\"ltr\"> Investigar o dom&iacute;nio,
+      utilizando os seguintes meios: \t\t\t       \r\n<ul>\r\n<li class=\"disc\" dir=\"ltr\">Entrevistas;</li>\r\n<li
+      class=\"disc\" dir=\"ltr\">Reuni&otilde;es de debates e gera&ccedil;&otilde;es
+      de id&eacute;ias;</li>\r\n<li class=\"disc\" dir=\"ltr\">Documenta&ccedil;&otilde;es
+      da institui&ccedil;&atilde;o;</li>\r\n<li class=\"disc\" dir=\"ltr\">Livros;
+      o Artigos; o Internet;</li>\r\n<li class=\"disc\" dir=\"ltr\">Revistas cientificas;</li>\r\n<li
+      class=\"disc\" dir=\"ltr\">Institui&ccedil;&otilde;es com dom&iacute;nios semelhantes;</li>\r\n<li
+      class=\"disc\" dir=\"ltr\">E outros meios que sejam adequados.</li>\r\n</ul>\r\n</li>\r\n<li
+      class=\"square\" dir=\"ltr\">Elaborar um formul&aacute;rio com todas as perguntas
+      a serem feitas na realiza&ccedil;&atilde;o da entrevista;</li>\r\n<li class=\"square\"
+      dir=\"ltr\">Elaborar um roteiro com os temas a serem tratados na realiza&ccedil;&atilde;o
+      da reuni&atilde;o;</li>\r\n<li class=\"square\" dir=\"ltr\">Coletar o m&aacute;ximo
+      de informa&ccedil;&otilde;es;</li>\r\n<li class=\"square\" dir=\"ltr\">Identificar
+      as expectativas e necessidades dos usu&aacute;rios;</li>\r\n<li class=\"square\"
+      dir=\"ltr\">Identificar, de forma geral, as fun&ccedil;&otilde;es solicitadas
+      para a ontologia.</li>\r\n</ul>\r\n</li>\r\n<li class=\"circ\" dir=\"ltr\">
+      <strong class=\"texto2\">Analisar Informa&ccedil;&otilde;es do Dom&iacute;nio</strong><br
+      /> A an&aacute;lise a ser feita na documenta&ccedil;&atilde;o gerada pela etapa
+      da especifica&ccedil;&atilde;o, busca selecionar as informa&ccedil;&otilde;es
+      realmente &uacute;teis, obter um consenso, entre os construtores da ontologia,
+      sobre o entendimento das informa&ccedil;&otilde;es e dos componentes da ontologia,
+      identificar os problemas, obter as solu&ccedil;&otilde;es dos problemas e adquirir
+      o m&aacute;ximo de conhecimento necess&aacute;rio para o processo de constru&ccedil;&atilde;o
+      da ontologia. Uma avalia&ccedil;&atilde;o mais minuciosa das informa&ccedil;&otilde;es
+      &uacute;teis procura detectar o m&aacute;ximo de erros que possam ser corrigidos,
+      resolver vis&otilde;es conflitantes, eliminar inconsist&ecirc;ncia e ambig&uuml;idades
+      e detectar informa&ccedil;&otilde;es incompletas. Depois de realizar a an&aacute;lise
+      e avalia&ccedil;&atilde;o, as informa&ccedil;&otilde;es, at&eacute; ent&atilde;o
+      conhecidas, devem ser organizadas de modo mais adequado, para facilitar as futuras
+      avalia&ccedil;&otilde;es e an&aacute;lises. As an&aacute;lises realizadas devem
+      gerar uma documenta&ccedil;&atilde;o mais consistente e precisa. </li>\r\n</ul>\r\n</li>\r\n<li
+      class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Definir Quest&otilde;es
+      de Compet&ecirc;ncia</strong><br /> Com o conhecimento adquirido sobre o dom&iacute;nio
+      de conhecimento e sobre os problemas e as suas solu&ccedil;&otilde;es &eacute;
+      poss&iacute;vel elaborar as quest&otilde;es de compet&ecirc;ncias, visando auxiliar
+      a an&aacute;lise da ontologia, com um conjunto de perguntas que ir&aacute; surgir:
+      \  \t       \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\">Que problemas esta ontologia
+      deve resolver?</li>\r\n<li class=\"circ\" dir=\"ltr\">Quais s&atilde;o as quest&otilde;es
+      que a ontologia deve responder?</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p>As informa&ccedil;&otilde;es
+      realmente &uacute;teis devem ser descritas respeitando certas condi&ccedil;&otilde;es
+      necess&aacute;rias que garantem gerar uma documenta&ccedil;&atilde;o devidamente
+      estruturada para que a continuidade do processo de constru&ccedil;&atilde;o
+      de ontologias satisfa&ccedil;a os crit&eacute;rios de qualidade estabelecidos.
+      As condi&ccedil;&otilde;es necess&aacute;rias s&atilde;o descritas a seguir:</p>\r\n<ul>\r\n<li>
+      \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\">Os objetivos devem est&aacute; claros
+      e consistentes;</li>\r\n<li class=\"circ\" dir=\"ltr\">Todas as fun&ccedil;&otilde;es
+      devem estar adequadamente descritas;</li>\r\n<li class=\"circ\" dir=\"ltr\">Os
+      fluxos de informa&ccedil;&otilde;es devem traduzir a realidade que se deseja
+      representar;</li>\r\n<li class=\"circ\" dir=\"ltr\">As informa&ccedil;&otilde;es
+      devem est&aacute; organizadas de uma forma l&oacute;gica e clara;</li>\r\n<li
+      class=\"circ\" dir=\"ltr\">Tem que existir um consenso, entre os construtores
+      da ontologia, sobre o entendimento das informa&ccedil;&otilde;es e dos componentes
+      da ontologia;</li>\r\n<li class=\"circ\" dir=\"ltr\">N&atilde;o devem existir
+      inconsist&ecirc;ncias, omiss&otilde;es e redund&acirc;ncias de informa&ccedil;&otilde;es;</li>\r\n<li
+      class=\"circ\" dir=\"ltr\">A documenta&ccedil;&atilde;o deve estar devidamente
+      avaliada e aprovada pelos construtores da ontologia e por todos os usu&aacute;rios;</li>\r\n<li
+      class=\"circ\" dir=\"ltr\">A investiga&ccedil;&atilde;o do dom&iacute;nio deve
+      estar amplamente explorada e analisada.</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p>No
+      fim da execu&ccedil;&atilde;o desta etapa, deve ter como produto gerado uma
+      documenta&ccedil;&atilde;o bastante madura e confi&aacute;vel sobre a ontologia
+      que se deseja construir.  <br /><br /> <strong class=\"texto3\">Conceitualiza&ccedil;&atilde;o</strong><br
+      /> O objetivo &eacute; elaborar um modelo conceitual do dom&iacute;nio de conhecimento
+      a partir das informa&ccedil;&otilde;es analisadas na etapa de aquisi&ccedil;&atilde;o
+      de conhecimento. &nbsp;O foco desta etapa &eacute; como traduzir as informa&ccedil;&otilde;es
+      obtidas na aquisi&ccedil;&atilde;o de conhecimento para o modelo conceitual,
+      o qual visa gerar uma representa&ccedil;&atilde;o da ontologia com detalhes
+      suficientes para que possa ser formalizado. Observa-se que o processo de definir
+      novas classes e obter rela&ccedil;&otilde;es &eacute; interativo e pode se repetir
+      muitas vezes, at&eacute; mesmo ap&oacute;s a obten&ccedil;&atilde;o de um modelo
+      conceitual aceit&aacute;vel, j&aacute; que a aquisi&ccedil;&atilde;o de conhecimento
+      se aplica durante todo o ciclo de vida. A conceitualiza&ccedil;&atilde;o utilizou
+      tamb&eacute;m os estudos de [Noy &amp; Guinnes, 2001], como base para a orienta&ccedil;&atilde;o
+      das atividades no desenvolvimento de um modelo conceitual. A constru&ccedil;&atilde;o
+      do modelo conceitual consiste das seguintes atividades:</p>\r\n<ul>\r\n<li class=\"disc\"
+      dir=\"ltr\"> <strong class=\"texto2\">Construir Lista de componentes</strong><br
+      /> Quem &eacute; conceito, rela&ccedil;&atilde;o, fun&ccedil;&atilde;o, axioma
+      e inst&acirc;ncia. Todos os componentes devem ser descritos em linguagem natural.
+      </li>\r\n<li class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Construir
+      &Aacute;rvores Taxon&ocirc;mica</strong><br /> Pode ser constru&iacute;da com
+      a utiliza&ccedil;&atilde;o da ferramenta especifica indicada no plano de recursos.
+      Para a constru&ccedil;&atilde;o da &aacute;rvore s&atilde;o executadas as seguintes
+      sub-atividades:  \t       \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\">Representar
+      as classes, que s&atilde;o os conceitos, na &aacute;rvore;</li>\r\n<li class=\"circ\"
+      dir=\"ltr\">Organizar as classes em uma taxonomia definindo rela&ccedil;&otilde;es
+      tais como: subclasse de, superclasse de e exclusividade m&uacute;tua entre classes;</li>\r\n<li
+      class=\"circ\" dir=\"ltr\">Definir as propriedades (rela&ccedil;&otilde;es,
+      fun&ccedil;&otilde;es, axiomas) das classes, levando em considera&ccedil;&atilde;o
+      que todas as subclasses de uma classe herdam as rela&ccedil;&otilde;es daquela
+      classe;</li>\r\n<li class=\"circ\" dir=\"ltr\">Definir as restri&ccedil;&otilde;es
+      sobre as rela&ccedil;&otilde;es: As restri&ccedil;&otilde;es descrevem caracter&iacute;sticas
+      limitantes para as classes. Algumas restri&ccedil;&otilde;es poss&iacute;veis
+      s&atilde;o: cardinalidade da rela&ccedil;&atilde;o, o tipo de valor da rela&ccedil;&atilde;o
+      (string, n&uacute;mero, booleano, etc), a faixa de valores poss&iacute;veis
+      para a rela&ccedil;&atilde;o e as rela&ccedil;&otilde;es definidas para uma
+      classe;</li>\r\n<li class=\"circ\" dir=\"ltr\">Definir as inst&acirc;ncias:
+      Cria&ccedil;&atilde;o de inst&acirc;ncias individuais na hierarquia. Para definir
+      uma inst&acirc;ncia &eacute; preciso escolher uma classe, criar uma inst&acirc;ncia
+      individual daquela classe e preencher os valores das rela&ccedil;&otilde;es
+      (tipo-inst&acirc;ncia) e poss&iacute;veis restri&ccedil;&otilde;es;</li>\r\n<li
+      class=\"circ\" dir=\"ltr\">Verificar a consist&ecirc;ncia (n&atilde;o devem
+      existir ciclos na &aacute;rvore) e a concis&atilde;o (n&atilde;o deve existir
+      repeti&ccedil;&atilde;o de conceitos) na &aacute;rvore.</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p>No
+      fim da constru&ccedil;&atilde;o da &aacute;rvore de classifica&ccedil;&atilde;o
+      de conceitos, esta etapa deve ter como produto gerado o modelo conceitual da
+      ontologia.  <br /><br /> <strong class=\"texto3\">Formaliza&ccedil;&atilde;o</strong><br
+      /> O objetivo &eacute; transformar o modelo conceitual em um modelo formal,
+      utilizando uma linguagem formal e uma ferramenta que possa traduzi-lo para o
+      ambiente computacional.</p>\r\n<ul>\r\n<li class=\"disc\" dir=\"ltr\"> <strong
+      class=\"texto2\">Formalizar Modelo Conceitual</strong><br /> Pode ser feito
+      de forma modular, sendo mais f&aacute;cil de ser desenvolvida e mantida. Os
+      m&oacute;dulos devem ser bem estruturados, claramente definidos de forma que
+      a ontologia possa ser reutilizada. <br /> Como a ontologia &eacute; constru&iacute;da
+      de uma forma modular, deve ser realizado teste individual dos m&oacute;dulos,
+      integra&ccedil;&atilde;o dos m&oacute;dulos formando a ontologia e teste de
+      integra&ccedil;&atilde;o dos m&oacute;dulos, que compreende o teste da ontologia
+      com todos os m&oacute;dulos.Esta etapa &eacute; desenvolvida com a utiliza&ccedil;&atilde;o
+      das ferramentas indicadas no plano de recursos e tem como produto final a ontologia
+      ou uma vers&atilde;o da ontologia testada. </li>\r\n</ul>\r\n<p><strong class=\"texto3\">Integra&ccedil;&atilde;o</strong></p>\r\n<ul>\r\n<li
+      class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Formalizar Ontologia em
+      uma Mesma Linguagem</strong> </li>\r\n<li class=\"disc\" dir=\"ltr\"> <strong
+      class=\"texto2\">Integrar Ontologias</strong> \r\n<ul>\r\n<li class=\"circ\"
+      dir=\"ltr\"> <strong class=\"texto2\">Resolver Conflitos Sint&aacute;ticos</strong>
+      </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Resolver Redund&acirc;ncias
+      Sem&acirc;nticas</strong> </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Adaptar
+      Ontologias aos Novos Elementos</strong> </li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p><strong
+      class=\"texto3\">Disponibiliza&ccedil;&atilde;o</strong><br /> O objetivo desta
+      etapa &eacute; colocar a ontologia em uso no ambiente real, sendo utilizada
+      pelos usu&aacute;rios finais com acompanhamento de uma parte do grupo de trabalho.
+      A etapa de disponibiliza&ccedil;&atilde;o realiza as seguintes atividades:</p>\r\n<ul>\r\n<li
+      class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Validar Ontologia</strong>
+      \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Instalar
+      a ontologia no ambiente real;</strong> </li>\r\n<li class=\"circ\" dir=\"ltr\">
+      <strong class=\"texto2\">Testar a ontologia;</strong> </li>\r\n<li class=\"circ\"
+      dir=\"ltr\"> <strong class=\"texto2\">Analisar, descobrir e corrigir as causas
+      dos erros encontrados;</strong> </li>\r\n</ul>\r\n</li>\r\n<li class=\"disc\"
+      dir=\"ltr\"> <strong class=\"texto2\">Construir Manual da Ontologia</strong>
+      \r\n<ul>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Descrever
+      dom&iacute;nio e objetivos da ontologia </strong> </li>\r\n<li class=\"circ\"
+      dir=\"ltr\"> <strong class=\"texto2\">Listar compet&ecirc;ncias da ontologia
+      </strong> </li>\r\n<li class=\"circ\" dir=\"ltr\"> <strong class=\"texto2\">Anexar
+      lista de termos da ontologia </strong> </li>\r\n<li class=\"circ\" dir=\"ltr\">
+      <strong class=\"texto2\">Descrever hist&oacute;rico de atualiza&ccedil;&otilde;es
+      </strong> </li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<p>Os testes previstos nesta compor&atilde;o
+      a etapa de avalia&ccedil;&atilde;o. Esta fase ser&aacute; focada na prepara&ccedil;&atilde;o
+      da ontologia para o uso gen&eacute;rico. Instala&ccedil;&atilde;o num sistema,
+      uma integra&ccedil;&atilde;o com outra ontologia, etc. A confec&ccedil;&atilde;o
+      de um manual sobre a ontologia &eacute; atividade essencial.  <br /><br /> <strong
+      class=\"texto3\">Documenta&ccedil;&atilde;o</strong><br /> O objetivo &eacute;
+      armazenar a explica&ccedil;&atilde;o completa e exaustiva de todos os recursos
+      e etapas existentes, visando facilitar futuro reuso e manuten&ccedil;&atilde;o
+      da ontologia. Justamente para dar suporte a essa etapa &eacute; que SILVA (2010)
+      construiu a ferramenta MontoDoc, que ser&aacute; explicitada posteriormente.
+      \  A documenta&ccedil;&atilde;o deve ser executada em todas as etapas do processo
+      de constru&ccedil;&atilde;o de ontologia, sendo que em cada etapa as seguintes
+      informa&ccedil;&otilde;es devem ser registradas:</p>\r\n<ul>\r\n<li class=\"disc\"
+      dir=\"ltr\"> <strong class=\"texto2\">Planejamento Inicial:</strong> Descri&ccedil;&atilde;o
+      de todos os procedimentos necess&aacute;rios para se elaborar o planejamento
+      da ontologia que se deseja construir. &Eacute; o primeiro documento a ser registrado
+      e vai servir de base para a realiza&ccedil;&atilde;o das pr&oacute;ximas etapas.
+      </li>\r\n<li class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Planejamento
+      do Ciclo de Vida:</strong> Descri&ccedil;&atilde;o de todos os procedimentos
+      necess&aacute;rios para se elaborar o planejamento de um determinado ciclo de
+      vida. &Eacute; o primeiro documento a ser registrado no ciclo e vai servir de
+      base para a realiza&ccedil;&atilde;o das etapas seguintes e dos ciclos posteriores,
+      caso estes se fa&ccedil;am necess&aacute;rios. </li>\r\n<li class=\"disc\" dir=\"ltr\">
+      <strong class=\"texto2\">Especifica&ccedil;&atilde;o:</strong> Descri&ccedil;&atilde;o
+      dos requisitos que ser&atilde;o utilizados para obten&ccedil;&atilde;o e an&aacute;lise
+      das informa&ccedil;&otilde;es sobre o dom&iacute;nio de conhecimento da ontologia
+      que se deseja construir, descri&ccedil;&atilde;o detalhada, passo a passo, da
+      execu&ccedil;&atilde;o de cada um dos requisitos selecionados, descri&ccedil;&atilde;o
+      das quest&otilde;es de compet&ecirc;ncias da ontologia e dos crit&eacute;rios
+      necess&aacute;rios para a sua constru&ccedil;&atilde;o. </li>\r\n<li class=\"disc\"
+      dir=\"ltr\"> <strong class=\"texto2\">Conceitualiza&ccedil;&atilde;o:</strong>
+      Descri&ccedil;&atilde;o detalhada do processo de execu&ccedil;&atilde;o das
+      atividades necess&aacute;rias para a constru&ccedil;&atilde;o do modelo conceitual.
+      </li>\r\n<li class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Formaliza&ccedil;&atilde;o:</strong>
+      Descri&ccedil;&atilde;o detalhada do processo de execu&ccedil;&atilde;o das
+      atividades necess&aacute;rias para a formaliza&ccedil;&atilde;o da ontologia
+      e descri&ccedil;&atilde;o de como foram realizados os testes. </li>\r\n<li class=\"disc\"
+      dir=\"ltr\"> <strong class=\"texto2\">Integra&ccedil;&atilde;o:</strong> Descri&ccedil;&atilde;o
+      das ontologias coletadas, de como cada uma delas foram utilizadas e os resultados
+      obtidos com a integra&ccedil;&atilde;o. Os erros, caso hajam, devem ser expostos
+      com detalhes. </li>\r\n<li class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Disponibiliza&ccedil;&atilde;o:</strong>
+      Descri&ccedil;&atilde;o detalhada do processo de execu&ccedil;&atilde;o das
+      atividades necess&aacute;rias para a implanta&ccedil;&atilde;o, anota&ccedil;&atilde;o
+      da avalia&ccedil;&atilde;o da ontologia pelo usu&aacute;rio e manual da ontologia
+      para facilitar seu entendimento e manipula&ccedil;&atilde;o pelo &nbsp;usu&aacute;rio
+      final. </li>\r\n<li class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Avalia&ccedil;&atilde;o:</strong>
+      Descrever todas as avalia&ccedil;&otilde;es feitas e seus resultados em um relat&oacute;rio
+      de avalia&ccedil;&otilde;es. </li>\r\n</ul>\r\n<p><strong class=\"texto3\">Avalia&ccedil;&atilde;o</strong><br
+      /> O objetivo &eacute; avaliar o desempenho de todo o processo de constru&ccedil;&atilde;o
+      de ontologia, para garantir que ela tenha sido desenvolvida de maneira formalmente
+      correta, de acordo com o processo de execu&ccedil;&atilde;o estabelecido por
+      cada uma das etapas, visando assegurar os crit&eacute;rios de qualidade. A maior
+      parte das atividades deve ser feita durante as etapas iniciais do ciclo de vida,
+      de forma a diminuir a propaga&ccedil;&atilde;o de erros.</p>\r\n<ul>\r\n<li
+      class=\"disc\" dir=\"ltr\"> <strong class=\"texto2\">Avaliar Ontologia Tecnicamente</strong><br
+      /> A avalia&ccedil;&atilde;o t&eacute;cnica, feita durante a constru&ccedil;&atilde;o
+      da ontologia, deve ser realizada aplicando as seguintes atividades:  \t       \r\n<ul>\r\n<li
+      class=\"circ\" dir=\"ltr\"> Acompanhar e controlar todo o processo de constru&ccedil;&atilde;o
+      da ontologia; </li>\r\n<li class=\"circ\" dir=\"ltr\"> Verificar se todos os
+      requisitos est&atilde;o bem definidos para que a ontologia possa ser confi&aacute;vel;
+      </li>\r\n<li class=\"circ\" dir=\"ltr\"> Verificar se cada etapa do ciclo de
+      vida satisfaz os crit&eacute;rios de qualidade; </li>\r\n<li class=\"circ\"
+      dir=\"ltr\"> Verificar se o produto gerado por cada etapa atende as necessidades
+      da etapa seguinte; </li>\r\n<li class=\"circ\" dir=\"ltr\"> Verificar se as
+      tecnologias utilizadas satisfazem; </li>\r\n<li class=\"circ\" dir=\"ltr\">
+      Realizar compara&ccedil;&otilde;es t&eacute;cnicas, relacionadas com a ontologia
+      e a documenta&ccedil;&atilde;o, com as ontologias coletadas na etapa de integra&ccedil;&atilde;o;
+      </li>\r\n</ul>\r\n</li>\r\n</ul>"
+    - 29/09/2015
+    - '2017-01-08 17:29:37.628563'
+  - - 2
+    - Methontology
+    - "<p>testandooooo</p>"
+    - '2015-10-13 18:54:17'
+    - '2016-03-02 00:07:38'
+  - - 8
+    - TOVE
+    - "<p>Falts descri&ccedil;&atilde;o</p>"
+    - '2016-05-14 03:22:29'
+    - '2016-05-14 03:22:29'
+  - - 9
+    - Metodologia 101
+    - "<p>1. Etapas de desenvolvimento:</p>\r\n<ul>\r\n<li>Especifica&ccedil;&atilde;o
+      de requisitos: nesse m&eacute;todo o desenvolvimento tem in&iacute;cio a partir
+      dessa etapa. As atividades apresentadas nela s&atilde;o: <br />\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &ndash; Delimita&ccedil;&atilde;o de dom&iacute;nio e escopo: na atividade o
+      desenvolvedor dever&aacute; informar qual o dom&iacute;nio da ontologia, problema
+      e problem&aacute;tica al&eacute;m dos poss&iacute;veis usu&aacute;rios da ontologia.</p>\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &ndash; Determina&ccedil;&atilde;o quest&otilde;es: o ontologista dever&aacute;
+      informar as quest&otilde;es que dever&atilde;o ser respondidas pela ontologia.</p>\r\n</li>\r\n<li>Conceitualiza&ccedil;&atilde;o
+      e formaliza&ccedil;&atilde;o: as duas etapas s&atilde;o realizadas simultaneamente
+      utilizando a ferramenta prot&eacute;g&eacute;.Fazem parte delas as seguintes
+      atividades:<br />-&ndash; Enumera&ccedil;&atilde;o de termos importantes: para
+      selecionar os termos as seguintes quest&otilde;es devem ser respondidas: i)
+      quais os termos que estamos tratando?ii) quais as suas propriedades?iii) o que
+      queremos dizer sobre estes termos?<br />&ndash;&nbsp; Definir classe e hierarquia
+      de classes: os termos levantados s&atilde;o agrupados conforme similaridades
+      de maneira a dar origem &agrave;s classes. Por sua vez as classes s&atilde;o
+      divididas em hierarquias que variam conforme o uso da ontologia. <br />&ndash;
+      Definir propriedades de classe: assim como as classes as propriedades tamb&eacute;m
+      podem ser extra&iacute;das da lista de termos.<br />&ndash; Restri&ccedil;&atilde;o
+      de propriedades: delimitar o conjunto de valores poss&iacute;veis de ser assumidos
+      por uma propriedade.<br />&ndash; Definir inst&acirc;ncias: deve-se escolher
+      uma classe, criar uma inst&acirc;ncia e especificar as propriedades referentes.
+      As inst&acirc;ncias podem ser criadas de tr&ecirc;s formas distintas:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      * Inst&acirc;ncias Obrigat&oacute;rias: algumas inst&acirc;ncias podem ser obrigat&oacute;rias
+      e desta forma far&atilde;o parte da pr&oacute;pria ontologia que est&aacute;
+      sendo criada;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *
+      Testes: algumas inst&acirc;ncias podem ser criadas com o objetivo de testar
+      a ontologia que est&aacute; sendo criada, com o objetivo de responder a quest&otilde;es
+      de compet&ecirc;ncias definidas na primeira etapa do processo.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      * Mapeamento: as inst&acirc;ncias de uma ontologia podem vir de uma fonte externa
+      de dados que podem ser mapeados de acordo com a ontologia. Esta &uacute;ltima
+      &eacute; mais comum quando se pretende publicar dados de forma conectada</li>\r\n</ul>\r\n<p>2.
+      Etapas de suporte:</p>\r\n<ul>\r\n<li>Integra&ccedil;&atilde;o: indica a busca
+      ontologias para a integra&ccedil;&atilde;o em bibliotecas de reuso na web.</li>\r\n<li>Documenta&ccedil;&atilde;o:
+      realiza documenta&ccedil;&atilde;o atrav&eacute;s de ferramenta prot&eacute;g&eacute;
+      sem estipular em que momento do desenvolvimento dever&aacute; ser realizada.
+      </li>\r\n</ul>"
+    - '2016-05-14 03:57:36'
+    - '2016-05-30 04:48:10'
+
+---
+methodsteps:
+  columns:
+  - id
+  - name
+  - inlifecycle
+  - methodology_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Planejamento Inicial
+    - false
+    - 1
+    - 29/09/2015
+    - '2016-02-28 15:19:42'
+  - - 2
+    - Planejamento (Ciclo de Vida)
+    - true
+    - 1
+    - 29/09/2015
+    - '2015-10-11 05:13:56'
+  - - 3
+    - Especificação
+    - true
+    - 1
+    - 29/09/2015
+    - '2015-10-07 00:15:21'
+  - - 4
+    - Conceitualização
+    - true
+    - 1
+    - 29/09/2015
+    - 29/09/2015
+  - - 5
+    - Avaliação
+    - true
+    - 1
+    - 29/09/2015
+    - 29/09/2015
+  - - 10
+    - Planejamento
+    - true
+    - 2
+    - '2015-10-13 20:11:01'
+    - '2016-05-14 02:34:49'
+  - - 17
+    - Especificação
+    - true
+    - 2
+    - '2015-10-22 19:04:06'
+    - '2016-05-14 02:35:46'
+  - - 19
+    - Modelo Conceitual
+    - true
+    - 2
+    - '2016-02-28 19:16:48'
+    - '2016-05-14 02:36:19'
+  - - 24
+    - Avaliação
+    - true
+    - 2
+    - '2016-05-14 02:36:31'
+    - '2016-05-14 02:36:31'
+  - - 25
+    - Integração
+    - true
+    - 2
+    - '2016-05-14 02:36:46'
+    - '2016-05-14 02:36:46'
+  - - 26
+    - Pré-desenvolvimento
+    - true
+    - 8
+    - '2016-05-14 03:23:41'
+    - '2016-05-14 03:27:53'
+  - - 27
+    - Especificação
+    - true
+    - 8
+    - '2016-05-14 03:27:31'
+    - '2016-05-14 03:27:31'
+  - - 28
+    - Formalização
+    - true
+    - 8
+    - '2016-05-14 03:29:23'
+    - '2016-05-14 03:29:23'
+  - - 29
+    - Integração
+    - true
+    - 1
+    - '2016-05-17 17:57:24'
+    - '2016-06-01 11:45:17'
+  - - 30
+    - Especificação
+    - true
+    - 9
+    - '2016-05-30 04:48:52'
+    - '2016-05-30 04:48:52'
+  - - 31
+    - Conceitualização
+    - true
+    - 9
+    - '2016-05-30 04:49:06'
+    - '2016-05-30 04:49:06'
+  - - 32
+    - Integração
+    - true
+    - 9
+    - '2016-05-30 05:00:09'
+    - '2016-05-30 05:00:09'
+
+---
+ontologies:
+  columns:
+  - id
+  - project_name
+  - name
+  - domain
+  - visible
+  - created_at
+  - updated_at
+  - formality_degree_id
+  - methodology_id
+  records: 
+  - - 1
+    - Ontologia da Classificação Brasileira de Ocupações
+    - OntoComp
+    - Ramos ocupacionais do mercado de trabalho brasileiro
+    - true
+    - '2015-05-20 04:21:10'
+    - '2017-01-09 01:03:37.090917'
+    - 3
+    - 1
+  - - 2
+    - Interoperabilidade Semântica na Troca de  Informações de Segunda Opinião Diagnóstica
+    - SODOnt
+    - Saúde
+    - true
+    - '2015-06-13 15:55:14'
+    - '2016-05-30 05:16:10'
+    - 3
+    - 9
+  - - 3
+    - Ontologia teste
+    - OntoT
+    - primeiro teste
+    - true
+    - '2015-07-12 22:33:09'
+    - '2015-07-12 22:33:09'
+    - 1
+    - 1
+  - - 6
+    - Agenda Médica
+    - AgendaMedica
+    - Saúde
+    - true
+    - '2016-06-02 11:26:37'
+    - '2016-06-02 11:26:37'
+    - 1
+    - 1
+  - - 39
+    - Wine
+    - Wine
+    - Wine
+    - true
+    - '2017-01-09 03:08:50.551328'
+    - '2017-01-09 03:08:50.551328'
+    - 1
+    - 1
+
+---
+ontology_users:
+  columns:
+  - ontology_id
+  - user_id
+  - paper_id
+  records: 
+  - - 1
+    - 1
+    - 2
+  - - 1
+    - 2
+    - 3
+  - - 1
+    - 3
+    - 2
+  - - 1
+    - 3
+    - 3
+  - - 2
+    - 2
+    - 2
+  - - 2
+    - 1
+    - 3
+  - - 6
+    - 1
+    - 1
+  - - 39
+    - 1
+    - 1
+
+---
+papers:
+  columns:
+  - id
+  - paper
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Administrador
+    - '2015-09-17'
+    - '2015-09-17'
+  - - 2
+    - Gestor
+    - '2015-09-17'
+    - '2015-09-17'
+  - - 3
+    - Avaliador
+    - '2015-09-17'
+    - '2015-09-17'
+  - - 4
+    - Colaborador
+    - '2015-09-17'
+    - '2015-09-17'
+
+---
+params_config_type_docs:
+  columns:
+  - id
+  - description
+  - created_at
+  - updated_at
+  - text_start
+  records: 
+  - - 1
+    - Agendamento de Atividades
+    - 29/09/2015
+    - 29/09/2015
+    - 
+  - - 2
+    - Objetivos
+    - 29/09/2015
+    - 29/09/2015
+    - Por que o ciclo de vida será executado na ontologia?
+  - - 3
+    - Problemas
+    - 29/09/2015
+    - 29/09/2015
+    - Quais são os problemas que afetam o projeto e desenvolvimento do ciclo de vida
+      da ontologia?
+  - - 4
+    - Potenciais Soluções
+    - 29/09/2015
+    - 29/09/2015
+    - Quais são as potenciais soluções para os problemas enfrentados? Como esses problemas
+      podem ser minimizados?
+  - - 5
+    - Fonte de Informações
+    - 29/09/2015
+    - 29/09/2015
+    - |-
+      Especialistas do Domínio
+
+      responda aqui
+      Livros e Documentos
+
+      responda aqui
+      Internet (urls)
+
+      responda aqui
+      Dicionários
+
+      responda aqui
+      Tesauros
+  - - 6
+    - Recursos
+    - 29/09/2015
+    - 29/09/2015
+    - |-
+      Ferramentas
+
+      responda aqui
+      Linguagens
+
+      responda aqui
+      Hardware
+
+      responda aqui
+      Humanos
+
+      responda aqui
+  - - 7
+    - Critérios de Qualidade
+    - 29/09/2015
+    - 29/09/2015
+    - |-
+      Clareza
+
+      responda aqui
+      Coerência
+
+      responda aqui
+      Corretude
+
+      responda aqui
+      Confiabilidade
+
+      responda aqui
+      Desempenho
+
+      responda aqui
+      Extensibilidade
+
+      responda aqui
+      Manutenibilidade
+
+      responda aqui
+      Portabilidade
+
+      responda aqui
+      Interoperabilidade
+
+      responda aqui
+      Reusabilidade
+
+      responda aqui
+  - - 8
+    - Conclusões
+    - 29/09/2015
+    - 29/09/2015
+    - |-
+      Quais as decisões tomadas após a Análise do Plano de Viabilidade? É viável a implementação do ciclo de vida?
+
+      responda aqui
+  - - 9
+    - Estratégia de Análise
+    - 29/09/2015
+    - 29/09/2015
+    - |-
+      Entrevistas
+
+      responda aqui
+      Reuniões
+
+      responda aqui
+  - - 10
+    - Avaliação Técnica
+    - 29/09/2015
+    - 29/09/2015
+    - |-
+      Todos os requisitos estão bem definidos?
+
+      responda aqui
+      A ontologia é confiável?
+
+      responda aqui
+      Cada etapa do ciclo de vida satisfaz os critérios de qualidade?
+
+      responda aqui
+      O produto gerado em cada etapa atende as necessidades da etapa seguinte?
+
+      responda aqui
+      As tecnologias utilizadas satisfazem?
+  - - 11
+    - Avaliação de Usuário
+    - 29/09/2015
+    - 29/09/2015
+    - |-
+      Usabilidade
+
+      responda aqui
+      Acessibilidade
+
+      responda aqui
+      Reutilizaçao
+
+      responda aqui
+  - - 12
+    - Problemática
+    - ''
+    - ''
+    - Cenário
+  - - 13
+    - Potenciais usuários
+    - 
+    - 
+    - Usuários que possivelmente faram uso da ontologia
+  - - 14
+    - Domínio
+    - 
+    - 
+    - Especificar qual o domínio da ontologia projetada
+  - - 15
+    - Propósito
+    - 
+    - 
+    - Propósito da utilidade
+
+---
+questions:
+  columns:
+  - id
+  - question
+  - answer_type
+  - document_id
+  - created_at
+  - updated_at
+  records: 
+  - - 7
+    - Quais professores pertencem a um dado grupo de pesquisa/extensão?
+    - 2
+    - 36
+    - '2016-05-17 17:52:21'
+    - '2016-05-24 08:40:04'
+  - - 8
+    - Quais são os professores do departamento?
+    - 2
+    - 36
+    - '2016-05-17 17:52:42'
+    - '2016-05-24 08:40:12'
+  - - 9
+    - A ontologia apresenta coerência?
+    - 3
+    - 16
+    - '2016-05-17 17:54:22'
+    - '2016-05-27 02:03:12'
+  - - 10
+    - A ontologia apresenta concistência?
+    - 3
+    - 16
+    - '2016-05-17 17:54:51'
+    - '2016-05-27 02:03:44'
+  - - 11
+    - Quais professores coordenam um dado grupo de pesquisa/extensão?
+    - 
+    - 36
+    - '2016-05-24 07:43:35'
+    - '2016-05-24 07:43:35'
+  - - 12
+    - Quais professores estão ativos no departamento?
+    - 
+    - 36
+    - '2016-05-24 07:43:56'
+    - '2016-05-24 07:43:56'
+  - - 13
+    - Qual a classe e regime de trabalho de um dado professor na universidade?
+    - 
+    - 36
+    - '2016-05-24 07:44:20'
+    - '2016-05-24 07:44:20'
+  - - 14
+    - Qual o e-mail de um dado professor?
+    - 
+    - 36
+    - '2016-05-24 07:44:39'
+    - '2016-05-24 07:44:39'
+  - - 15
+    - Qual o site de um dado professor?
+    - 
+    - 36
+    - '2016-05-24 07:44:57'
+    - '2016-05-24 07:44:57'
+  - - 16
+    - Qual o link para o currículo lattes de um dado professor?
+    - 
+    - 36
+    - '2016-05-24 07:45:15'
+    - '2016-05-24 07:45:15'
+  - - 18
+    - Um elemento do tipo SODOntADT tem  exatamente as 8 propriedades?
+    - 
+    - 41
+    - '2016-05-30 05:41:59'
+    - '2016-05-30 05:41:59'
+  - - 19
+    - Um sintoma  Symptom possui um valor Symptom Value?
+    - 
+    - 41
+    - '2016-05-30 05:42:39'
+    - '2016-05-30 05:42:39'
+  - - 20
+    - Um valor de sintoma Symptom Value é do tipo  SODOntADT?
+    - 
+    - 41
+    - '2016-05-30 05:43:13'
+    - '2016-05-30 05:43:13'
+  - - 21
+    - Um sintoma Symptom possui  uma descrição Symptom Description?
+    - 
+    - 41
+    - '2016-05-30 05:43:40'
+    - '2016-05-30 05:44:34'
+  - - 22
+    - Uma  descrição de sintoma Symptom Description é do  tipo SODOntADT?
+    - 
+    - 41
+    - '2016-05-30 05:44:23'
+    - '2016-05-30 05:44:23'
+  - - 23
+    - Uma avaliação clínica  Clinical Evaluation possui uma descrição  patológica
+      Pathology Description?
+    - 
+    - 41
+    - '2016-05-30 05:45:10'
+    - '2016-05-30 05:45:10'
+  - - 24
+    - Uma  descrição patológica Pathology Description é do  tipo SODOntADT?
+    - 
+    - 41
+    - '2016-05-30 05:45:38'
+    - '2016-05-30 05:45:38'
+  - - 25
+    - Uma avaliação clínica  Clinical Evaluation possui uma ou nenhuma  opinião diagnóstica
+      DiagnosisOpinion?
+    - 
+    - 41
+    - '2016-05-30 05:46:04'
+    - '2016-05-30 05:46:04'
+  - - 26
+    - Uma  opinião diagnóstica DiagnosisOpinion é do tipo  SODOntADT?
+    - 
+    - 41
+    - '2016-05-30 05:46:41'
+    - '2016-05-30 05:46:41'
+  - - 27
+    - Uma avaliação clínica  Clinical Evaluation possui um ou mais sintomas  Symptoms?
+    - 
+    - 41
+    - '2016-05-30 05:47:14'
+    - '2016-05-30 05:47:14'
+  - - 28
+    - A ontologia apresenta Completude?
+    - 3
+    - 16
+    - '2016-06-02 06:42:10'
+    - '2016-06-02 06:42:10'
+  - - 30
+    - A ontologia apresenta Interoperabilidade?
+    - 2
+    - 16
+    - '2016-06-02 07:22:51'
+    - '2016-06-02 07:22:51'
+  - - 31
+    - A ontologia apresenta Manutenibilidade?
+    - 3
+    - 16
+    - '2016-06-02 07:23:22'
+    - '2016-06-02 07:23:22'
+
+---
+responsables:
+  columns:
+  - level
+  - document_id
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 9
+    - 2
+    - 09-10-2015
+    - 09-10-2015
+  - - 1
+    - 25
+    - 1
+    - '2015-10-13 14:54:24'
+    - '2015-10-13 14:54:24'
+  - - 1
+    - 17
+    - 3
+    - '2015-10-13 15:03:32'
+    - '2015-10-13 15:03:32'
+  - - 1
+    - 18
+    - 1
+    - '2015-10-13 16:00:32'
+    - '2015-10-13 16:00:32'
+  - - 1
+    - 16
+    - 1
+    - '2016-03-01 20:51:12'
+    - '2016-03-01 20:51:12'
+  - - 2
+    - 9
+    - 1
+    - 09-10-2015
+    - 09-10-2015
+  - - 2
+    - 25
+    - 2
+    - '2015-10-13 14:54:24'
+    - '2015-10-13 14:54:24'
+  - - 2
+    - 17
+    - 2
+    - '2015-10-13 15:03:32'
+    - '2015-10-13 15:03:32'
+  - - 2
+    - 18
+    - 3
+    - '2015-10-13 16:00:32'
+    - '2015-10-13 16:00:32'
+  - - 2
+    - 16
+    - 2
+    - '2016-03-01 20:51:12'
+    - '2016-03-01 20:51:12'
+
+---
+term_types:
+  columns:
+  - id
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Conceito
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 2
+    - Propriedade de Dados
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 3
+    - Instância de Classe
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 4
+    - Relação entre Classe
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 5
+    - Restrição de Classe
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 6
+    - Termo a Definir
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 7
+    - Termo Abandonado
+    - '2015-05-20 04:21:10'
+    - '2015-05-20 04:21:10'
+  - - 8
+    - Função
+    - '2015-05-20'
+    - '2015-05-20'
+  - - 9
+    - Axioma
+    - '2015-05-20'
+    - '2015-05-20'
+
+---
+terms:
+  columns:
+  - id
+  - term_type_id
+  - name
+  - description
+  - created_at
+  - updated_at
+  - artefact_status_id
+  - version_id
+  records: 
+  - - 665
+    - 1
+    - Atividade_Complementar
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 666
+    - 1
+    - Atividade_Extensao
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 667
+    - 1
+    - Atividade_Monitoria
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 668
+    - 1
+    - Atividade_Pesquisa
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 669
+    - 1
+    - Componente_Curricular
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 670
+    - 1
+    - Conteudo
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 671
+    - 1
+    - Conteudo_Basico
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 672
+    - 1
+    - Conteudo_Complementar
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 673
+    - 1
+    - Conteudo_Humanista
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 674
+    - 1
+    - Conteudo_Suplementar
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 675
+    - 1
+    - Conteudo_Tecnologico
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 676
+    - 1
+    - Disciplina
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 677
+    - 1
+    - Disciplina_De_Area_Concentracao
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 678
+    - 1
+    - Disciplina_De_Area_Concentracao_Engenharia_De_Software
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 679
+    - 1
+    - Disciplina_De_Area_Concentracao_Sistemas_Distribuidos
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 680
+    - 1
+    - Disciplina_De_Perfil_Complementar
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 681
+    - 1
+    - Disciplina_De_Perfil_Complementar_Automacao
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 682
+    - 1
+    - Disciplina_De_Perfil_Complementar_Empreendedorismo_em_Informatica
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 683
+    - 1
+    - Disciplina_De_Perfil_Complementar_Informatica_na_Educacao
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 684
+    - 1
+    - Disciplina_Livre
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 685
+    - 1
+    - Disciplina_Obrigatoria
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 686
+    - 1
+    - Docente
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 687
+    - 1
+    - Estagio_Supervisionado
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 688
+    - 1
+    - Evento_Cientifico
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 689
+    - 1
+    - Evento_Cultural
+    - test
+    - '2016-05-24 08:36:53'
+    - '2016-05-24 08:36:53'
+    - 1
+    - 1
+  - - 690
+    - 1
+    - Grupo_Academico
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 691
+    - 1
+    - Grupo_Extensao
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 692
+    - 1
+    - Grupo_Pesquisa
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 693
+    - 1
+    - Materia
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 694
+    - 1
+    - Materia_ArquiteturaDeComputadores
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 695
+    - 1
+    - Materia_Automacao
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 696
+    - 1
+    - Materia_BancoDeDados
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 697
+    - 1
+    - Materia_Compiladores
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 698
+    - 1
+    - Materia_ComputacaoEAlgoritmos
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 699
+    - 1
+    - Materia_ComputacaoGrafica
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 700
+    - 1
+    - Materia_Empreendedorismo
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 701
+    - 1
+    - Materia_EngenhariaDeSoftware
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 702
+    - 1
+    - Materia_Estatistica
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 703
+    - 1
+    - Materia_EticaComputadorSociedade
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 704
+    - 1
+    - Materia_Fisica
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 705
+    - 1
+    - Materia_InformaticaNaEducacao
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 706
+    - 1
+    - Materia_InglesTecnico
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 707
+    - 1
+    - Materia_InteligenciaArtificial
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 708
+    - 1
+    - Materia_Matematica
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 709
+    - 1
+    - Materia_MetodologiaDePesquisa
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 710
+    - 1
+    - Materia_Programacao
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 711
+    - 1
+    - Materia_RedesDeComputadores
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 712
+    - 1
+    - Materia_SistemasDistribuidos
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 713
+    - 1
+    - Materia_SistemasMultimidia
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 714
+    - 1
+    - Materia_SistemasOperacionais
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 715
+    - 1
+    - Natureza_Obrigatoria
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 716
+    - 1
+    - Natureza_Optativa
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 717
+    - 1
+    - Natureza_do_Componente_Curricular
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 718
+    - 1
+    - Projeto_Academico
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 719
+    - 1
+    - Trabalho_de_Conclusao_de_Curso
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 720
+    - 1
+    - wl:Thing
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 721
+    - 4
+    - coordena
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 722
+    - 4
+    - eh_composto_por
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 723
+    - 4
+    - eh_coordenado_por
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 724
+    - 4
+    - eh_estimulada_por
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 725
+    - 4
+    - eh_habilitado
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 726
+    - 4
+    - eh_habilitado_brandamente
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 727
+    - 4
+    - eh_habilitado_fortemente
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 728
+    - 4
+    - eh_habilitado_fracamente
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 729
+    - 4
+    - eh_pre-requisito
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 730
+    - 4
+    - eh_pre-requisito_recomendado
+    - test
+    - '2016-05-24 08:36:54'
+    - '2016-05-24 08:36:54'
+    - 1
+    - 1
+  - - 731
+    - 4
+    - eh_promovida_por
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 732
+    - 4
+    - estah_inserido
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 733
+    - 4
+    - estimula_brandamente
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 734
+    - 4
+    - estimula_competencia
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 735
+    - 4
+    - estimula_fortemente
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 736
+    - 4
+    - estimula_fracamente
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 737
+    - 4
+    - faz_parte_de
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 738
+    - 4
+    - formada_por
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 739
+    - 4
+    - participa_de
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 740
+    - 4
+    - pertence
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 741
+    - 4
+    - possui_conteudo
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 742
+    - 4
+    - possui_projeto
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 743
+    - 4
+    - promove
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 744
+    - 4
+    - recomenda-se_brandamente_ser_ministrada
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 745
+    - 4
+    - recomenda-se_fortemente_ser_ministrada
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 746
+    - 4
+    - recomenda-se_fracamente_ser_ministrada
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 747
+    - 4
+    - recomenda-se_ser_ministrada
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 748
+    - 4
+    - tem_afinidade_com
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 749
+    - 4
+    - tem_forte_afinidade_com
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 750
+    - 4
+    - tem_fraca_afinidade_com
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 751
+    - 4
+    - tem_moderada_afinidade_com
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 752
+    - 4
+    - tem_natureza
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 753
+    - 4
+    - tem_pre-requisito
+    - test
+    - '2016-05-24 08:36:55'
+    - '2016-05-24 08:36:55'
+    - 1
+    - 1
+  - - 754
+    - 4
+    - tem_pre-requisito_recomendado
+    - test
+    - '2016-05-24 08:36:55'
+    - '2017-01-08 22:39:18.041401'
+    - 1
+    - 1
+  - - 755
+    - 1
+    - Symptom
+    - |-
+      Precisa ser construído e trocado com uma
+
+      descrição SODOntADT, como indicado pela
+
+      restrição hasSymptomDescription, e também com
+
+      um conteúdo SODOntADT, como representa a
+
+      restrição hasSymptomContent;
+    - '2016-05-30 06:09:47'
+    - '2016-05-30 06:19:37'
+    - 1
+    - 4
+  - - 756
+    - 1
+    - SODOntADT
+    - |-
+      Essa classe representa um tipo
+
+      abstrato de dados da ontologia SODOnt e é
+
+      composta de 8 propriedades: UMLS atom unique
+
+      identifier, UMLS string unique identifier, UMLS
+
+      lexical unique identifier, UMLS concept, UMLS
+
+      concept unique identifier, UMLS semantic type,
+
+      UMLS definition, e source system name. Essas
+
+      propriedades são consideradas como obrigatórias
+
+      para elementos que possuem como tipo a classe
+
+      SODOntADT, como um Symptom Description, um
+
+      Symptom Value, uma Pathology Description, ou
+
+      ainda um Diagnosis Opinion;
+    - '2016-05-30 06:10:51'
+    - '2016-05-30 06:10:51'
+    - 1
+    - 4
+  - - 757
+    - 1
+    - ClinicalEvaluation
+    - |-
+      A classe representa todas as
+
+      informações clínicas sendo transferidas para uma
+
+      segunda opinião diagnóstica: uma descrição
+
+      patológica do tipo SODOntADT, representada
+
+      pela restrição hasPathologyDescription, um ou mais sintomas do tipo SODOntADT, conforme a
+
+      associação hasSymptoms, e ainda informação de
+
+      uma opinião diagnóstica, também do tipo
+
+      SODOntADT, formalizada pela restrição
+
+      hasDiagnosisOpinion. A última propriedade da
+
+      classe ClinicalEvaluation é opcional porque o
+
+      software do médico pode não estar trocando
+
+      informação da opinião diagnóstica já que a
+
+      mesma está sendo requisitada.
+    - '2016-05-30 06:30:25'
+    - '2016-05-30 06:30:35'
+    - 1
+    - 4
+  - - 758
+    - 1
+    - Agenda
+    - "<p>onde &eacute; possivel agendar consulta</p>"
+    - '2016-06-02 11:34:20'
+    - '2016-06-02 11:34:20'
+    - 1
+    - 5
+  - - 761
+    - 1
+    - Medico
+    - pessoa que realiza consulta
+    - '2016-06-02 11:45:44'
+    - '2016-06-02 11:45:44'
+    - 1
+    - 5
+  - - 762
+    - 1
+    - Consulta
+    - "é realizada por um médico"
+    - '2016-06-02 11:46:08'
+    - '2016-06-02 11:46:08'
+    - 1
+    - 5
+  - - 763
+    - 4
+    - faz_consulta
+    - relação entre os conceitos medico e consulta
+    - '2016-06-02 11:46:43'
+    - '2016-06-02 11:46:43'
+    - 1
+    - 5
+
+---
+terms_versions:
+  columns:
+  - term_id
+  - version_id
+  records: 
+  - - 1
+    - 1
+  - - 2
+    - 1
+
+---
+type_answers:
+  columns:
+  - id
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Ruim
+    - 12-04-2016
+    - 12-04-2016
+  - - 2
+    - Regular
+    - 12-04-2016
+    - 12-04-2016
+  - - 3
+    - Bom
+    - 12-04-2016
+    - 12-04-2016
+  - - 4
+    - "Ótimo"
+    - 12-04-2016
+    - 12-04-2016
+
+---
+user_options:
+  columns:
+  - id
+  - user_id
+  - artefact_model_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 1
+    - '2015-05-20 04:26:08'
+    - '2017-01-07 05:35:17.320894'
+
+---
+users:
+  columns:
+  - id
+  - name
+  - mail
+  - login
+  - password
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Mariana Uaquim
+    - mariperdiz@gmail.com
+    - Mariana
+    - 49339465c068fb48e796b4e68bdd35d5
+    - '2015-05-20 04:21:09'
+    - '2015-05-20 04:21:09'
+  - - 2
+    - Matheus Andrade
+    - matheus@webcomfarinha.com
+    - Matheus
+    - 49339465c068fb48e796b4e68bdd35d5
+    - '2015-05-20'
+    - 
+  - - 3
+    - Ricardo Feitosa
+    - rick@gmail.com
+    - ricardo
+    - 49339465c068fb48e796b4e68bdd35d5
+    - '2015-05-20'
+    - 
+  - - 4
+    - João
+    - joao@gmail.com
+    - joao
+    - 49339465c068fb48e796b4e68bdd35d5
+    - '2015-05-20'
+    - 
+  - - 5
+    - Maria
+    - maria@gmail.com
+    - maria
+    - 49339465c068fb48e796b4e68bdd35d5
+    - '2015-09-21'
+    - 
+
+---
+versions:
+  columns:
+  - id
+  - ontology_id
+  - number
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 1
+    - 1
+    - '2015-09-17 04:14:43'
+    - '2015-09-17 04:14:43'
+  - - 4
+    - 2
+    - 1
+    - '2016-05-30 05:16:21'
+    - '2016-05-30 05:16:21'
+  - - 5
+    - 6
+    - 1
+    - '2016-06-02 11:32:07'
+    - '2016-06-02 11:32:07'

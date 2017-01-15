@@ -1,0 +1,23 @@
+<div class="menu-lateral">
+    <%=render :partial => 'form_menu_lateral' %>
+</div>
+
+<div class="tela">
+    <div class="content-header">
+        <h1><%=@ontology.name%></h1>
+        <div class="aba">
+            <%=render :partial => 'menu' %>
+        </div>
+        <hr id="hr">
+    </div>
+
+    <div class="content">
+        <%= render 'form', ontology: @ontology %>
+    </div>
+
+    <!--    <h1>Editing Ontology</h1>-->
+
+    <%#= render 'form', ontology: @ontology %>
+
+    <%#= link_to 'Show', @ontology %> |
+    <%#= link_to 'Back', ontologies_path %>

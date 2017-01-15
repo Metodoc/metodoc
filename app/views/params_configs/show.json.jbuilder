@@ -1,0 +1,1 @@
+json.partial! "params_configs/params_config", params_config: @params_config

@@ -1,0 +1,53 @@
+pt-BR:
+    signup: Começar um projeto
+    loginTitle: Acesse sua conta
+    name: Nome
+    projects: Meus projetos
+    noOntologies: Nenhuma Ontologia cadastrada
+    noActivity: Você não tem atividades pendentes
+    newProject: Novo projeto
+    activities: Atividades
+    ontologies: Ontologias
+    newOntology: Nova Ontologia
+    back: Voltar
+    areyousure: Tem certeza que deseja excluir?
+    edit: Editar
+    destroy: Excluir
+    show: Mostrar
+    projectname: Nome do projeto
+    domain: Domínio
+    visible: Visível nas pesquisas
+    formalitydegree: Grau de formalidade
+    methodology: Metodologia
+    createOntology: Criar Ontologia
+    prohibited: impediu de salvar esta Ontologia
+    prohibitedM: impediu de salvar esta Metodologia
+    welcome: Bem-vindo a ferramenta MetoDoc
+    descriptionMetodoc: A MetoDoc é uma ferramenta para auxiliar na construção e documentação de Ontologias
+    email: E-mail
+    submit: Enviar
+    forgotPassword: Recuperação de senha
+    updatePassword: Atualizar senha
+    password_confirmation: Confirme a senha
+    password: Senha
+    resetPassword: Recuperar senha
+    login: Entrar
+    logout: Sair
+    settings: Configurações
+    profile: Perfil
+    saveChange: Salvar alterações
+    editUser: Edit user
+    updateYourProfile: Atualizar perfil
+    informationTitle: Suas informações
+    titleSite: MetoDoc - Ferramenta Web Para Auxiliar na Construção e Documentação de Ontologias
+    logo: MetoDoc
+    methodologies: Metodologias
+    description: Descrição
+    editingMethodology: Editando metodologia
+    newMethodology: Nova Metodologia
+    createMethodology: Criar Metodologia
+    select: Selecione
+    nameOntology: Nome da Ontologia
+    documents: Documentos
+    activities: Atividades
+    infoPerson: Dados pessoais

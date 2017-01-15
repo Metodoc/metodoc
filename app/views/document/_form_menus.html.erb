@@ -1,0 +1,78 @@
+<style>
+    .content-header{
+        margin: 5px -2px 20px 0px;
+        font-family: arial,sans-serif;
+        font-size: 12px;
+    }
+    a.btdocument-edit-min, a.btdownload, a.btnewtab{
+        padding: 3px 11px;
+    }
+
+    a.text{
+        color:rgb(77, 77, 77);
+        font-size:12px;
+    }
+
+    div.content-menu-lateral{
+        width: auto;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        direction: ltr;
+    }
+</style>
+
+<div class="menu-lateral">
+    <div class="content-menu-lateral">
+        <ul>
+            <%@version = Version.find( @documento.version_id )%>
+            <li class="circ"><a href="<%= params[:locale] %>/show/<%=@version.id%>?ontology_id=<%=@ontology.id%>" style="color:rgb(77, 77, 77);"><%=@ontology.name%>(V.<%= @version.number %>)</a>
+                <ul>
+                    <% @version.document.each do |d|%> 
+
+                    <%configEspec = d.doc_type.doc_type_config.first%>
+
+                    <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
+                    <%destino = configEspec.doc_config_espec.destination.split(',')%>
+                    <li><li>
+                    <%=link_to '', {:controller => destino[0], :action => destino[1], :document_id => d.id, :version_id =>@version.id},{:class=>'btdocument-edit-min'}%>
+                    <%=link_to d.doc_type.name, {:controller => destino[0], :action => destino[1], :document_id => d.id, :version_id => @version.id},{:class=>'text'}%>
+                    </li>
+                    <%else%>
+                    <li>
+                        <%=link_to '', {:controller => 'document', :action=>'show', :id=>d.id, :version_id => @version.id},{:class=>'btdocument-edit-min'}%>
+                        <%=link_to d.doc_type.name, {:controller=>'document', :action=>'edit', :id => d.id, :version_id => @version.id}, {:class=>'text'}%>
+
+                        <%end%>
+
+                        <%end%>    
+                    <li>
+                        <%=link_to '',{:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:class=>'btdownload'}%>
+                        <%=link_to 'Gerar OWL', {:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
+                    <li>
+                        <%=link_to '', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:class=>'btnewtab'}%>
+                        <%=link_to 'Documento Completo', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);', :target=>"_blank"}%></li>
+
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<div class="tela">
+    <div class="content-header">
+        <%if !@documento.ontology_id.nil? %>
+            <%= link_to 'Ontologias', :controller=>'ontologies', :action=>'index' %> >>
+            <%= link_to @documento.ontology.name, :controller=>'ontologies', :action=>'show', :id=>@documento.ontology.id %> >> <%=@documento.doc_type.name%>
+        <%else%>
+            <%= link_to 'Ontologias', :controller=>'ontologies', :action=>'index' %> >>
+            <%= link_to @documento.version.ontology.name, :controller=>'ontologies', :action=>'show', :id=>@documento.version.ontology.id %> >>
+            <%= link_to 'V.'+ @documento.version.number.to_s, :controller=>'versions', :action=>'show', :id=>@documento.version.id, :ontology_id=> @documento.version.ontology.id%> >> <%=@documento.doc_type.name%>
+        <%end%>
+
+    </div>
+
+

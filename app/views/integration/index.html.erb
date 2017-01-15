@@ -1,0 +1,181 @@
+<style>
+    .listaPerfil{
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        width: 200px;
+        margin-top:20px;
+        background:white!important;
+        margin-top: 45px;
+        margin-bottom: 35px;
+    }
+
+    a.perfil{
+        color:#004C99!important;
+    }
+
+
+    .follow{
+        margin-top:35px;
+    }
+    .search {
+        width:60%!important;
+    }
+    small{
+        font-size:85%;
+    }
+    .menujanela{
+        height:39px;
+        width:100%;
+        margin-bottom:30px;
+        border-bottom: 1px solid rgb(225, 225, 225);
+        box-shadow: 0px 2px 0px 0px rgb(225, 225, 225);
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    .li-a{
+        margin-right:25px;
+        float:left;
+        padding-bottom: 18px;
+        border-width: 0px 0px 2px;
+    }
+    .h{
+        border-style: none none solid;
+        border-color: -moz-use-text-color -moz-use-text-color rgb(77, 144, 254);
+    }
+    .s{
+        font-weight: bold;
+        border-style: none none solid;
+        border-color: -moz-use-text-color -moz-use-text-color rgb(77, 144, 254);
+    }
+
+    .ul{
+        margin-left: 0px;
+    }
+    .a{
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    table{
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+    td{
+        text-align:left!important;
+        border: 0px!important;
+        border-bottom: 1px solid rgb(221, 221, 221)!important;
+    }
+    thead th{
+        text-align:left!important;
+        border: 0px!important;
+        border-bottom: 2px solid rgb(221, 221, 221)!important;
+    }
+
+</style>
+
+<%=render :partial => 'document/form_menus' %>
+
+<div class="content">
+
+
+    <div class="activity-menu texto1">
+        Documento: <b class="texto2"><%=@documento.doc_type.name%></b>
+        <ul>
+            <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
+        </ul>
+    </div>
+
+
+    <div class="listaPerfil">
+        <ul>
+            <li><%=link_to 'Importar', "#janela", {:titulo=> 'Adicionar Ontologia', :rel => 'modal', :class=>'perfil'}%></li>
+        </ul>
+    </div>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Prefixo</th>
+                <th>URI</th>
+                <th>Propósito</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%@integracoes.each do |integracao|%>
+            <tr>
+                <td><%=integracao.name%></td>
+                <td><%=integracao.prefix%></td>
+                <td><a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></td>
+                <td><%=integracao.purpose%></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
+
+    <div id="janela" class="window middle" >
+        <div class="modal-titulo">Titulo</div>
+        <div class="content">
+            <div class="menujanela">
+                <div class="ul" style="" role="tablist" tabindex="0">
+                    <div name="menu" class="li-a s" role="form1" style="-moz-user-select: none;" aria-selected="true">
+                        <div class="a">Pesquisa</div>
+                    </div>
+                    <div name="menu" class="li-a" role="form2" style="-moz-user-select: none;" aria-selected="true">
+                        <div class="a">Manual</div>
+                    </div>  
+                </div>
+            </div>
+            <%= form_for :integration, :url => { :action => "adicionar", :document_id => params[:document_id], :version_id => params[:version_id] } do |f| %>
+            <div id="form1" name="form">		
+                <%=render :partial => 'form_pesquisa' %>
+            </div>
+            <div id="form2" name="form" style="display:none;">		
+                <%=render :partial => 'form' %>
+            </div>
+            <div id="buttons" align="center" class="buttons">
+                <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                <input value='Adicionar' name='commit' type='submit' class ='button'>
+            </div>
+            <%end%>
+        </div>
+    </div>
+
+</div>
+
+
+<script language="javascript">
+
+    $("#btBusca").click(function(ev){
+        string = $('#strBusca').val();
+        var url = <%= params[:locale] %> + '/integration/index?version_id='+<%=params[:version_id]%>+'&document_id='+<%=params[:document_id]%>+'&string='+string; 
+        window.location.href = url;
+
+    });
+    $('.li-a').click(function(){
+
+        $("[name=menu]").removeClass('s');
+        $(this).addClass('s');
+        idform = $(this).attr('role');
+        $("[name=form]").attr('style', 'display:none');
+        $("#"+idform).attr('style', 'display:block');
+
+    });
+
+    $('.li-a').hover(function(){
+        $(this).addClass('h');
+    }, function(){
+        $(this).removeClass('h');
+    });
+
+    <%if params[:string]%>
+    openWindow("#janela", "Adicionar Ontologia", "");
+    <%end%>
+</script>
+

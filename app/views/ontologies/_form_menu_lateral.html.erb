@@ -1,0 +1,21 @@
+<ul>
+    <li class="circ"><a href="<%=ontologies_path%>" style="color:rgb(77, 77, 77);">Ontologias</a>
+        <ul>
+            <li class="circ"><a href="<%=ontologies_path%>/show/<%=@ontology.id%>" style="color:rgb(77, 77, 77);"><%=@ontology.name%></a>
+                <ul>
+                    <%@ontology.versions.each do |v|%>
+                        <li class="circ"><%= link_to "versão #{v.number}", {controller: 'versions', action: 'show', id: v.id, ontology_id: @ontology.id}, {:style=>'color:rgb(77, 77, 77);'} %>
+                            <ul>
+                                <li class="circ"><%=link_to 'Gerar OWL', {:controller=>'glossary', :action=>'product_xml', :version_id=>v.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
+                                <li class="circ"><%=link_to 'Documento Completo', {:controller=>'document', :action=>'completo', :version_id=>v.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
+                            </ul>
+                        </li>
+                    <%end%>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+

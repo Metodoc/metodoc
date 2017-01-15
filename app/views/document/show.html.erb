@@ -1,0 +1,92 @@
+
+<%=render :partial => 'form_menus' %>
+
+
+<div class="content">
+
+    <div class="activity-menu texto1">
+        Documento: <b class="texto2"><%=@documento.doc_type.name%></b>
+        <ul>
+            <li><%=link_to '', {:controller=>'document', :action => 'edit', :id => @documento.id}, {:class=>'btdocument-edit-min'}%></li>
+        </ul>
+    </div>
+
+
+    <%if @documento.ontology_id.nil? 
+        @ontology_val = @documento.version.ontology
+        @version_val = @documento.version
+        else
+        @ontology_val = @documento.ontology
+    end%>
+    <div class="cabeçalho">
+        <b>Documento</b>:<%=@documento.doc_type.name%><br>
+        <b>Nome da Ontologia</b>:<%=@ontology_val.name%><br>
+        <b>Projeto</b>:<%=@ontology_val.project_name%><br>
+
+        <%if !@documento.version_id.nil?%>
+        <b>Versão da Ontologia</b>:<%=@documento.version.number%><br>
+        <%end%>
+
+        <b>Data de Criação</b>:<%=my_date(@documento.created_at)%><br>
+        <b>Data de Atualização </b>:<%=my_date(@documento.updated_at)%><br>
+        <b>Domínio</b>:<%=@ontology_val.domain%><br>
+        <%if !@documento.responsable.empty? %>
+        <%@documento.responsable.each do |r|%>
+        <b>Responsável<%if r.level == 2 %>(observador)<%end%></b>:<%=r.user.name%><br>
+        <%end%>
+        <%end%>
+
+
+
+    </div>
+    <%configEspec = @documento.doc_type.doc_type_config.first%>
+
+    <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
+    <%destino = configEspec.doc_config_espec.destination.split(',')%>
+    <%=render :partial => destino[0]+'/form_document' %>
+    <%else%>
+    <%=render :partial => 'form_document' %>
+    <%end%>
+
+</div>
+
+<style>
+    div.texto3{
+        border-top:2px groove gray;
+        border-bottom:2px groove gray;
+        line-height:1.5;
+        width:98%;
+        margin-bottom:10px;
+        text-align: center;
+        font-weight: bold;
+        margin: auto;
+    }
+    .info{
+        min-height:50px;
+        margin:auto;
+    }
+    .cabeçalho{
+        margin-bottom:20px;
+        margin-top:20px;
+        margin-left:10px;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

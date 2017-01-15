@@ -1,0 +1,60 @@
+<%
+
+#@glossary = Term.find(:all, :conditions=>["version_id = ?", @version.id])
+@glossary = Term.where("version_id = ?", @version.id).all
+@types = TermType.all
+
+%>
+
+<div style="margin-left: 10px;">
+
+    <%@types.each do |term_type|%>
+    <div class="lista_termos">
+        <%@termos = @glossary.select { |g| g.term_type_id == term_type.id }%>
+
+        <%if !@termos.empty?%>
+        <p class="termosfont"><b><%=term_type.description.html_safe%> (<%=@termos.count%>):</b></p>
+        <%end%>
+
+        <%@termos.each do |t| %>
+        <%if term_type.id == t.term_type_id %>
+        <a href="#"> <%=t.name%></a>
+        <%end%>
+        <%end%>
+
+        <%@termos.each do |t| %>
+        <div class="div-g">
+            <%if term_type.id == t.term_type_id %>
+            <p class="pterm"><%=t.name%></p>
+            <p><%=t.description.html_safe%></p>
+            <%end%>
+        </div>
+        <%end%>
+    </div>
+    <%end%>
+
+
+</div>
+
+
+<style>
+
+    .div-g{
+        border:solid 1px #ccc;
+        border-radius:10px;
+        padding:3px 3px 3px 8px;
+        margin:15px 0px 5px 0px;
+    }
+
+    .termosfont{
+        color:rgb(130, 100, 255);
+    }
+
+    .pterm{
+
+        font-style: italic; 
+        font-size: 14px;
+        font-family: "lato",sans-serif;
+        border-bottom:2px solid #ccc;
+    }
+</style>

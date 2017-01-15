@@ -1,0 +1,17 @@
+<div class="menu-lateral">
+    <%=render :partial => 'form_menu_lateral' %>
+</div>
+<div class="tela">
+
+    <div class="content">
+        <% provide(:title, @user.name) %>
+        <div class="row">
+            <section class="col-md-12">
+                <div class="list-group">
+                    <p class="list-group-item active"><strong><%= t(:informationTitle) %></strong></p>
+                    <p class="list-group-item"><strong><%= t(:name) %>:</strong> <%= @user.name %></p>
+                    <p class="list-group-item"><strong><%= t(:email) %>:</strong> <%= @user.email %></p>
+                </div>
+            </section>
+        </div>
+    </div>

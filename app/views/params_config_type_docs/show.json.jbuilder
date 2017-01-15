@@ -1,0 +1,1 @@
+json.partial! "params_config_type_docs/params_config_type_doc", params_config_type_doc: @params_config_type_doc

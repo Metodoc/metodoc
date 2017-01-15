@@ -1,0 +1,100 @@
+<style>
+    .page-inter li a{
+        color:gray;
+    } 
+</style>
+
+<div class="menu-lateral">
+    <%=render :partial => 'form_menu_lateral' %>
+</div>
+
+<div class="tela">
+    <div class="content-header">
+        <h1 style="margin-bottom:0px;"><%=@version.ontology.name%> - V. <%=@version.number%></h1>
+    </div>
+    
+    <div id="content" class="content">
+        <div id="tabs">
+            <ul>
+                <%@etapas.each_with_index do |e, index|%>
+                    <li><a href="#tabs-<%=index%>"><%=e.name%></a></li>
+                <%end%>
+            </ul>
+            <%@etapas.each_with_index do |e, index|%>
+                <div id="tabs-<%=index%>">
+                    <%e.doc_type.each do |d|%>
+                        <div class="activity texto2">
+                            <div class="activity-header">
+                                <b>Documento:</b><%=d.name%><br>
+                                <b>Status:</b>
+                                <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id]) %>
+                                <%@documento = Document.where("documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id).first %>
+                                <%if @documento.nil?%>
+                                    <span class="status nao-criado">Não Criado</span>
+                                <%else%>
+                                    <span class="status <%=@documento.artefact_status.description%>">
+                                        <%=@documento.artefact_status.description%>
+                                    </span>
+                                    <div id="projectDescriptionDetails<%=@documento.id%>" class="info-box">
+                                        <b>Data de Criação:</b> <%=my_date(@documento.created_at)%><br>
+                                        <b>Data de Atualização:</b> <%=my_date(@documento.updated_at)%>
+                                    </div>
+                                    <br>
+                                    <a href="javascript:mostraEsconde('projectDescriptionDetails<%=@documento.id%>')">[...]</a>
+                                <%end%>
+                                <div class="activity-menu texto1">
+                                    <ul>
+                                        <% if @documento.nil?%>
+                                            <%configEspec = d.doc_type_config.first%>
+                                            <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil? and configEspec.doc_config_espec.id == 4%>
+                                                <li><%=link_to '', "#janela"+d.id.to_s , {:titulo => d.name, :rel => 'modal', :class => 'btdocmore'}%></li>
+                                            <%else%>
+                                                <li><%=link_to '', {controller: 'document', action: 'edit', doc_type: d.id, version_id: @version.id, ontology_id: @version.ontology_id},{:class=>'btdocmore'} %></li>
+                                            <%end%>
+                                        <%else%>
+                                            <%configEspec = d.doc_type_config.first%>
+                                            <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
+                                                <%destino = configEspec.doc_config_espec.destination.split(',')%>
+                                                <li><%=link_to '',{ :controller=> destino[0], :action=> destino[1] , :document_id => @documento.id, :version_id => @version.id}, {:class=>'btdocedit'} %></li>	
+                                            <%else%>
+                                                <li><%=link_to '', {controller: 'document', action: 'edit', id: @documento.id, version_id: @version.id}, {:class=>'btdocedit'}  %></li>
+                                            <%end%>
+                                            <li><%=link_to '', {controller: 'document', action: 'show', id: @documento.id}, {:class=>'btdocument'}%></li>
+                                        <% end %>
+                                    </ul>
+
+                                    <div id="janela<%=d.id%>" class="window middle" >
+                                        <div class="modal-titulo">Titulo</div>
+                                        <div class="content">
+                                            <%@documento = Document.new%>
+                                            <%=form_for "", :url => {controller: 'document', action: 'newespec', doc_type: d.id, version_id: @version.id} do |f| %>
+                                                <%=render :partial => 'document/form_espec', :locals => { :document => @documento }%>
+                                                <div id="buttons" align="center" class="buttons">
+                                                    <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                                                    <input value='Confirmar' name='commit' type='submit' class ='button'>
+                                                </div>
+                                            <%end%>
+                                        </div>
+                                    </div>
+                            </div> 
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    <%end%>
+                </div>
+            <%end%>
+        </div>
+    </div>
+    <%#=debug @documento%>
+    <script type="text/javascript">
+        $(".mais").click(function(ev){ 
+            texto = $(this).text();
+            if (texto == 'mais'){
+                $(this).text("menos");
+            }else{
+                $(this).text("mais");
+            }
+        });
+    </script>
+
+

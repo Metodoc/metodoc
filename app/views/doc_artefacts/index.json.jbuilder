@@ -1,0 +1,1 @@
+json.array! @doc_artefacts, partial: 'doc_artefacts/doc_artefact', as: :doc_artefact
