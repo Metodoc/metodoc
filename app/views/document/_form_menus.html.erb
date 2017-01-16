@@ -27,7 +27,7 @@
     <div class="content-menu-lateral">
         <ul>
             <%@version = Version.find( @documento.version_id )%>
-            <li class="circ"><a href="<%= params[:locale] %>/show/<%=@version.id%>?ontology_id=<%=@ontology.id%>" style="color:rgb(77, 77, 77);"><%=@ontology.name%>(V.<%= @version.number %>)</a>
+            <li class="circ"><%= link_to "#{@ontology.name}(V.#{@version.number})", {controller: 'versions', action: 'show', id: @version.id, ontology_id: @ontology.id}, {style: 'color:rgb(77, 77, 77)'} %>
                 <ul>
                     <% @version.document.each do |d|%> 
 
@@ -52,7 +52,7 @@
                         <%=link_to 'Gerar OWL', {:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
                     <li>
                         <%=link_to '', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:class=>'btnewtab'}%>
-                        <%=link_to 'Documento Completo', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);', :target=>"_blank"}%></li>
+                        <%=link_to 'Documento Completo', {:controller=>'document', :action => 'completo', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
 
                 </ul>
             </li>

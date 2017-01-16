@@ -37,11 +37,10 @@ class DocumentController < ApplicationController
                         @responsable1.attributes = { :level => 1, :document_id => @documento.id, :user_id => params[:responsable1][:user_id] }
                         @responsable1.save!
                     else
-                        @responsable1.update(:level => 1, :document_id => @documento.id, :user_id => params[:responsable1][:user_id])
-                        # Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 1', :user_id => params[:responsable1][:user_id], @documento.id])
+                        Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 1', params[:responsable1][:user_id], @documento.id])
                     end
                 end
-                
+
                 if params[:responsable2][:user_id].present?
                     #                    @responsable2 = Responsable.find(:first, :conditions =>['responsables.level=2 and responsables.document_id=?',@documento.id])
                     @responsable2 = Responsable.where("responsables.level = 2 and responsables.document_id = ?", @documento.id).first
@@ -50,9 +49,6 @@ class DocumentController < ApplicationController
                         @responsable2.attributes = { :level => 2, :document_id => @documento.id, :user_id => params[:responsable2][:user_id]}
                         @responsable2.save!
                     else
-                        #                        if !@documento.id.nil?
-                        #                            @responsable1.update(:level => 2, :document_id => @documento.id, :user_id => params[:responsable1][:user_id])
-                        #                        end
                         Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 2', params[:responsable2][:user_id],  @documento.id])
                     end
                 end    

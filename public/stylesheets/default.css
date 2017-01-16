@@ -328,7 +328,6 @@ div#mainnav{
 }
 .activity-menu{
     overflow: hidden;
-    float: left;
     width: 100%;
 }
 .activity-menu ul{

@@ -4,9 +4,9 @@ require "nokogiri"
 require "open-uri"
 
 class GlossaryController < ApplicationController
-    before_action :load_term_types, :only => [ :edit, :show, :manual]
-    before_action :load_glossary, :only => [ :show]
-    before_action :load_artefact_status, :only =>  [:edit]
+    before_action :load_term_types, :only => [ :edit, :show, :manual ]
+    before_action :load_glossary, :only => [ :show ]
+    before_action :load_artefact_status, :only =>  [ :edit ]
     before_action :load_ontologias
 
 
@@ -86,10 +86,10 @@ class GlossaryController < ApplicationController
 
         if request.post?
             @termo = Term.new
-            @termo.attributes = params[:term]
-            @termo.attributes = {:version_id => @version.id, :artefact_status_id=>1}
-            @termo.save
-            redirect_to :action=>'manual', :document_id=>@documento.id, :version_id=>@version.id
+            @termo.attributes = {:term_type_id => params[:term][:term_type_id], :name => params[:term][:name], :description => params[:term][:description]}
+            @termo.attributes = {:version_id => @version.id, :artefact_status_id => 1}
+            @termo.save!
+            redirect_to :action => 'manual', :document_id => @documento.id, :version_id => @version.id
         end
 
     end
@@ -97,13 +97,13 @@ class GlossaryController < ApplicationController
 
     def manualEdit
         if request.post?
+            @version = Version.find(params[:version_id])
             @termo = Term.find(params[:id])
-            @termo.update_attributes(:term_type_id => params[:term][:term_type_id], :name => params[:term][:name], :description => params[:term][:description])
-            @termo.update_attributes(:version_id => @version.id, :artefact_status_id => 1)
-            @termo.save
+            @termo.attributes = {:term_type_id => params[:term][:term_type_id], :name => params[:term][:name], :description => params[:term][:description]}
+            @termo.attributes = {:version_id => @version.id, :artefact_status_id => 1}
+            @termo.save!
             redirect_to :action=>'manual', :document_id=>@documento.id, :version_id=>@version.id
         end
-
     end
 
     def arquivo
@@ -113,7 +113,7 @@ class GlossaryController < ApplicationController
         if request.post?
             @documento = Document.find(params[:document_id])
             name = params[:upload][:file].original_filename
-            directory = "/home/mariana/Documentos/metodoc/app/views/glossary/arquivos"
+            directory = "app/views/glossary/arquivos"
             path = File.join(directory, name)
             new_name = @documento.id.to_s + ".owl"
             File.open(path, "wb") { |f| f.write(params[:upload][:file].read) 

@@ -64,7 +64,7 @@ class MethodologiesController < ApplicationController
         #parametros da etapa
         @etapa = Methodstep.find(params[:etapa_id])
         @etapa.update_attributes(:name => params[:methodstep][:name], :inlifecycle => params[:methodstep][:inlifecycle])
-        @etapa.save
+        @etapa.save!
 
         #configuração de tipo de documento
         @etapa.doc_type.each do |d|

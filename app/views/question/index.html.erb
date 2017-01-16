@@ -33,7 +33,7 @@
         <%@questoes.each do |q|%>
         <tr id="tr<%=q.id%>">
             <td><%=link_to q.question, "#janela"+q.id.to_s , {:titulo=> q.question, :rel=>'modal'}%></td>
-            <td><a class="btex tooltipM" href="/question/destroy/<%=q.id%>"><span><b></b>Destruir</span></a></td>
+            <td><%= link_to '', {controller: 'question', action: 'destroy', id: q.id}, {class: 'btex tooltipM'} %></td>
         </tr>
         <div id="janela<%=q.id%>" class="window middle" >
             <div class="modal-titulo">Titulo</div>

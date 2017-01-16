@@ -62,9 +62,9 @@ class QuestionController < ApplicationController
     def edit
         if request.post?
             @questao = Question.find(params[:id])
-            @questao.update_attributes(:question => params[:question][:question], :answer_type =>  params[:question][:answer_type])
-            @questao.save
-            redirect_to :action =>'index', :document_id => @questao.document_id, :message => 'Edição efetuada com sucesso'
+            @questao.attributes = {:question => params[:question][:question], :answer_type =>  params[:question][:answer_type]}
+            @questao.save!
+            redirect_to :action =>'index', :document_id => @questao.document_id
         end
     end
 
@@ -78,7 +78,7 @@ class QuestionController < ApplicationController
             end
             @questao.update_attributes(:document_id => params[:document_id])
             @questao.save
-            redirect_to :action =>'index', :document_id=> @questao.document_id, :message => 'Cadastro efetuado com sucesso'
+            redirect_to :action =>'index', :document_id=> @questao.document_id
         end
     end
 
@@ -86,7 +86,7 @@ class QuestionController < ApplicationController
         @questao = Question.find(params[:id])
         document = @questao.document_id
         @questao.destroy 
-        redirect_to :action =>'index', :document_id=>document, :message => 'Deleção efetuada com sucesso'
+        redirect_to :action =>'index', :document_id=>document
     end
     
     private

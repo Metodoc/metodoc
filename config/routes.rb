@@ -63,14 +63,17 @@ Rails.application.routes.draw do
 
         get '/question/resposta', to: 'question#resposta', as: 'question_resposta_get'
         get '/question/index', to: 'question#index', as: 'question_index'
-        get '/question/edit', to: 'question#edit', as: 'question_edit'
-
-
+        get '/question/edit', to: 'question#edit', as: 'question_edit_get'
+        post '/question/edit', to: 'question#edit', as: 'question_edit_post'
+        
+        delete '/question/destroy/:id', to: 'question#destroy', as: 'question_destroy_delete'
+        get '/question/destroy/:id', to: 'question#destroy', as: 'question_destroy_get'
 
         get 'glossary/product_xml'
         get 'glossary/manual'
         post 'glossary/manual'
         post 'glossary/manualEdit'
+        get 'glossary/manualEdit'
 
 
         get '/document/show/:id', to: 'document#show'

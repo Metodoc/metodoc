@@ -8,9 +8,9 @@ class IntegrationController < ApplicationController
 
     def index
 
-        #        @integracoes = Integration.find(:all, :conditions=>['document_id=?', params[:document_id]])
+        # @integracoes = Integration.find(:all, :conditions=>['document_id=?', params[:document_id]])
         @integracoes = Integration.where("document_id = ?", params[:document_id]).all
-        if params[:document]
+        if params[:document_id]
             @documento = Document.find(params[:document_id])
         end
 

@@ -105,14 +105,12 @@
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
         border-radius: 5px;
         width: 200px;
-        margin-top:20px;
-        background:white!important;
-
+        margin-top: 20px;
+        background: white !important;
     }
 
     a.perfil{
-        color:#004C99!important;
-
+        color:#004C99 !important;
     }
 
     .divSelect{
@@ -283,12 +281,13 @@
         var vetLixo = [];
         $('.checkedSelect').each(function() {
             str = $(this).parent().parent().attr("id");
+            console.log(str)
             init = str.indexOf('r');
             id = str.substring(init+1,str.lenght);
             vetLixo.push(id);
         });
         alert(vetLixo);
-        var url = "/activity_shedule/destroy?document_id=<%=params[:document_id]%>&lixo="+vetLixo; 
+        var url = "<%=activity_shedule_destroy_path%>?document_id=<%=params[:document_id]%>&lixo="+vetLixo; 
         window.location.href = url;
     }
 </script>

@@ -24,7 +24,7 @@ class ActivitySheduleController < ApplicationController
             @atividade = ActivityShedule.find(params[:id])
             @atividade.update_attributes(:document_id => @documento.id)
             @atividade.update_attributes(:name => params[:activity_shedule][:name], :user_id => params[:activity_shedule][:user_id], :description => params[:activity_shedule][:description], :deadline => params[:activity_shedule][:deadline])
-            @atividade.save
+            @atividade.save!
 
             redirect_to :action => 'edit', :document_id => @documento.id
         end
