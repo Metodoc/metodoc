@@ -100,6 +100,7 @@ class OntologiesController < ApplicationController
         end
         redirect_to :action =>'add_user', :id => ontology.id
     end
+    
     # ====================================================================
 
     # POST /ontologies

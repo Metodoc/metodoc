@@ -16,7 +16,7 @@ class VersionsController < ApplicationController
         @ontology = Ontology.find(params[:ontology_id])
         @version = Version.find(params[:id])
         @permisionFunction = Function.deUsuario(params[:ontology_id], session[:user_id]).include?(Function.find(1)) 
-        #        @etapas = Methodstep.find(:all, :conditions=>["methodsteps.methodology_id = ? AND methodsteps.inlifecycle=?",@ontology.methodology_id,true])
+        #@etapas = Methodstep.find(:all, :conditions=>["methodsteps.methodology_id = ? AND methodsteps.inlifecycle=?",@ontology.methodology_id,true])
         @etapas = Methodstep.where("methodsteps.methodology_id = ? AND methodsteps.inlifecycle = ?", @ontology.methodology_id, true).all
 
         #@version_description = VersionDescription.find_by_version_id(@version.id)

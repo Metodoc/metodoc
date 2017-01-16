@@ -41,29 +41,28 @@ class MethodologiesController < ApplicationController
         redirect_to :action =>'show', :id => params[:id]
     end
 
-
     def crudDoc
         doc_type_id = params[:doc_type_id]
 
         if params[:etapa_id] and doc_type_id == "new"+params[:etapa_id]
             @doc = DocType.new
-            @doc.attributes = { :name => params[:nameDT], :methodstep_id=>params[:etapa_id]}
-            @doc.save	      
+            @doc.attributes = { :name => params[:nameDT], :methodstep_id => params[:etapa_id]}
+            @doc.save!	      
         elsif params[:nameDT] == "destroy"
             @doc = DocType.find(doc_type_id)
             @doc.destroy
         else 
             @doc = DocType.find(doc_type_id)
-            @doc.attributes = { :name => params[:nameDT], :methodstep_id=>params[:etapa_id]}
-            @doc.save
+            @doc.attributes = { :name => params[:nameDT], :methodstep_id => params[:etapa_id]}
+            @doc.save!
         end
-        redirect_to :action =>'show', :id => params[:id]
+        redirect_to :action => 'show', :id => params[:id]
     end
 
     def config_etapa
         #parametros da etapa
         @etapa = Methodstep.find(params[:etapa_id])
-        @etapa.update_attributes(:name => params[:methodstep][:name], :inlifecycle => params[:methodstep][:inlifecycle])
+        @etapa.attributes = {:name => params[:methodstep][:name], :inlifecycle => params[:methodstep][:inlifecycle]}
         @etapa.save!
 
         #configuração de tipo de documento
@@ -79,7 +78,7 @@ class MethodologiesController < ApplicationController
 
                 @config = DocTypeConfig.new
                 @config.attributes = { :doc_type_id => doc_type_id, :params_config_Type_Doc_id => params_config_Type_Doc_id , :answer =>true}
-                @config.save
+                @config.save!
             end
 
         end
@@ -90,7 +89,7 @@ class MethodologiesController < ApplicationController
                 doc_config_espec_id = e.split('-')[1]
                 @config = DocTypeConfig.new
                 @config.attributes = { :doc_type_id => doc_type_id, :doc_config_espec_id => doc_config_espec_id , :answer =>false}
-                @config.save
+                @config.save!
             end
 
         end

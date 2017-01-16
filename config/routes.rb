@@ -15,16 +15,17 @@ Rails.application.routes.draw do
                 get '/details/:id', to: 'methodologies#details', as: 'methodologies_details'
                 get '/destroyEtapa/:id', to: 'methodologies#destroyEtapa', as: 'methodologies_destroyEtapa'
                 get '/destroy/:id', to: 'methodologies#destroy', as: 'methodologies_destroy_get'
+                get '/crudDoc/:id', to: 'methodologies#crudDoc', as: 'methodologies_crudDoc_get'
+                post '/crudDoc/:id', to: 'methodologies#crudDoc', as: 'methodologies_crudDoc_post'
             end
         end
 
 
         resources :ontologies do
             collection do
-                get '/crudDoc/:id', to: 'ontologies#crudDoc', as: 'ontologies_crudDoc'
                 get '/details/:id', to: 'ontologies#details', as: 'ontologies_details'
                 get '/add_user/:id', to: 'ontologies#add_user', as: 'ontologies_add_user'
-                get '/editing_user/', to: 'ontologies#editing_user', as: 'ontologies_editing_user'
+                get '/editing_user/:id', to: 'ontologies#editing_user', as: 'ontologies_editing_user'
                 get '/show/:id', to: 'ontologies#show', as: 'ontologies_show_2'
                 get '/destroy/:id', to: 'ontologies#destroy', as: 'ontologies_destroy_get'
             end
