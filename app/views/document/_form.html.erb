@@ -11,11 +11,11 @@
 <input type="hidden" name="ontology_id" value="<%=params[:ontology_id]%>">
 
 <div style="margin-top:10px;margin-bottom:10px;float:left;">
-    <label for="document_artefact_status_id">Status:</label><br>
-    <label for="document_responsable_1">Responsável:</label><br>
+    <label for="document_artefact_status_id"><%=t(:status)%>:</label><br>
+    <label for="document_responsable_1"><%=t(:responsible)%>:</label><br>
     <label for="document_responsable_2" style="margin-top: 8px;">
-        Responsável:<br>
-        (<a href="javascript:mostraEscondeTime('observ')">observador</a>)
+        <%=t(:responsible)%>:<br>
+        (<a href="javascript:mostraEscondeTime('observ')"><%=t(:watcher)%></a>)
     </label> 
 </div>
 <div style="margin-top:10px;margin-bottom:10px;">
@@ -25,7 +25,7 @@
 </div>
 
 <div id="observ" style="height: 25px;float: left;border: 1px solid gray;padding: 2px;color:blue;display:none;">
-    O responsável observador não tem permissão de edição, apenas de leitura
+    <%=t(:watcherNotAllowed)%>
 </div>
 
 <div class="buttons" style="margin-top:50px;">

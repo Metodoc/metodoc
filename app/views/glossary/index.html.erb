@@ -8,12 +8,12 @@
 <%end%>
 
 <%content_for :content_header do%>
-<h1><%=@version.ontology.name%> - Lista de Componentes (Versão <%=@version.number%>)</h1>
-<p>Construa a Lista de Componentes da Ontologia</p>
+<h1><%=@version.ontology.name%> - <%=t(:componentList)%> (<%=t(:version)%> <%=@version.number%>)</h1>
+<p><%=t(:buildComponentList)%></p>
 <ul class="page-menu">
-  <li><%=link_to 'Voltar para a Versão', :controller => 'version', :action => 'show', :id=> @version_id%></li>
-  <li><%=link_to 'Novo Componente', :action => 'edit', :version_id => @version_id%></li>
-  <li><%=link_to 'Artefato', :action=>'show', :version_id=>@version_id%></li>
+  <li><%=link_to "#{t(:backToVersion)}", :controller => 'version', :action => 'show', :id=> @version_id%></li>
+  <li><%=link_to "#{t(:newComponent)}", :action => 'edit', :version_id => @version_id%></li>
+  <li><%=link_to "#{t(:artefact)}", :action=>'show', :version_id=>@version_id%></li>
 </ul>
 <%end%>
 
@@ -26,12 +26,12 @@
   <div class="clear"></div>
   <% if @glossary.size > 0 %>
   <table class="data">
-    <caption>Tabela com os componentes do tipo "<%=@term_type.description%>"</caption>
+    <caption><%=t(:componentTable)%> "<%=@term_type.description%>"</caption>
     <tr>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Status</th>
-      <th>Opções</th>
+      <th><%=t(:name)%></th>
+      <th><%=t(:description)%></th>
+      <th><%=t(:status)%></th>
+      <th><%=t(:options)%></th>
     </tr>
     <% @glossary.each do |a| %>
     <tr>
@@ -54,6 +54,6 @@
     <% end %>
   </table>
   <% else %>
-  <h2>Sem componentes do tipo "<%=@term_type.description%>" cadastrados(as)</h2>
+  <h2><%=t(:noComponent)%> "<%=@term_type.description%>" <%=t(:registred)%>)</h2>
   <% end %>
 </div>

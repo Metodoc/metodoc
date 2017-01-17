@@ -1,9 +1,9 @@
 <%content_for :content_header do%>
 <h1>
-  <% if @competence_issue.new_record? %>Criando<% else %>Editando<% end %>
-  Questão de Competência
+  <% if @competence_issue.new_record? %><%=t(:creating)%><% else %><%=t(:editing)%>o<% end %>
+  <%=t(:competenseIssue)%>
 </h1>
-<p>Formule uma questão de competência para a versão da ontologia</p>
+<p><%=t(:formuleCompetenseIssue)%></p>
 <%end%>
 
 <div class="content">

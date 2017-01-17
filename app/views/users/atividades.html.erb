@@ -9,8 +9,8 @@
     <div class="content">
         <table>
             <tr>
-                <td class="tituloTable">Suas Atividades Pendentes</td>
-                <td>Ontologia a que se relaciona</td>
+                <td class="tituloTable"><%=t(:yourActivities)%></td>
+                <td><%=t(:ontologyRelates)%></td>
             </tr>
             <%if !@atividades.nil?%>
             <%@atividades.each do |a|%>
@@ -25,7 +25,7 @@
             <%end%>
             <%else%>
             <tr>
-                <td>Você não tem atividades pendentes</td>
+                <td><%=t(:noActivities)%></td>
             </tr>
             <%end%>
         </table>

@@ -49,13 +49,13 @@
             <% @methodology.methodstep.each_with_index do |etapa, index|%>
                 <div id="tabs-<%=index%>">
                     <%@methodstep = etapa%>
-                    <a class="btex tooltipM" href="<%=methodologies_path%>/destroyEtapa/<%=@methodology.id%>?etapa_id=<%=etapa.id%>"><span>Destruir</span></a>
+                    <a class="btex tooltipM" href="<%=methodologies_path%>/destroyEtapa/<%=@methodology.id%>?etapa_id=<%=etapa.id%>"><span><%=t(:destroy)%></span></a>
 
                     <%= form_tag :action => 'config_etapa', :id => @methodology.id, :etapa_id => etapa.id do %>
                     <%=render :partial => 'formEtapa' %>
                     <%=render :partial => 'formEtapa2' %>
                     <div id="buttons" class="buttons">
-                        <%= submit_tag 'Salvar', :class => 'button' %>
+                        <%= submit_tag "#{t(:save)}", :class => 'button' %>
                     </div>
                     <%end%>
                 </div>
@@ -63,7 +63,7 @@
             <div id="tabs-nova" style="height:100px;">
                 <%= form_tag :action => 'newetapa', :id => @methodology.id do %>
                     <div class="new" style="width:auto;">
-                        <input id="new-etapa" type="text" class="input-new" placeholder="Nova etapa ">
+                        <input id="new-etapa" type="text" class="input-new" placeholder="<%=t(:newStep)%>">
                         <input id="btnew-etapa" type="button" class="button-input btnew">
                     </div>
                 <%end%>

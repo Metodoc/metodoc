@@ -69,3 +69,97 @@ en:
   documents: Documents
   activities: Activities
   infoPerson: Profile
+  yourActivities: Your pending activities
+  ontologyRelates: Ontology to which it relates
+  noActivities: You have no pending activities
+  createMyAccount: Create my account
+  userOptions: User options
+  systemConfigure: Configure the system with some changes of your choice
+  layoutArtifacts: Artefacts' layout
+  chooseCSS: Choose the CSS model to style the documentation artifacts of the ontology.
+  chooseLayout: The chosen layout is
+  formContains: The form contains
+  remember_me: Remember me
+  signUpNow: Sign up now
+  newUser: New user?
+  nameActivity: Name activity
+  responsible: Responsible
+  deadline: Deadline
+  activityDescription: Activity description
+  title: Title
+  cancel: Cancel
+  add: Add
+  noActivities: No activities
+  new: New
+  newActivity: New activity
+  document: Document
+  artefactStatus: Artefact status
+  question: Question
+  creating: Creating
+  editing: Editing
+  competenseIssue: Competense issue
+  formuleCompetenseIssue: Formulate a competence issue for the ontology version
+  bad: Bad
+  regular: Regular
+  good: Good
+  great: Great
+  empty: Empty
+  text: Text
+  chooseBRGG: Choose (Bad, Regular, Good, Great)
+  newQuestion: Nova questão
+  fullDocument: Full document
+  generateOWL: Generate OWL
+  createdAt: Created at
+  updatedAt: Updated at
+  notCreated: Não criado
+  status: Status
+  referenceDoc: Does it refer to which document?
+  watcher: Watcher
+  watcherNotAllowed: The watcher is not allowed to edit, read only
+  ontologieName: Ontologie name
+  project: Project
+  ontologieVersion: Ontologie version
+  domain: Domain
+  step: Step
+  date: Date
+  artefact: Artefact
+  type: Type
+  fillFields: Fill in the fields below to edit the ontology component
+  component: Component
+  componentList: Components' list
+  version: Version
+  buildComponentList: Build the Ontology Component List
+  backToVersion: Back to version
+  newComponent: New component
+  componentTable: Table with components type
+  noComponent: No components type
+  registred: Registered
+  newTerm: New term
+  prefix: Prefix
+  uri: URI
+  purpose: Purpose
+  nothingFound: Nothing found
+  search: Search
+  manual: Manual
+  addOntologie: Adicionar ontologia
+  import: Import
+  searchForPrefix: Pesquise por prefixo
+  methodologyName: Methodology name
+  methodologyDescription: Methodology description
+  isLifecicle: Is this in the life cicle (Y/N)?
+  noDocumentStep: There is no document registered for this step
+  documentForThisStep: Documents for this step
+  noDocumentsTypesRegistered: There is no documents types registered
+  details: Details
+  setup: Set up
+  destroy: Delete
+  edit: Edit
+  noMethodologyRegistered: No methodology registered
+  thereIsNoMethodology: There is no methodology registered
+  newStep: New step
+  
+
+
+  
+  
+  

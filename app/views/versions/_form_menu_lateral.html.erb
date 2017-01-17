@@ -44,10 +44,10 @@
                     <%end%>    
                 <li>
                     <%=link_to '',{:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:class=>'btdownload'}%>
-                    <%=link_to 'Gerar OWL', {:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
+                    <%=link_to "#{t(:generateOWL)}", {:controller=>'glossary', :action=>'product_xml', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
                 <li>
                     <%=link_to '', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:class=>'btnewtab'}%>
-                    <%=link_to 'Documento Completo', {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);', :target=>"_blank"}%></li>
+                    <%=link_to "#{t(:fullDocument)}", {:controller=>'document', :action=>'completo', :version_id=>@version.id},{:style=>'color:rgb(77, 77, 77);', :target=>"_blank"}%></li>
 
             </ul>
         </li>

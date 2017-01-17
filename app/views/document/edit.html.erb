@@ -2,7 +2,7 @@
 
 <div class="content">
     <div class="activity-menu texto1">
-        Documento: <b class="texto2"><%=@documento.doc_type.name%></b>
+        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
         <ul>
             <li><%=link_to '', {controller: 'document', action: 'show', id: @documento.id}, {:class=>'btdocument-min'}%></li>
         </ul>

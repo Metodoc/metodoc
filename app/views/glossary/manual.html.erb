@@ -2,7 +2,7 @@
 
 <div class="content">
     <div class="activity-menu texto1">
-        Documento: <b class="texto2"><%=@documento.doc_type.name%></b>
+        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
         <ul>
             <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
         </ul>
@@ -19,15 +19,15 @@
                 <%if term_type.id == t.term_type_id %>
                     <%=link_to t.name, "#janela"+t.id.to_s , {:titulo=> t.name, :rel=>'modal'}%>
                     <div id="janela<%=t.id%>" class="window middle" >
-                        <div class="modal-titulo">Titulo</div>
+                        <div class="modal-titulo"><%=t(:title)%></div>
                         <div class="content">
                             <%@term = t %>
 
                             <%= form_tag action: 'manualEdit', id: t.id, document_id: @documento.id, version_id: params[:version_id] do %>
                                 <%=render :partial => 'form'%>
                                 <div id="buttons" align="center" class="buttons">
-                                    <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                                    <input value='Adicionar' name='commit' type='submit' class ='button'>
+                                    <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                                    <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
                                 </div>
                             <%end%> 
                         </div>
@@ -40,12 +40,12 @@
 
     <div class="listaPerfil">
         <ul>
-            <li><%=link_to 'Nova', "#janela", {:titulo => 'Novo Termo', :rel => 'modal', :class => 'perfil'}%></li>
+            <li><%=link_to "#{t(:new)}", "#janela", {:titulo => "#{t(:newTerm)}", :rel => 'modal', :class => 'perfil'}%></li>
         </ul>
     </div>
 
     <div id="janela" class="window middle" >
-        <div class="modal-titulo">Titulo</div>
+        <div class="modal-titulo"><%=t(:title)%></div>
         <div class="content">
             <%@termo = Term.new%>
 
@@ -55,8 +55,8 @@
             <%=render :partial => 'form', :locals => { :term => @termo }%>
 
             <div id="buttons" align="center" class="buttons">
-                <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                <input value='Adicionar' name='commit' type='submit' class ='button'>
+                <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
             </div>
             <%end%>
         </div>

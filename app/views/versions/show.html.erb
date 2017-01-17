@@ -25,19 +25,19 @@
                     <%e.doc_type.each do |d|%>
                         <div class="activity texto2">
                             <div class="activity-header">
-                                <b>Documento:</b><%=d.name%><br>
-                                <b>Status:</b>
+                                <b><%=t(:document)%>:</b><%=d.name%><br>
+                                <b><%=t(:status)%>:</b>
                                 <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id]) %>
                                 <%@documento = Document.where("documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id).first %>
                                 <%if @documento.nil?%>
-                                    <span class="status nao-criado">Não Criado</span>
+                                    <span class="status nao-criado"><%=t(:notCreated)%></span>
                                 <%else%>
                                     <span class="status <%=@documento.artefact_status.description%>">
                                         <%=@documento.artefact_status.description%>
                                     </span>
                                     <div id="projectDescriptionDetails<%=@documento.id%>" class="info-box">
-                                        <b>Data de Criação:</b> <%=my_date(@documento.created_at)%><br>
-                                        <b>Data de Atualização:</b> <%=my_date(@documento.updated_at)%>
+                                        <b><%=t(:createdAt)%>:</b> <%=my_date(@documento.created_at)%><br>
+                                        <b><%=t(:updatedAt)%>:</b> <%=my_date(@documento.updated_at)%>
                                     </div>
                                     <br>
                                     <a href="javascript:mostraEsconde('projectDescriptionDetails<%=@documento.id%>')">[...]</a>
@@ -64,14 +64,14 @@
                                     </ul>
 
                                     <div id="janela<%=d.id%>" class="window middle" >
-                                        <div class="modal-titulo">Titulo</div>
+                                        <div class="modal-titulo"><%=t(:title)%></div>
                                         <div class="content">
                                             <%@documento = Document.new%>
                                             <%=form_for "", :url => {controller: 'document', action: 'newespec', doc_type: d.id, version_id: @version.id} do |f| %>
                                                 <%=render :partial => 'document/form_espec', :locals => { :document => @documento }%>
                                                 <div id="buttons" align="center" class="buttons">
-                                                    <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                                                    <input value='Confirmar' name='commit' type='submit' class ='button'>
+                                                    <%=link_to "#t(:cancel)""#t(:cancel)", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                                                    <input value='<%=t(:ok)%>' name='commit' type='submit' class ='button'>
                                                 </div>
                                             <%end%>
                                         </div>

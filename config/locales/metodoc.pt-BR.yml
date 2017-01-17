@@ -51,3 +51,97 @@ pt-BR:
     documents: Documentos
     activities: Atividades
     infoPerson: Dados pessoais
+    yourActivities: Suas atividades pendentes
+    ontologyRelates: Ontology to which it relates
+    createMyAccount: Criar minha conta
+    userOptions: Opções do usuário
+    systemConfigure: Configure o sistema com algumas alterações à sua escolha
+    layoutArtifacts: Layout dos artefatos
+    chooseCSS: Escolha o modelo CSS para estilizar os artefatos de documentaçao da ontologia.
+    chooseLayout: O layout escolhido é
+    formContains: O formulário contém
+    remember_me: Lembrar-me
+    signUpNow: Cadastre-se agora
+    newUser: Novo usuário?
+    nameActivity: Nome da atividade
+    responsible: Responsável
+    deadline: Prazo de Entrega
+    activityDescription: Descrição da atividade
+    title: Título
+    cancel: Cancelar
+    add: Adicionar
+    noActivities: Sem atividades cadastradas
+    new: Nova
+    newActivity: Nova atividade
+    markPriority: Marcar como prioridade
+    markDone: Marcar como feita
+    markInProgress: Marcar como em andamento
+    selectAll: Selecionar todas
+    star: Marcar com estrela
+    noStar: Marcar sem estrela
+    document: Documento
+    artefactStatus: Status do artefato
+    question: Questão
+    creating: Criando
+    editing: Editando
+    competenseIssue: Questão de competência
+    formuleCompetenseIssue: Formule uma questão de competência para a versão da ontologia
+    bad: Ruim
+    regular: Regular
+    good: Bom
+    great: Ótimo
+    empty: Empty
+    text: Text
+    chooseBRGG: Choose (Bad, Regular, Good, Great)
+    newQuestion: Nova questão
+    fullDocument: Documento completo
+    generateOWL: Gerar OWL
+    ok: Ok
+    createdAt: Criado em
+    updatedAt: Atualizado em
+    notCreated: Not created
+    status: Status
+    referenceDoc: Faz referencia a qual documento?
+    watcher: Observador
+    watcherNotAllowed: O responsável observador não tem permissão de edição, apenas de leitura
+    ontologieName: Nome da ontologia
+    project: Projeto
+    ontologieVersion: Versão da ontologia
+    domain: Domínio
+    step: Etapa
+    date: Data
+    artefact: Artefato
+    type: Tipo
+    fillFields: Preencha os campos abaixo para editar o componente da ontologia
+    component: Componente
+    componentList: Lista de componentes
+    version: Versão
+    buildComponentList: Construa a lista de componentes da ontologia
+    backToVersion: Voltar para a versão
+    newComponent: Novo componente
+    componentTable: Tabela com os componentes do tipo
+    noComponent: Sem componentes do tipo
+    registred: cadastrados(as)
+    newTerm: Novo termo
+    prefix: Prefixo
+    uri: URI
+    purpose: Propósito
+    nothingFound: Nada foi encontrado
+    search: Pesquisar
+    manual: Manual
+    addOntologie: Adicionar ontologia
+    import: Importar
+    searchForPrefix: Search for prefix
+    methodologyName: Nome da metodologia
+    methodologyDescription: Descrição da metodologia
+    isLifecicle: Participa do ciclo de vida (S/N)?
+    noDocumentStep: Não existem tipos de documento cadastrados para essa etapa
+    documentsForThisStep: Documentos previstos nesta etapa
+    noDocumentsTypesRegistered: Não existem tipos de documento cadastrados
+    details: Detalhes
+    setup: Configurar
+    noMethodologyRegistered: Sem metodologia cadastradas
+    thereIsNoMethodology: Ainda não existem metodologias cadastradas
+    newStep: Nova etapa
+
+ 

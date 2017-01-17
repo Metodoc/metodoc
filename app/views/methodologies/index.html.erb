@@ -6,12 +6,12 @@
 </style>
 <div class="menu-lateral">
     <div class="listaPerfil">
-        <a href="<%=new_methodology_path%>" style="color:rgb(77, 77, 77);" class="perfil">Nova</a>
+        <a href="<%=new_methodology_path%>" style="color:rgb(77, 77, 77);" class="perfil"><%=t(:new)%></a>
     </div>
 </div>
 <div class="tela">
     <div class="content-header">
-        <h1 style="margin-bottom: 0px;" >Metodologias</h1>
+        <h1 style="margin-bottom: 0px;" ><%=t(:methodologies)%></h1>
     </div>
     
     <p id="notice"><%= notice %></p>
@@ -31,8 +31,8 @@
     <%end%>
     <% else %>
     <div class="content">
-        <h2>Sem metodologia cadastradas</h2>
-        <p>Ainda não existem metodologias cadastradas
+        <h2><%=t(:noMethodologyRegistered)%></h2>
+        <p><%=t(:thereIsNoMethodology)%></p>
     </div>
     <% end %>
 

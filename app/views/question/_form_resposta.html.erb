@@ -8,13 +8,13 @@
     end%>
 <%end%>
 <input type="radio" name= "answer_<%=q.id%>" value="1" <%if (@checked == 1) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "Ruim" %><br>
+<%= label :answer, :type_answer_id, "#{t(:bad)}" %><br>
 <input type="radio" name= "answer_<%=q.id%>" value="2" <%if (@checked == 2) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "Regular" %><br>
+<%= label :answer, :type_answer_id, "#{t(:regular)}" %><br>
 <input type="radio" name= "answer_<%=q.id%>" value="3" <%if (@checked == 3) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "Bom" %><br>
+<%= label :answer, :type_answer_id, "#{t(:good)}" %><br>
 <input type="radio" name= "answer_<%=q.id%>" value="4" <%if (@checked == 4) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "Ótimo" %><br>
+<%= label :answer, :type_answer_id, "#{t(:great)}" %><br>
 
 
 <%else%>
@@ -31,7 +31,7 @@
 
 
 <div class="buttons" style="margin-top:50px;">
-    <%= submit_tag 'Salvar', :class=>'button'%>
+    <%= submit_tag "#{t(:save)}", :class=>'button'%>
 </div>
 
 <style language="text/css">

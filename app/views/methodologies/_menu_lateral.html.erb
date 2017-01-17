@@ -1,5 +1,5 @@
 <ul>
-    <li class="circ"><a href="<%=methodologies_path%>" style="color:rgb(77, 77, 77);">Metodologias</a>
+    <li class="circ"><a href="<%=methodologies_path%>" style="color:rgb(77, 77, 77);"><%=t(:methodologies)%></a>
         <ul>
             <% @methodologias.each do |m|%>
             <li class="circ"><a href="<%methodologies_path%><%=m.id%>" style="color:rgb(77, 77, 77);"><%=m.name%></a></li>

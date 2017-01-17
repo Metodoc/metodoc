@@ -1,2 +1,0 @@
-<Declare><Class IRI="#Pessoa"></Declare> <Declare><Class IRI="#Pessoa2"></Declare>
-<Declare><Class IRI="#Endereco"></Declare>

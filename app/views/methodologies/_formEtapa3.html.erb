@@ -18,10 +18,10 @@ if !@methodstep.doc_type.empty?
             <div id="parametrosDiv<%=doc_type.id%>" class="info-box">
                 <a href="javascript:troca('parametrosDiv<%=doc_type.id%>','especDiv<%=doc_type.id%>');" class="change"></a><br>
                 <%config ||= Array.new
-doc_type.doc_type_config.each do |d|
-    config.push(d.params_config_Type_Doc_id);
-end
-%>
+                    doc_type.doc_type_config.each do |d|
+                        config.push(d.params_config_Type_Doc_id);
+                    end
+                %>
                 <%@parametros.each do |p|%>
                 <input type="checkbox" name="doc_type_config" id="<%=@methodstep.id%>-<%=doc_type.id%>-<%=p.id%>" <%if config.include?(p.id)%>checked<%end%> >
                 <%=p.description%><br>
@@ -41,7 +41,7 @@ end
     <div class="clear"></div>
     <%end%>
     <%else%>
-    <tr><td>Não Existem tipos de Documento cadastrados</td></tr>
+    <tr><td><%=t(:noDocumentsTypesRegistered)%></td></tr>
     <%end%>
 
 </table>

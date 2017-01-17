@@ -6,7 +6,7 @@
 
 
     <div class="activity-menu texto1">
-        Documento: <b class="texto2"><%=@documento.doc_type.name%></b>
+        <%=t(:selectAll)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
         <ul>
             <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
         </ul>
@@ -20,9 +20,9 @@
 
             <div id="selectMarcadores" class="selectMarcadores">
                 <ul class="testando">
-                    <li class="testando" id="label1"><a href="#"><label>marcar todas</label></a></li>
-                    <li class="testando" id="label2" ><a href="#"><label>marcar com estrela</label></a></li>
-                    <li class="testando" id="label3"><a href="#"><label>marcar sem estrela</label></a></li>
+                    <li class="testando" id="label1"><a href="#"><label><%=t(:selectAll)%></label></a></li>
+                    <li class="testando" id="label2" ><a href="#"><label><%=t(:star)%></label></a></li>
+                    <li class="testando" id="label3"><a href="#"><label><%=t(:noStar)%></label></a></li>
                 </ul>
             </div>
         </div>
@@ -33,9 +33,9 @@
             <a href="javascript:listaLixo()"><span class="lixo" style="border-left:2px solid lightgray;"></span></a>
             <div id="selectMarcadores2" class="selectMarcadores" style="margin-left: 70px;width:220px;">
                 <ul class="testando">
-                    <li class="testando" id="label4"><a href="#"><label>marcar como prioridade</label></a></li>
-                    <li class="testando" id="label5" ><a href="#"><label>marcar como feita</label></a></li>
-                    <li class="testando" id="label6"><a href="#"><label>marcar como em andamento</label></a></li>
+                    <li class="testando" id="label4"><a href="#"><label><%=t(:markPriority)%></label></a></li>
+                    <li class="testando" id="label5" ><a href="#"><label><%=t(:markDone)%></label></a></li>
+                    <li class="testando" id="label6"><a href="#"><label><%=t(:markInProgress)%></label></a></li>
                 </ul>
 
             </div>
@@ -55,7 +55,7 @@
         </tr>
 
         <div id="janela<%=a.id%>" class="window middle" >
-            <div class="modal-titulo">Titulo</div>
+            <div class="modal-titulo"><%=t(:title)%></div>
             <div class="content">
                 <%@activity_shedule = a%>
                 <%= form_tag :action => 'edit', :id=>@activity_shedule , :document_id=>a.document_id do %>
@@ -63,8 +63,8 @@
                 <%=render :partial => 'form', :locals => { :activity_shedule => @activity_shedule }%>
 
                 <div id="buttons" align="center" class="buttons">
-                    <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                    <input value='Adicionar' name='commit' type='submit' class ='button'>
+                    <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                    <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
                 </div>
                 <% end %>
             </div>
@@ -75,16 +75,16 @@
     </table>
 
     <%else%>
-    Sem atividades cadastradas
+        <%=t(:noActivities)%>
     <%end%>
     <div class="listaPerfil">
         <ul >
-            <li><%=link_to 'Nova', "#janela", {:titulo=> 'Nova Atividade', :rel=>'modal', :class=>'perfil'}%></li>
+            <li><%=link_to "#{t(:new)}", "#janela", {:titulo=> "#{t(:newActivity)}", :rel=>'modal', :class=>'perfil'}%></li>
         </ul>
     </div>
 </div>
 <div id="janela" class="window middle" >
-    <div class="modal-titulo">Titulo</div>
+    <div class="modal-titulo"><%=(:title)%></div>
     <div class="content">
         <%@activity_shedule = ActivityShedule.new%>
 
@@ -93,8 +93,8 @@
         <%=render :partial => 'form', :locals => { :activity_shedule => @activity_shedule }%>
 
         <div id="buttons" align="center" class="buttons">
-            <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-            <input value='Adicionar' name='commit' type='submit' class ='button'>
+            <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+            <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
         </div>
         <% end %>
     </div>
@@ -131,8 +131,6 @@
         display:table;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4) inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
     }
-
-
 
     .checkSelect{
         -moz-user-select: none;
@@ -275,7 +273,6 @@
             }
         }   
     });
-
 
     function listaLixo(){
         var vetLixo = [];

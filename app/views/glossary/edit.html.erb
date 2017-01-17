@@ -1,8 +1,7 @@
 <%content_for :content_header do%>
-<h1><%=@message%> Componente</h1>
-<p>Preencha os campos abaixo para editar o componente da ontologia</p>
+<h1><%=@message%> <%=t(:component)%></h1>
+<p><%=t(:fillFields)%></p>
 <%end%>
-
 <div class="content">
   <% form_tag :action => 'edit', :id => @term, :version_id => @version_id do %>
     <%=render :partial => 'form' %>

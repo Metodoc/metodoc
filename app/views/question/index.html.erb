@@ -20,7 +20,7 @@
 <div class="content">
 
     <div class="activity-menu texto1">
-        Documento: <b class="texto2"><%=@documento.doc_type.name%></b>
+        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
         <ul>
             <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
         </ul>
@@ -36,14 +36,14 @@
             <td><%= link_to '', {controller: 'question', action: 'destroy', id: q.id}, {class: 'btex tooltipM'} %></td>
         </tr>
         <div id="janela<%=q.id%>" class="window middle" >
-            <div class="modal-titulo">Titulo</div>
+            <div class="modal-titulo"><%=t(:title)%></div>
             <div class="content">
                 <%@question = q%>
                 <%= form_tag :action => 'edit', :id => @question , :document_id => params[:document_id] do %>
                 <%=render :partial => 'form', :locals => { :question => @question }%>
                 <div id="buttons" align="center" class="buttons">
-                    <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                    <input value='Adicionar' name='commit' type='submit' class ='button'>
+                    <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                    <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
                 </div>
                 <%end%>  
             </div>
@@ -56,12 +56,12 @@
 
     <div class="listaPerfil">
         <ul >
-            <li><%=link_to 'Nova', "#janela", {:titulo=> 'Nova Questão', :rel=>'modal', :class=>'perfil'}%></li>
+            <li><%=link_to "#{t(:new)}", "#janela", {:titulo=> "#{t(:newQuestion)}", :rel=>'modal', :class=>'perfil'}%></li>
         </ul>
     </div>
 </div>
 <div id="janela" class="window middle" >
-    <div class="modal-titulo">Titulo</div>
+    <div class="modal-titulo"><%=t(:title)%></div>
     <div class="content">
         <%@question = Question.new%>
         <%= form_tag :action => 'novo', :id=> @question , :document_id=>params[:document_id] do %>
@@ -69,8 +69,8 @@
         <%=render :partial => 'form', :locals => { :question => @question }%>
 
         <div id="buttons" align="center" class="buttons">
-            <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-            <input value='Adicionar' name='commit' type='submit' class ='button'>
+            <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+            <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
         </div>
         <%end%>
     </div>
