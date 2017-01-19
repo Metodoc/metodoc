@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72">
+  <defs>
+    <style>
+      .a {
+        fill: #4caf50;
+      }
+
+      .b {
+        fill: #fdd835;
+      }
+
+      .c {
+        fill: #3f51b5;
+      }
+
+      .d {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>bra_brazil_72x72</title>
+  <circle class="a" cx="36" cy="36" r="36"/>
+  <polygon class="b" points="36 12 6 36 36 60 66 36 36 12"/>
+  <circle class="c" cx="36" cy="36" r="12"/>
+  <path class="d" d="M25.62,30A11.93,11.93,0,0,0,24,36H48a11.93,11.93,0,0,0-1.62-6H25.62Z" transform="translate(0 0)"/>
+</svg>
