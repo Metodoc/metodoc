@@ -57,18 +57,18 @@
                 </div>
                 <br><br>
                 <div>
-                    <input type="radio" name="optionsBusca" id="user" value="user" <%if params[:key] == 'user'%>checked<%end%> >Usuário<br>
-                    <input type="radio" name="optionsBusca" id="Paper" value="paper" <%if params[:key] == 'paper'%>checked<%end%>>Papel
+                    <input type="radio" name="optionsBusca" id="user" value="user" <%if params[:key] == 'user'%>checked<%end%> ><%=t(:user)%><br>
+                    <input type="radio" name="optionsBusca" id="Paper" value="paper" <%if params[:key] == 'paper'%>checked<%end%>><%=t(:paper)%>
                 </div>
 
             </div>
             <div class="ontology-users">
                 <table>
-                    <caption>Colaboradores da Ontologia</caption>
+                    <caption><%=t(:ontologyCollaborators)%></caption>
                     <tr>
-                        <th>Nome</th>
-                        <th>Papel</th>
-                        <th>Opção</th>
+                        <th><%=t(:name)%></th>
+                        <th><%=t(:paper)%></th>
+                        <th><%=t(:option)%></th>
                     </tr>
                     <%if !@ontologyUser.empty?                        
                         for ontology_user in @ontologyUser
@@ -88,17 +88,17 @@
                             </tr>
                         <%end%>
                     <%else%>
-                        <tr><td colspan="3">Nenhum dado foi encontrado</td></tr>
+                        <tr><td colspan="3"><%=t(:nothingFound)%></td></tr>
                     <%end%>
                 </table>
             </div>
 
             <div class="users">
                 <table>
-                    <caption>Usuários do Sistema</caption>
+                    <caption><%=t(:systemUsers)%></caption>
                     <tr>
-                        <th>Nome</th>
-                        <th>Opção</th>
+                        <th><%=t(:name)%></th>
+                        <th><%=t(:option)%></th>
                     </tr>
 
                     <% @users.each do |u|%>
@@ -108,7 +108,7 @@
                                 <% if @ontology.user.include?(u) %>
                                     -
                                 <%else%>
-                                <%=link_to 'Adicionar', "#janela1", :id => u.id, :titulo => u.name , :rel => 'modal'%>
+                                <%=link_to t(:add), "#janela1", :id => u.id, :titulo => u.name , :rel => 'modal'%>
                                 <%end%>
                             </td>
                         </tr>
@@ -118,8 +118,8 @@
 
 
             <div id="janela1" class="window middle" >
-                <div class="modal-titulo">Titulo</div>
-                <p>Desempenhando qual papel?</p>
+                <div class="modal-titulo"><%t(:title)%></div>
+                <p><%=t(:performingRole)%></p>
                 <div class="content">
                     <table id="tablePapers">
                         <% @papers.each do |p|%>
@@ -129,8 +129,8 @@
                         <%end%>
                     </table>
                     <div id="buttons" align="center" class="buttons">
-                        <%=link_to 'Cancelar', { }, {:id =>  'fecharWindow', :class => 'button'}%>
-                        <%=link_to 'Adicionar', { }, {:id => 'adicionar', :class => 'button'}%>
+                        <%=link_to t(:cancel), { }, {:id =>  'fecharWindow', :class => 'button'}%>
+                        <%=link_to t(:add), { }, {:id => 'adicionar', :class => 'button'}%>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
 
             key = $("input:checked" ).val(); 
             if (typeof(key) == "undefined"){
-                alert("Favor escolher uma das opções de busca");
+                alert("<%=t(:chooseOptions)%>");
             }else{
                 string = $('#strBusca').val();
                 var url = "<%=ontologies_path%>/add_user/<%=params[:id]%>/?option=search&string=" + string + '&key=' + key; 
@@ -186,7 +186,7 @@
                 window.location.href = url;
 
             }else{
-                alert("Favor escolher pelo menos um papel para concluir a adesão");
+                alert("<%=t(:chooseMembership)%>");
             } 
         });
     </script>

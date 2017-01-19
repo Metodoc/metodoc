@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.0.1'
 
 #postgrees
-gem 'pg'
+gem 'sqlite3'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

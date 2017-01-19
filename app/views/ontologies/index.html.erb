@@ -17,11 +17,11 @@
             <h2><%=o.name%></h2>
             <div class="page-menu">
                 <ul>
-                    <li><a class="btshow tooltipM" href="<%=ontologies_path%>/show/<%= o.id %>"><span><b></b>Visualizar Ontologia</span></a></li>
-                    <li><a class="btaddU tooltipM" href="<%=ontologies_path%>/add_user/<%= o.id%>"> <span><b></b>Adicionar Colaborador</span></a></li>
-                    <li><a class="btdt tooltipM" href="<%=ontologies_path%>/details/<%= o.id%>"><span><b></b>Detalhes</span></a></li>
-                    <li><a class="bted tooltipM" href="<%=ontologies_path%>/<%= o.id%>/edit"><span><b></b>Editar</span></a></li>
-                    <li><a class="btex tooltipM" href="<%=ontologies_path%>/destroy/<%= o.id%>"><span><b></b>Destruir</span></a></li>
+                    <li><a class="btshow tooltipM" href="<%=ontologies_path%>/show/<%= o.id %>"><span><%=t(:viewOntology)%></span></a></li>
+                    <li><a class="btaddU tooltipM" href="<%=ontologies_path%>/add_user/<%= o.id%>"> <span><%=t(:addContributor)%></span></a></li>
+                    <li><a class="btdt tooltipM" href="<%=ontologies_path%>/details/<%= o.id%>"><span><%=t(:details)%></span></a></li>
+                    <li><a class="bted tooltipM" href="<%=ontologies_path%>/<%= o.id%>/edit"><span><%=t(:edit)%></span></a></li>
+                    <li><a class="btex tooltipM" href="<%=ontologies_path%>/destroy/<%= o.id%>"><span><%=t(:destroy)%></span></a></li>
                 </ul>
             </div>
             <div class="clear"></div>
@@ -45,8 +45,8 @@
             <%end%>
         <% else %>
         <div class="content">
-            <h2>Sem ontologias</h2>
-            <p>Você ainda não possui uma ontologia ou colabora com o desenvolvimento de uma.</p>
+            <h2><%=t(:noOntology)%></h2>
+            <p><%=t(:youDoNotHaveOntology)%></p>
         </div>
         <% end %>
     </div>

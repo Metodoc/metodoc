@@ -26,19 +26,19 @@
             <%e.doc_type.each do |d|%>
                 <div class="activity texto2">
                     <div class="activity-header">
-                        <b>Documento:</b><%=d.name%><br>
-                        <b>Status:</b>
+                        <b><%=t(:document)%>:</b><%=d.name%><br>
+                        <b><%=t(:status)%>:</b>
                         <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id]) %>
                         <%@documento = Document.where("documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id).first %>
                         <%if @documento.nil?%>
-                            <span class="status nao-criado">Não Criado</span>
+                            <span class="status nao-criado"><%=t(:notCreated)%></span>
                         <%else%>
                             <span class="status <%=@documento.artefact_status.description%>">
                                 <%=@documento.artefact_status.description%>
                             </span>
                             <div id="projectDescriptionDetails<%=d.id%>" class="info-box">
-                                <b>Data de Criação:</b> <%=my_date(@documento.created_at)%><br>
-                                <b>Data de Atualização:</b> <%=my_date(@documento.updated_at)%>
+                                <b><%=t(:createdAt)%>:</b> <%=my_date(@documento.created_at)%><br>
+                                <b><%=t(:updateddAt)%>:</b> <%=my_date(@documento.updated_at)%>
                             </div>
                             <br>
                             <a href="javascript:mostraEsconde('projectDescriptionDetails<%=d.id%>')">[...]</a>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="content" style="margin-bottom:40px;">
-        <h2>Versões da Ontologia</h2>
+        <h2><%=t(:ontologyVersion)%></h2>
         <ul class="page-menu">
             <li>
                 <%=link_to '', {:controller => 'versions', :action => 'create', :ontology_id =>@ontology.id},{:class=>'btmore'}%>
@@ -70,12 +70,12 @@
         <%if @versions.size > 0 %>
             <% @versions.each do |v|%>
                 <div class="like-table">
-                    <lable id="lable-etapa-<%=v.id%>"><%=link_to 'Versão nº.' + v.number.to_s, :controller => 'versions', :action => 'show', :id => v.id, :ontology_id => @ontology.id %></lable>
+                    <lable id="lable-etapa-<%=v.id%>"><%=link_to t(:version)+' nº.' + v.number.to_s, :controller => 'versions', :action => 'show', :id => v.id, :ontology_id => @ontology.id %></lable>
                     <%=link_to ' ', {:controller => 'versions', :action => 'destroy', :id => v.id}, {:class=>'btex'}%>
                 </div>    
             <%end%>
         <%else%>
-        <p>Nenhuma versão da ontologia ainda foi criada</p>
+        <p><%=(:noVersion)%></p>
         <%end%>
     </div>
 <%#= link_to 'Edit', edit_ontology_path(@ontology) %> |

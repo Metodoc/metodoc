@@ -34,7 +34,7 @@ en:
   areyousure: Are you sure?
   projectname: Project name
   domain: Domain
-  visible: Visible in searches
+  visible: Is this visible in searches?
   formalitydegree: Formality degree
   methodology: Methodology
   createOntology: Create Ontology
@@ -157,6 +157,20 @@ en:
   noMethodologyRegistered: No methodology registered
   thereIsNoMethodology: There is no methodology registered
   newStep: New step
+  addContributor: Add contributor
+  viewOntology: View ontology
+  paper: Paper
+  user: User
+  ontologyCollaborators: Ontology Collaborators
+  perfomingRole: Performing what role?
+  systemUsers: System users
+  chooseOptions: Please choose one of the search options
+  chooseMembership: Please choose at least one paper to complete membership
+  noVersion: No version
+  collaborator: Collaborator
+  currentVersion: Current version
+  youDoNotHaveOntology: You do not yet have an ontology or you collaborate with the development of one
+  notCreated: Not created
   
 
 

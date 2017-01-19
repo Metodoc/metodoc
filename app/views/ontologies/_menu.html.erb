@@ -1,7 +1,7 @@
 <ul>
-    <li><a class="btshow tooltipM" href="<%=ontologies_path%>/show/<%=@ontology.id%>"><span><b></b>Visualizar Ontologia</span></a></li>
-    <li><a class="btaddU tooltipM" href="<%=ontologies_path%>/add_user/<%=@ontology.id%>"> <span><b></b>Adicionar Colaborador</span></a></li>
-    <li><a class="btdt tooltipM" href="<%=ontologies_path%>/details/<%=@ontology.id%>"><span><b></b>Detalhes</span></a></li>
-    <li><a class="bted tooltipM" href="<%=ontologies_path%>/<%=@ontology.id%>/edit"><span><b></b>Editar</span></a></li>
-    <li><a class="btex tooltipM" href="<%=ontologies_path%>/destroy/<%=@ontology.id%>"><span><b></b>Destruir</span></a></li>
+    <li><a class="btshow tooltipM" href="<%=ontologies_path%>/show/<%=@ontology.id%>"><span><%=t(:viewOntology)%></span></a></li>
+    <li><a class="btaddU tooltipM" href="<%=ontologies_path%>/add_user/<%=@ontology.id%>"> <span><%=t(:addContributor)%></span></a></li>
+    <li><a class="btdt tooltipM" href="<%=ontologies_path%>/details/<%=@ontology.id%>"><span><%=t(:details)%></span></a></li>
+    <li><a class="bted tooltipM" href="<%=ontologies_path%>/<%=@ontology.id%>/edit"><span><%=t(:edit)%></span></a></li>
+    <li><a class="btex tooltipM" href="<%=ontologies_path%>/destroy/<%=@ontology.id%>"><span><%=t(:destroy)%></span></a></li>
 </ul>

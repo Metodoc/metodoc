@@ -143,5 +143,21 @@ pt-BR:
     noMethodologyRegistered: Sem metodologia cadastradas
     thereIsNoMethodology: Ainda não existem metodologias cadastradas
     newStep: Nova etapa
+    addContributor: Adicionar colaborador
+    viewOntology: Visualizar ontologia
+    paper: Papel
+    user: Usuário
+    ontologyCollaborators: Colaboradores da Ontologia
+    option: Opção
+    systemUsers: Usuários do sistema
+    perfomingRole: Desempenhando qual papel?
+    chooseOptions: Favor escolher uma das opções de busca
+    chooseMembership: Favor escolher pelo menos um papel para concluir a adesão
+    noVersion: Sem versão
+    collaborator: Colaborador
+    currentVersion: Versão atual
+    youDoNotHaveOntology: Você ainda não possui uma ontologia ou colabora com o desenvolvimento de uma
+    notCreated: Não criado
+    
 
  
