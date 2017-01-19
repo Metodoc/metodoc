@@ -5,10 +5,11 @@ module ApplicationHelper
 
     #formatando as datas das views
     def my_date(date)
-        date.strftime("%d de %B de %Y")
+        date.strftime("%d de %m de %Y")
     end
 
     def language_links
+        store_location
         links = []
         I18n.available_locales.each do |locale|
             locale_key = "#{locale}"

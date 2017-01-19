@@ -157,7 +157,7 @@ class MethodologiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def methodology_params
-        params.require(:methodology).permit(:name, :description)
+        params.require(:methodology).permit(:name, :description).merge(user_id: session[:user_id])
     end
 
     def load_methodologias 
