@@ -1,0 +1,6 @@
+<%@atividades = @documento.activity_shedule%>
+<%@atividades.each do |a|%>
+    <p><%=a.name%></p>
+    <p><%=a.description%></p>
+    <p><%=a.deadline.to_s%></p>
+<%end%>

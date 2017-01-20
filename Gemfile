@@ -9,8 +9,19 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 
-#postgrees
+# sqlite3
 gem 'sqlite3'
+
+#respond_to docx
+gem 'responders'
+# Ruby Html to word Gem
+gem 'htmltoword', '~> 0.5.1'
+
+# A PDF generation plugin for Ruby on Rails
+gem 'wicked_pdf'
+
+# The simplest way to install all of the binaries (Linux, OSX, Windows)
+gem 'wkhtmltopdf-binary'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

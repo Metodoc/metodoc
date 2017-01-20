@@ -1,3 +1,2 @@
-adicionar donwload para pdf ou outro formato na visualização do documento
 melhorar a geração do OWL
 migrar base de dados para mysql ou postgrees

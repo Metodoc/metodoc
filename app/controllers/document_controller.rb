@@ -3,6 +3,7 @@ class DocumentController < ApplicationController
     before_action :load_artefact_status, :only => [:edit]
     before_action :load_users, :only => [:edit]
     before_action :load_ontologias
+    respond_to :docx
 
     def show
         @documento = Document.find(params[:id])
@@ -11,8 +12,38 @@ class DocumentController < ApplicationController
     def completo
     end
 
-    def edit
+    def html_to_pdf
+        if params[:version_id]
+            @version = Version.find(params[:version_id])
+            @ontology = @version.ontology
+        end
+        
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render pdf: "#{@ontology.name}-V.#{@version.id}.pdf", 
+                template: 'document/document.pdf.html.erb', 
+                disposition: 'attachment',
+                encoding: 'UTF-8'
+            end
+        end
+    end
 
+    def html_to_word
+        if params[:version_id]
+            @version = Version.find(params[:version_id])
+            @ontology = @version.ontology
+        end
+        
+        respond_to do |format|
+            format.docx do
+                render docx: 'document', filename: "#{@ontology.name}-V.#{@version.id.to_s}.docx"
+            end
+        end
+
+    end
+
+    def edit
         if request.post?
             if params[:id]
                 @documento = Document.find(params[:id])

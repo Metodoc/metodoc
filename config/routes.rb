@@ -79,9 +79,11 @@ Rails.application.routes.draw do
 
         get '/document/show/:id', to: 'document#show'
         get '/document/newespec/', to: 'document#newespec'
-        get 'document/completo'
+        get 'document/completo', to: 'document#completo', as: 'document_completo'
         get 'document/edit', to: 'document#edit', as: 'document_edit_get'
         post 'document/edit', to: 'document#edit', as: 'document_edit_post'
+        get 'document/html_to_word/', to: 'document#html_to_word', format: 'docx'
+        get 'document/html_to_pdf/', to: 'document#html_to_pdf', format: 'pdf'
 
         #         resources :versions, :except => [:show]
         delete '/versions/destroy/:id', to: 'versions#destroy'

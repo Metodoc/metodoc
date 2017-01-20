@@ -1,0 +1,22 @@
+<%if @documento.doc_reference.nil?%>
+    <% @questoes = @documento.questions%>
+    <%@questoes.each do |q|%>
+       <p><%=q.question%></p>
+    <%end%>
+<%else%>
+    <%doc_reference = Document.find(@documento.doc_reference)%>
+    <%@questoes = doc_reference.questions%>
+    <%@respostas = @documento.answer%>
+
+    <%@questoes.each do |q|%>
+        <%@resposta = @respostas.select { |r| r.question_id == q.id }%>
+        <p><strong><%=t(:question)%>:</strong> <%=q.question%></p>
+        <%@resposta.each do |r|%>
+            <%if q.answer_type == 3 %>
+                <p><%=r.type_answer.description.html_safe%></p>
+            <%else%>
+                <p><%=r.answer.html_safe%></p>
+            <%end%>
+        <%end%>
+    <%end%>
+<%end%>

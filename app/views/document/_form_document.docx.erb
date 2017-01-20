@@ -1,0 +1,6 @@
+<%@documento.doc_artefact.each do |a| %>
+    <p>
+        <%=a.params_config_type_doc.description.html_safe%>:
+        <%=a.answer.html_safe%>
+    </p>
+<%end%>

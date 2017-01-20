@@ -1,0 +1,26 @@
+<%
+
+    @glossary = Term.where("version_id = ?", @version.id).all
+    @types = TermType.all
+
+%>
+
+<%@types.each do |term_type|%>
+    <%@termos = @glossary.select { |g| g.term_type_id == term_type.id }%>
+    
+    <%if !@termos.empty?%>
+        <p><strong><%=term_type.description.html_safe%> (<%=@termos.count%>): </strong></p>
+    <%end%>
+
+    <%@termos.each do |t| %>
+        <%if term_type.id == t.term_type_id %>
+            <p><%=t.name%></p>
+        <%end%>
+    <%end%>
+    <%@termos.each do |t| %>
+        <%if term_type.id == t.term_type_id %>
+            <p><%=t.name%></p>
+            <p><%=t.description.html_safe%></p>
+        <%end%>
+    <%end%>
+<%end%>
