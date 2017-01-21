@@ -66,11 +66,12 @@ Rails.application.routes.draw do
         get '/question/index', to: 'question#index', as: 'question_index'
         get '/question/edit', to: 'question#edit', as: 'question_edit_get'
         post '/question/edit', to: 'question#edit', as: 'question_edit_post'
-        
+
         delete '/question/destroy/:id', to: 'question#destroy', as: 'question_destroy_delete'
         get '/question/destroy/:id', to: 'question#destroy', as: 'question_destroy_get'
 
         get 'glossary/product_xml'
+        #        get '/glossary/generate_owl', to: 'glossary#generate_owl', format: 'owl'
         get 'glossary/manual'
         post 'glossary/manual'
         post 'glossary/manualEdit'

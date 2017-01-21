@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
     "https://github.com/#{repo_name}.git"
 end
 
+# RDF.rb is a pure-Ruby library for working with Resource Description Framework (RDF)
+#gem 'rdf'
+#gem 'rest-client', '~> 2.0'
+#gem 'rdf-rdfxml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'

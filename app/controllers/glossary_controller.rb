@@ -1,7 +1,7 @@
-require "rubygems"
-require "builder"
-require "nokogiri"
-require "open-uri"
+require 'rubygems'
+require 'builder'
+require 'nokogiri'
+require 'open-uri'
 
 class GlossaryController < ApplicationController
     before_action :load_term_types, :only => [ :edit, :show, :manual ]
