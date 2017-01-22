@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.2.6'
 
 git_source(:github) do |repo_name|
     repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -13,12 +12,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
-
-# sqlite3
-#gem 'sqlite3'
-
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
 
 #respond_to docx
 gem 'responders'
@@ -81,11 +74,23 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
     gem 'byebug', platform: :mri
+
+    # sqlite3
+    gem 'sqlite3'
 end
 
 group :development do
     # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
     gem 'web-console', '>= 3.3.0'
+end
+
+group :production do
+
+    # Use postgresql as the database for Active Record
+    gem 'pg', '~> 0.18'
+
+    # ruby version
+    ruby '2.2.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
