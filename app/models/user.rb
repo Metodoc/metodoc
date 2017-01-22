@@ -49,7 +49,7 @@ class User < ApplicationRecord
 
     # Activates an account.
     def activate
-        update_columns(activated: 1, activated_at: Time.zone.now.to_datetime)
+        update_columns(activated: true, activated_at: Time.zone.now.to_datetime)
     end
 
     # Sends activation email.

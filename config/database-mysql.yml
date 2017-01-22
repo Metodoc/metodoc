@@ -16,7 +16,7 @@ default: &default
   username: root
   password: mimi10
   host: localhost
-  post: 3306
+  port: 3306
 
 development:
   <<: *default

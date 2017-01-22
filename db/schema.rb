@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20170119033345) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activity_shedules", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+    t.string   "name"
+    t.string   "description"
     t.date     "deadline"
     t.integer  "priority"
     t.integer  "user_id"
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "doc_config_especs", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "destination", limit: 255
+    t.string   "name"
+    t.string   "destination"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,18 +81,18 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "doc_types", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name"
     t.integer  "methodstep_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "documents", force: :cascade do |t|
+    t.integer  "doc_reference"
     t.integer  "doc_type_id"
     t.integer  "ontology_id"
     t.integer  "version_id"
     t.integer  "artefact_status_id"
-    t.integer  "doc_reference"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,7 +104,7 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "functions", force: :cascade do |t|
-    t.string   "description", limit: 255
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -112,13 +115,22 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "integrations", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "prefix",      limit: 255
-    t.string   "uri",         limit: 255
-    t.string   "purpose",     limit: 255
+    t.string   "name"
+    t.string   "prefix"
+    t.string   "uri"
+    t.string   "purpose"
     t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "knowledge_acquisitions", force: :cascade do |t|
+    t.integer  "version_id"
+    t.text     "sources"
+    t.text     "strategies"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artefact_status_id"
   end
 
   create_table "letsencrypt_plugin_challenges", force: :cascade do |t|
@@ -134,7 +146,7 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "methodologies", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -142,8 +154,8 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "methodsteps", force: :cascade do |t|
-    t.string   "name",           limit: 255
-    t.boolean  "inlifecycle",                default: true
+    t.string   "name"
+    t.boolean  "inlifecycle",    default: true
     t.integer  "methodology_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -157,7 +169,6 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "formality_degree_id"
-    t.integer  "methodology_id",                                 null: false
   end
 
   create_table "ontology_users", id: false, force: :cascade do |t|
@@ -173,14 +184,36 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "params_config_type_docs", force: :cascade do |t|
-    t.string   "description", limit: 255
+    t.string   "description"
+    t.text     "text_start"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "text_start"
+  end
+
+  create_table "project_descriptions", force: :cascade do |t|
+    t.integer  "ontology_id"
+    t.datetime "date"
+    t.text     "purpose"
+    t.text     "obs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artefact_status_id"
+  end
+
+  create_table "project_feasibilities", force: :cascade do |t|
+    t.integer  "ontology_id"
+    t.text     "opportunities"
+    t.text     "problems"
+    t.text     "solutions"
+    t.text     "features"
+    t.text     "conclusion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artefact_status_id"
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "question",    limit: 255
+    t.string   "question"
     t.integer  "answer_type"
     t.integer  "document_id"
     t.datetime "created_at"
@@ -192,8 +225,8 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.integer  "term2"
     t.integer  "term3"
     t.integer  "version_id"
-    t.string   "positionA",  limit: 255
-    t.string   "positionB",  limit: 255
+    t.string   "positionA"
+    t.string   "positionB"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -214,12 +247,12 @@ ActiveRecord::Schema.define(version: 20170119033345) do
 
   create_table "terms", force: :cascade do |t|
     t.integer  "term_type_id"
+    t.integer  "version_id"
     t.string   "name",               limit: 200
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
-    t.integer  "version_id"
   end
 
   create_table "terms_versions", id: false, force: :cascade do |t|
@@ -228,7 +261,7 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "type_answers", force: :cascade do |t|
-    t.string   "description", limit: 255
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -253,7 +286,58 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+  end
+
+  create_table "version_assessments", force: :cascade do |t|
+    t.integer  "version_id"
+    t.integer  "artefact_status_id"
+    t.text     "technical_assessment"
+    t.text     "user_assessment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "version_descriptions", force: :cascade do |t|
+    t.integer  "version_id"
+    t.datetime "date"
+    t.string   "responsible",        limit: 250
+    t.text     "purpose"
+    t.text     "obs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artefact_status_id"
+  end
+
+  create_table "version_evaluations", force: :cascade do |t|
+    t.integer  "version_id"
+    t.text     "quality_criteria"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artefact_status_id"
+  end
+
+  create_table "version_feasibilities", force: :cascade do |t|
+    t.integer  "version_id"
+    t.string   "responsible",        limit: 250
+    t.text     "opportunities"
+    t.text     "problems"
+    t.text     "solutions"
+    t.text     "features"
+    t.text     "conclusion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artefact_status_id"
+  end
+
+  create_table "version_schedules", force: :cascade do |t|
+    t.integer  "version_id"
+    t.string   "activity_name"
+    t.text     "activity_description"
+    t.datetime "activity_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "artefact_status_id"
   end
 
   create_table "versions", force: :cascade do |t|

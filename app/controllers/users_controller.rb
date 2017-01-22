@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     before_action :admin_user,     only: :destroy
 
     def index
-        @users = User.where(activated: 1).paginate(page: params[:page])
+        @users = User.where(activated: true).paginate(page: params[:page])
     end
 
     def show
@@ -67,7 +67,8 @@ class UsersController < ApplicationController
         @artefact_models = ArtefactModel.all.collect { |a| [a.name, a.id] }
         @user_option = UserOption.find_by_user_id(session[:user_id])
         if @user_option.nil?
-            UserOption.create(:user_id => session[:user_id], :artefact_model_id => ArtefactModel.find(:first).id)
+            #            UserOption.create(:user_id => session[:user_id], :artefact_model_id => ArtefactModel.find(:first).id)
+            UserOption.create(:user_id => session[:user_id], :artefact_model_id => ArtefactModel.find(1).id)
             @user_option = UserOption.find_by_user_id(session[:user_id])
         end
     end
