@@ -83,11 +83,11 @@ group :development do
     # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
     gem 'web-console', '>= 3.3.0'
 end
-
+# Use postgresql as the database for Active Record
+gem 'pg', '~> 0.18'
 group :production do
 
-    # Use postgresql as the database for Active Record
-    gem 'pg', '~> 0.18'
+
 
     # ruby version
     ruby '2.2.6'
