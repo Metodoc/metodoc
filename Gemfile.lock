@@ -111,13 +111,12 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    mysql2 (0.4.5-x86-mingw32)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
-    pg (0.19.0)
-    pg (0.19.0-x86-mingw32)
     puma (3.6.2)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -227,7 +226,7 @@ DEPENDENCIES
   jquery-rails
   letsencrypt_plugin
   listen (~> 3.0.5)
-  pg (~> 0.18)
+  mysql2
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails-i18n (~> 5.0.0)

@@ -10,12 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119033345) do
+ActiveRecord::Schema.define(version: 20170125230459) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "activity_shedules", force: :cascade do |t|
+  create_table "activity_shedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
     t.date     "deadline"
@@ -26,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "answers", id: false, force: :cascade do |t|
-    t.text     "answer"
+  create_table "answers", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "answer",         limit: 65535
     t.integer  "document_id"
     t.integer  "question_id"
     t.integer  "type_answer_id"
@@ -35,20 +32,20 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "artefact_models", force: :cascade do |t|
+  create_table "artefact_models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       limit: 250
     t.string   "filename",   limit: 250
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "artefact_statuses", force: :cascade do |t|
+  create_table "artefact_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description", limit: 250
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "competence_issues", force: :cascade do |t|
+  create_table "competence_issues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "version_id"
     t.string   "question",           limit: 250
     t.datetime "created_at"
@@ -56,22 +53,22 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.integer  "artefact_status_id"
   end
 
-  create_table "doc_artefacts", id: false, force: :cascade do |t|
-    t.text     "answer"
+  create_table "doc_artefacts", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "answer",                    limit: 65535
     t.integer  "document_id"
     t.integer  "params_config_type_doc_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "doc_config_especs", force: :cascade do |t|
+  create_table "doc_config_especs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "destination"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "doc_type_configs", id: false, force: :cascade do |t|
+  create_table "doc_type_configs", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "answer",                    default: true
     t.integer  "doc_type_id"
     t.integer  "params_config_Type_Doc_id"
@@ -80,14 +77,14 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "doc_types", force: :cascade do |t|
+  create_table "doc_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "methodstep_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "documents", force: :cascade do |t|
+  create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "doc_reference"
     t.integer  "doc_type_id"
     t.integer  "ontology_id"
@@ -97,24 +94,24 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "formality_degrees", force: :cascade do |t|
+  create_table "formality_degrees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       limit: 250
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "functions", force: :cascade do |t|
+  create_table "functions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "functions_papers", id: false, force: :cascade do |t|
+  create_table "functions_papers", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "function_id"
     t.integer "paper_id"
   end
 
-  create_table "integrations", force: :cascade do |t|
+  create_table "integrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "prefix"
     t.string   "uri"
@@ -124,36 +121,36 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "knowledge_acquisitions", force: :cascade do |t|
+  create_table "knowledge_acquisitions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "version_id"
-    t.text     "sources"
-    t.text     "strategies"
+    t.text     "sources",            limit: 65535
+    t.text     "strategies",         limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "letsencrypt_plugin_challenges", force: :cascade do |t|
-    t.text     "response"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "letsencrypt_plugin_challenges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "response",   limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  create_table "letsencrypt_plugin_settings", force: :cascade do |t|
-    t.text     "private_key"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "letsencrypt_plugin_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "private_key", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  create_table "methodologies", force: :cascade do |t|
+  create_table "methodologies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  create_table "methodsteps", force: :cascade do |t|
+  create_table "methodsteps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.boolean  "inlifecycle",    default: true
     t.integer  "methodology_id"
@@ -161,7 +158,7 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "ontologies", force: :cascade do |t|
+  create_table "ontologies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "project_name",        limit: 250
     t.string   "name",                limit: 250
     t.string   "domain",              limit: 250
@@ -169,50 +166,53 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "formality_degree_id"
+    t.integer  "methodology_id"
+    t.index ["formality_degree_id"], name: "index_ontologies_on_formality_degree_id", using: :btree
+    t.index ["methodology_id"], name: "index_ontologies_on_methodology_id", using: :btree
   end
 
-  create_table "ontology_users", id: false, force: :cascade do |t|
+  create_table "ontology_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "ontology_id"
     t.integer "user_id"
     t.integer "paper_id"
   end
 
-  create_table "papers", force: :cascade do |t|
+  create_table "papers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "paper",      limit: 250
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "params_config_type_docs", force: :cascade do |t|
+  create_table "params_config_type_docs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
-    t.text     "text_start"
+    t.text     "text_start",  limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "project_descriptions", force: :cascade do |t|
+  create_table "project_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "ontology_id"
     t.datetime "date"
-    t.text     "purpose"
-    t.text     "obs"
+    t.text     "purpose",            limit: 65535
+    t.text     "obs",                limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "project_feasibilities", force: :cascade do |t|
+  create_table "project_feasibilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "ontology_id"
-    t.text     "opportunities"
-    t.text     "problems"
-    t.text     "solutions"
-    t.text     "features"
-    t.text     "conclusion"
+    t.text     "opportunities",      limit: 65535
+    t.text     "problems",           limit: 65535
+    t.text     "solutions",          limit: 65535
+    t.text     "features",           limit: 65535
+    t.text     "conclusion",         limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "questions", force: :cascade do |t|
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "question"
     t.integer  "answer_type"
     t.integer  "document_id"
@@ -220,7 +220,7 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "relashions", force: :cascade do |t|
+  create_table "relashions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "term1"
     t.integer  "term2"
     t.integer  "term3"
@@ -231,7 +231,7 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "responsables", id: false, force: :cascade do |t|
+  create_table "responsables", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "level"
     t.integer  "document_id"
     t.integer  "user_id"
@@ -239,41 +239,41 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.datetime "updated_at"
   end
 
-  create_table "term_types", force: :cascade do |t|
+  create_table "term_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description", limit: 200
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "terms", force: :cascade do |t|
+  create_table "terms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "term_type_id"
     t.integer  "version_id"
     t.string   "name",               limit: 200
-    t.text     "description"
+    t.text     "description",        limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "terms_versions", id: false, force: :cascade do |t|
+  create_table "terms_versions", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "term_id"
     t.integer "version_id"
   end
 
-  create_table "type_answers", force: :cascade do |t|
+  create_table "type_answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "user_options", force: :cascade do |t|
+  create_table "user_options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "artefact_model_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",                        null: false
@@ -289,62 +289,64 @@ ActiveRecord::Schema.define(version: 20170119033345) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
-  create_table "version_assessments", force: :cascade do |t|
+  create_table "version_assessments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "version_id"
     t.integer  "artefact_status_id"
-    t.text     "technical_assessment"
-    t.text     "user_assessment"
+    t.text     "technical_assessment", limit: 65535
+    t.text     "user_assessment",      limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "version_descriptions", force: :cascade do |t|
+  create_table "version_descriptions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "version_id"
     t.datetime "date"
     t.string   "responsible",        limit: 250
-    t.text     "purpose"
-    t.text     "obs"
+    t.text     "purpose",            limit: 65535
+    t.text     "obs",                limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "version_evaluations", force: :cascade do |t|
+  create_table "version_evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "version_id"
-    t.text     "quality_criteria"
+    t.text     "quality_criteria",   limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "version_feasibilities", force: :cascade do |t|
+  create_table "version_feasibilities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "version_id"
     t.string   "responsible",        limit: 250
-    t.text     "opportunities"
-    t.text     "problems"
-    t.text     "solutions"
-    t.text     "features"
-    t.text     "conclusion"
+    t.text     "opportunities",      limit: 65535
+    t.text     "problems",           limit: 65535
+    t.text     "solutions",          limit: 65535
+    t.text     "features",           limit: 65535
+    t.text     "conclusion",         limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "version_schedules", force: :cascade do |t|
+  create_table "version_schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "version_id"
     t.string   "activity_name"
-    t.text     "activity_description"
+    t.text     "activity_description", limit: 65535
     t.datetime "activity_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "artefact_status_id"
   end
 
-  create_table "versions", force: :cascade do |t|
+  create_table "versions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "ontology_id"
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_foreign_key "ontologies", "formality_degrees"
+  add_foreign_key "ontologies", "methodologies"
 end

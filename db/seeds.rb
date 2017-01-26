@@ -1,17 +1,30 @@
-#u1 = User.create(:name =>"Matheus Andrade", :mail => "matheus@webcomfarinha.com",
-#:login => "matheus", :password => "49339465c068fb48e796b4e68bdd35d5")
-
 ArtefactModel.create(:name=>"Modelo 1", :filename=>"artefact_model_1")
 ArtefactModel.create(:name=>"Modelo 2", :filename=>"artefact_model_2")
 
+DocConfigEspec.create(:name => "Agendamento de atividades", :destination => "activity_shedule,edit")
+DocConfigEspec.create(:name => "Questões de Competência", :destination => "question,")
+DocConfigEspec.create(:name => "Lista de Termos", :destination => "glossary,manual")
+DocConfigEspec.create(:name => "Resposta", :destination => "question,resposta")
+DocConfigEspec.create(:name => "Integração", :destination => "integration,")
+
 ArtefactStatus.create(:description => "Rascunho")
 ArtefactStatus.create(:description => "Revisão Pendente")
+ArtefactStatus.create(:description => "Revisado")
 ArtefactStatus.create(:description => "Finalizado")
 
 FormalityDegree.create(:name=>"Altamente Informal")
 FormalityDegree.create(:name=>"Semi-Informal")
 FormalityDegree.create(:name=>"Formal")
 FormalityDegree.create(:name=>"Altamente Formal")
+
+Function.create(:description => "Adesão de colaborador")
+Function.create(:description => "Mudança de status para fechar")
+Function.create(:description => "Atribuir responsáveis")
+Function.create(:description => "Editar Metodologia Monto")
+Function.create(:description => "Editar Manual do Usuário")
+Function.create(:description => "Relacionar Funções e Papeis")
+Function.create(:description => "Editar Ontologia")
+Function.create(:description => "Deletar Ontologia")
 
 TermType.create(:description => 'Classe')
 TermType.create(:description => 'Propriedade de Dados')
@@ -20,9 +33,15 @@ TermType.create(:description => 'Relação entre Classe')
 TermType.create(:description => 'Restrição de Classe')
 TermType.create(:description => 'Termo a Definir')
 TermType.create(:description => 'Termo Abandonado')
+TermType.create(:description => 'Função')
+TermType.create(:description => 'Axioma')
 
+Paper.create(:paper => 'Administrador')
+Paper.create(:paper => 'Gestor')
+Paper.create(:paper => 'Avaliador')
+Paper.create(:paper => 'Colaborador')
 
-#o1 = Ontology.create(:project_name =>'Ontologia da Classificação Brasileira de Ocupações', :name => 'OntoCBO', :visible => 1, :domain => 'Ramos ocupacionais do mercado de trabalho brasileiro', :formality_degree => FormalityDegree.find(:first))
-#o1.users << u1
-#o2 = Ontology.create(:project_name =>'Ontologia teste', :name => 'OntoT', :visible => 1, :domain => 'primeiro teste', :formality_degree => FormalityDegree.find(:first))
-#o2.users << u1
+TypeAnswer.create(:description => 'Ruim')
+TypeAnswer.create(:description => 'Regular')
+TypeAnswer.create(:description => 'Bom')
+TypeAnswer.create(:description => 'Ótimo')

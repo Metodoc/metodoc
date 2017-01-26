@@ -45,11 +45,11 @@ class OntologiesController < ApplicationController
             @like = "%"
             @like = @like.concat(params[:string][:key].concat("%"))
             if params[:ontology] == "name"
-#                @ontologies = Ontology.find(:all, :conditions=>["ontologies.name like ? AND ontologies.visible=?",@like,true])
+                #                @ontologies = Ontology.find(:all, :conditions=>["ontologies.name like ? AND ontologies.visible=?",@like,true])
                 @ontologies = Ontology.where("ontologies.name like ? AND ontologies.visible=?",@like,true).all
             end
             if params[:ontology] == "project_name"
-#                @ontologies = Ontology.find(:all, :conditions=>["ontologies.project_name like ? AND ontologies.visible=?",@like,true])
+                #                @ontologies = Ontology.find(:all, :conditions=>["ontologies.project_name like ? AND ontologies.visible=?",@like,true])
                 @ontologies = Ontology.where("ontologies.project_name like ? AND ontologies.visible=?",@like,true).all
             end
             if params[:ontology] == "domain"
@@ -89,8 +89,8 @@ class OntologiesController < ApplicationController
             OntologyUser.delete2(params[:id],params[:user_id])
             papersUser.each do |p|
                 @ontologyUser = OntologyUser.new
-                @ontologyUser.update_attributes(:ontology_id => params[:id], :user_id => params[:user_id], :paper_id => p) 
-                @ontologyUser.save
+                @ontologyUser.attributes = {:ontology_id => params[:id], :user_id => params[:user_id], :paper_id => p} 
+                @ontologyUser.save!
                 #ontology.users << User.find(params[:user_id]) unless User.find(params[:user_id]).nil?
             end
         else
@@ -100,7 +100,7 @@ class OntologiesController < ApplicationController
         end
         redirect_to :action =>'add_user', :id => ontology.id
     end
-    
+
     # ====================================================================
 
     # POST /ontologies
@@ -110,10 +110,12 @@ class OntologiesController < ApplicationController
 
         respond_to do |format|
             if @ontology.save
-                ontoId = Ontology.where(name: @ontology.name).select("id").first
-                userId = session[:user_id];
-                OntologyUser.find_by_sql("insert into ontology_users (ontology_id, user_id, paper_id) values ('#{ontoId.id}', '#{userId}', 1)")
-                #                @ontologyUser.save
+                @ontologyUser = OntologyUser.new
+                @ontologyUser.attributes = {:ontology_id => @ontology.id, :user_id => session[:user_id], :paper_id => 1} 
+                #                ontoId = Ontology.where(name: @ontology.name).select("id").first
+                #                userId = session[:user_id];
+                #                OntologyUser.find_by_sql("insert into ontology_users (ontology_id, user_id, paper_id) values ('#{ontoId.id}', '#{userId}', 1)")
+                @ontologyUser.save!
                 format.html { redirect_to @ontology, notice: 'Ontology was successfully created.' }
                 format.json { render :show, status: :created, location: @ontology }
             else
@@ -163,6 +165,7 @@ class OntologiesController < ApplicationController
     def load_formality_degrees
         @formality_degrees = FormalityDegree.all.collect { |u| [u.name, u.id] }
     end
+
     def load_methodologies
         @metodologias = Methodology.all.collect { |u| [u.name, u.id] }
     end

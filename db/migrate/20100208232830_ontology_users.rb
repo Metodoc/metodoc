@@ -1,12 +1,12 @@
 class OntologyUsers < ActiveRecord::Migration
-  def self.up
-    create_table :ontology_users, :id => false do |t|
-      t.references :ontology, :user, :paper
+    def self.up
+        create_table :ontology_users, :id => false do |t|
+            t.references :ontology, :user, :paper
+        end
+
     end
 
-  end
-
-  def self.down
-    drop_table  :ontology_users
-  end
+    def self.down
+        drop_table  :ontology_users
+    end
 end
