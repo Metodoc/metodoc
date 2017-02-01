@@ -1,12 +1,12 @@
 <%= form_for(ontology) do |f| %>
 <% if ontology.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(ontology.errors.count, "error") %> <%=t(:prohibited)%>:</h2>
+    <h2><%#= pluralize(ontology.errors.count, "error") %> <%#=t(:prohibited)%>:</h2>
 
     <ul>
-        <% ontology.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
+        <%# ontology.errors.full_messages.each do |message| %>
+        <li><%#= message %></li>
+        <%# end %>
     </ul>
 </div>
 <% end %>

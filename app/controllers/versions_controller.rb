@@ -102,7 +102,7 @@ class VersionsController < ApplicationController
         if @version.destroy
             redirect_to :controller => 'ontologies', :action => 'show', :id => ontology_id
         else
-            flash[:danger] = 'Error to destroy'
+            flash[:danger] = t(:errorToDestroy)
             redirect_to root_url
         end
     end
@@ -110,7 +110,7 @@ class VersionsController < ApplicationController
     # extra method
     def check_permission
         unless User.permission(session[:user_id], Version.find(params[:id]).ontology.id)
-            flash[:danger] = 'Access denied'
+            flash[:danger] = t(:accessDenied)
             redirect_to root_url
         end
     end

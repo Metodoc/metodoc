@@ -175,9 +175,24 @@ en:
   downloadToWord: Download to word
   downloadToPDF: Download to PDF
   account: Account
-  
-
-
-  
-  
-  
+  checkEmail: Check your email for the activation link.
+  accountActivated: Account not activated.
+  invalidCombination: Invalid email/password combination
+  pleaseCheckEmail: Please check your email to activate your account.
+  profileUpdated: Profile updated
+  userDeleted: User deleted
+  pleaseloginIn: Please log in
+  accountActivated: Account activated!
+  invalidActivationLink: Invalid activation link
+  accessDenied: Access denied
+  errorToDestroy: Error to destroy
+  passwordResetHasExpired: Password reset has expired
+  asswordHasBeenReset: Password has been reset
+  emailAddressNotFound: Email address not found
+  emailSentWithPasswordResetInstructions: Email sent with password reset instructions
+  methodologyWasSuccessfullyDestroyed: Methodology was successfully destroyed
+  methodologyWasSuccessfullyUpdated: Methodology was successfully updated
+  methodologyWasSuccessfullyCreated: Methodology was successfully created
+  ontologyWasSuccessfullyDestroyed: Ontology was successfully destroyed
+  ontologyWasSuccessfullyCreated: Ontology was successfully created
+  ontologyWasSuccessfullyUpdated: Ontology was successfully updated

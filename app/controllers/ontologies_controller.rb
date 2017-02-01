@@ -116,7 +116,7 @@ class OntologiesController < ApplicationController
                 #                userId = session[:user_id];
                 #                OntologyUser.find_by_sql("insert into ontology_users (ontology_id, user_id, paper_id) values ('#{ontoId.id}', '#{userId}', 1)")
                 @ontologyUser.save!
-                format.html { redirect_to @ontology, notice: 'Ontology was successfully created.' }
+                format.html { redirect_to @ontology, notice: t(:ontologyWasSuccessfullyCreated) }
                 format.json { render :show, status: :created, location: @ontology }
             else
                 format.html { render :new }
@@ -130,7 +130,7 @@ class OntologiesController < ApplicationController
     def update
         respond_to do |format|
             if @ontology.update(ontology_params)
-                format.html { redirect_to @ontology, notice: 'Ontology was successfully updated.' }
+                format.html { redirect_to @ontology, notice: t(:ontologyWasSuccessfullyUpdated) }
                 format.json { render :show, status: :ok, location: @ontology }
             else
                 format.html { render :edit }
@@ -144,7 +144,7 @@ class OntologiesController < ApplicationController
     def destroy
         @ontology.destroy
         respond_to do |format|
-            format.html { redirect_to ontologies_url, notice: 'Ontology was successfully destroyed.' }
+            format.html { redirect_to ontologies_url, notice: t(:ontologyWasSuccessfullyDestroyed) }
             format.json { head :no_content }
         end
     end
@@ -176,7 +176,7 @@ class OntologiesController < ApplicationController
 
     def check_permission
         unless User.permission(session[:user_id], params[:id])
-            flash[:danger] = 'Access denied'
+            flash[:danger] = t(:accessDenied)
             redirect_to root_url
         end
     end
@@ -185,7 +185,7 @@ class OntologiesController < ApplicationController
     def logged_in_user
         unless logged_in?
             store_location
-            flash[:danger] = "Please log in."
+            flash[:danger] = t(:pleaseLoginIn)
             redirect_to login_url
         end
     end

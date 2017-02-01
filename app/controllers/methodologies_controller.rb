@@ -116,7 +116,7 @@ class MethodologiesController < ApplicationController
 
         respond_to do |format|
             if @methodology.save
-                format.html { redirect_to @methodology, notice: 'Methodology was successfully created.' }
+                format.html { redirect_to @methodology, notice: t(:methodologyWasSuccessfullyCreated) }
                 format.json { render :show, status: :created, location: @methodology }
             else
                 format.html { render :new }
@@ -130,7 +130,7 @@ class MethodologiesController < ApplicationController
     def update
         respond_to do |format|
             if @methodology.update(methodology_params)
-                format.html { redirect_to @methodology, notice: 'Methodology was successfully updated.' }
+                format.html { redirect_to @methodology, notice: t(:methodologyWasSuccessfullyUpdated) }
                 format.json { render :show, status: :ok, location: @methodology }
             else
                 format.html { render :edit }
@@ -144,7 +144,7 @@ class MethodologiesController < ApplicationController
     def destroy
         @methodology.destroy
         respond_to do |format|
-            format.html { redirect_to methodologies_url, notice: 'Methodology was successfully destroyed.' }
+            format.html { redirect_to methodologies_url, notice: t(:methodologyWasSuccessfullyDestroyed) }
             format.json { head :no_content }
         end
     end
@@ -168,7 +168,7 @@ class MethodologiesController < ApplicationController
     def logged_in_user
         unless logged_in?
             store_location
-            flash[:danger] = "Please log in."
+            flash[:danger] = t(:pleaseLoginIn)
             redirect_to login_url
         end
     end
