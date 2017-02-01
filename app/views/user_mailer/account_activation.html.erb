@@ -1,10 +1,9 @@
-<h1>Sample App</h1>
+<h1>MetoDoc</h1>
 
-<p>Hi <%= @user.name %>,</p>
+<p>Olá <%= @user.name %>,</p>
 
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+Seja bem vindo a MetoDoc! Clique no link abaixo para ativar sua conta:
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
+<%= link_to "Ativar conta agora!", edit_account_activation_url(@user.activation_token, email: @user.email) %>

@@ -122,7 +122,7 @@ class DocumentController < ApplicationController
                 if params[:version_id] 
                     redirect_to :controller => destino[0], :action => destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id], :version_id => params[:version_id]
                 else
-                    redirect_to :controller => destino[0], :action => destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id], :ontology_id => params[:ontology_id]
+                    redirect_to :controller => destino[0], :action => destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id]
                 end
             else
                 @doc_type.doc_type_config.each do |d|
@@ -156,7 +156,7 @@ class DocumentController < ApplicationController
             if params[:version_id] 
                 redirect_to :controller=> destino[0], :action=> destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id], :version_id => params[:version_id]
             else
-                redirect_to :controller=> destino[0], :action=> destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id], :ontology_id => params[:ontology_id]
+                redirect_to :controller=> destino[0], :action=> destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id]
             end
         end
         redirect_to :controller => 'ontologies', :action => 'show', :id => params[:ontology_id]

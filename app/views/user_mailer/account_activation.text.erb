@@ -1,5 +1,5 @@
-Hi <%= @user.name %>,
+Olá <%= @user.name %>,
 
-Welcome to the Sample App! Click on the link below to activate your account:
+Seja bem vindo a MetoDoc! Clique no link abaixo para ativar sua conta:
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

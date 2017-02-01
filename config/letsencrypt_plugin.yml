@@ -1,7 +1,7 @@
 default: &default
-  endpoint: 'https://localhost:3000/'
-  email: 'jeancarlosnovaes@gmail.com'
-  domain: 'metodoc.dcc.ufba.br'
+  endpoint: 'https://acme-v01.api.letsencrypt.org/'
+  email: 'metodocufba@gmail.com'
+  domain: "<%= ['metodoc.ufba.br', 'www.metodoc.ufba.br'].join(' ') %>"
 
   # in Rails.root, path to private key
   private_key: 'key/keyfile.pem'

@@ -65,65 +65,65 @@ p {
 /* Login */
 
 .panel-login {
-    border-color: #ccc;
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    border-color: #ccc !important;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2) !important;
 }
 .panel-login>.panel-heading {
-    color: #00415d;
-    background-color: #fff;
-    border-color: #fff;
-    text-align:center;
+    color: #00415d !important;
+    background-color: #fff !important;
+    border-color: #fff !important;
+    text-align:center !important;
 }
 .panel-login>.panel-heading a{
-    text-decoration: none;
-    color: #666;
-    font-weight: bold;
-    font-size: 15px;
-    -webkit-transition: all 0.1s linear;
-    transition: all 0.1s linear;
+    text-decoration: none !important;
+    color: #666 !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    -webkit-transition: all 0.1s linear !important;
+    transition: all 0.1s linear !important;
 }
 .panel-login>.panel-heading a.active{
-    color: #029f5b;
-    font-size: 18px;
+    color: #029f5b !important;
+    font-size: 18px !important;
 }
 .panel-login>.panel-heading hr{
-    margin-top: 10px;
-    margin-bottom: 0px;
-    clear: both;
-    border: 0;
-    height: 1px;
-    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
-    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    margin-top: 10px !important;
+    margin-bottom: 0px !important;
+    clear: both !important;
+    border: 0 !important;
+    height: 1px !important;
+    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0)) !important;
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0)) !important;
 }
 .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
-    height: 45px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    -webkit-transition: all 0.1s linear;
-    transition: all 0.1s linear;
+    height: 45px !important;
+    border: 1px solid #ddd !important;
+    font-size: 16px !important;
+    -webkit-transition: all 0.1s linear !important;
+    transition: all 0.1s linear !important;
 }
 .panel-login input:hover,
 .panel-login input:focus {
-    outline:none;
-    box-shadow: none;
-    border-color: #ccc;
+    outline:none !important;
+    box-shadow: none !important;
+    border-color: #ccc !important;
 }
 .btn-login {
-    background-color: #59B2E0;
-    outline: none;
-    color: #fff;
-    font-size: 14px;
-    height: auto;
-    font-weight: normal;
-    padding: 14px 0;
-    text-transform: uppercase;
-    border-color: #59B2E6;
+    background-color: #59B2E0 !important;
+    outline: none !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    height: auto !important;
+    font-weight: normal !important;
+    padding: 14px 0 !important;
+    text-transform: uppercase !important;
+    border-color: #59B2E6 !important;
 }
 .btn-login:hover,
 .btn-login:focus {
-    color: #fff;
-    background-color: #53A3CD;
-    border-color: #53A3CD;
+    color: #fff !important;
+    background-color: #53A3CD !important;
+    border-color: #53A3CD !important;
 }
 .forgot-password {
     text-decoration: underline;
@@ -148,9 +148,9 @@ p {
 }
 .btn-register:hover,
 .btn-register:focus {
-    color: #fff;
-    background-color: #1CA347;
-    border-color: #1CA347;
+    color: #fff !important;
+    background-color: #1CA347 !important;
+    border-color: #1CA347 !important;
 }
 
 /* footer */
@@ -185,9 +185,9 @@ footer ul li {
 
 /*lang icon */
 li.lang {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: -webkit-inline-box !important;
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important;
 }
 
 li.lang a.icon img {
@@ -195,4 +195,10 @@ li.lang a.icon img {
     height: 32px;
     margin-top: -10px;
     margin-bottom: -10px;
+}
+
+/* alert */
+.alert {
+    margin: 0 auto !important;
+    width: 50% !important;
 }

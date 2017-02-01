@@ -29,10 +29,21 @@ Rails.application.configure do
     # Don't care if the mailer can't send.
     config.action_mailer.raise_delivery_errors = true #change to true
 
-    config.action_mailer.delivery_method = :test #added 
-
-    host = 'localhost:3000' # Don't use this literally; use your local dev host instead
-    config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+    #config.action_mailer.delivery_method = :test #added
+    # Don't use this literally; use your local dev host instead
+    config.action_mailer.default_url_options = { host: "localhost:3000", protocol: 'http' }
+    # Default Mailer Host
+    Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        address:              'smtp.gmail.com',
+        port:                 587,
+        domain:               'gmail.com',
+        user_name:            'metodocufba@gmail.com',
+        password:             'metodoc2017',
+        authentication:       'plain',
+        enable_starttls_auto: true  
+    }
 
     config.action_mailer.perform_caching = false
 

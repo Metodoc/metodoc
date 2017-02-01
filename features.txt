@@ -1,2 +1,0 @@
-melhorar a geração do OWL
-migrar base de dados para mysql ou postgrees
