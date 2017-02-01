@@ -162,8 +162,8 @@ pt-BR:
     downloadToWord: Baixar documento para Word
     downloadToPDF: Baixar documento para PDF
     account: Conta
-    checkEmail: Veja seu email e clique no link enviado para ativar sua conta. 
-    accountActivated: Conta ativada.
+    checkEmail: Veja seu email e clique no link enviado para ativar sua conta
+    accountActivated: Conta ativada
     invalidCombination: Combinação email/password inválida
     pleaseCheckEmail: Por favor veja seu email para ativar a conta
     profileUpdated: Perfil atualizado
