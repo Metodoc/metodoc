@@ -8,13 +8,14 @@ Bundler.require(*Rails.groups)
 
 module Metodoc
     class Application < Rails::Application
+        
         # Settings in config/environments/* take precedence over those specified here.
         # Application configuration should go into files in config/initializers
         # -- all .rb files in that directory are automatically loaded.
 
         # config/application.rb
         config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-        
+
         # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
         # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
         config.time_zone = 'Brasilia'
@@ -25,7 +26,7 @@ module Metodoc
 
         # Configure the default encoding used in templates for Ruby 1.9.
         config.encoding = "utf-8"
-        
-#        config.force_ssl = true
+
+        #        config.force_ssl = true
     end
 end

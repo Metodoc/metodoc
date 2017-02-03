@@ -42,7 +42,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'mysql2'
 
 # Let's encrypt plugin for Ruby on Rails applications
-gem 'letsencrypt_plugin'
+# gem 'letsencrypt_plugin'
 
 # Integration of TinyMCE with the Rails asset pipeline
 gem 'tinymce-rails'

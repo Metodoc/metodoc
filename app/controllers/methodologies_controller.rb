@@ -30,7 +30,7 @@ class MethodologiesController < ApplicationController
         if params[:name]
             @etapa = Methodstep.new
             @etapa.attributes = {:name => params[:name], :methodology_id=>params[:id]}
-            @etapa.save	      
+            @etapa.save!
             redirect_to :action =>'show', :id => params[:id]
         end
     end
@@ -77,7 +77,7 @@ class MethodologiesController < ApplicationController
                 params_config_Type_Doc_id = c.split('-')[1]
 
                 @config = DocTypeConfig.new
-                @config.attributes = { :doc_type_id => doc_type_id, :params_config_Type_Doc_id => params_config_Type_Doc_id , :answer =>true}
+                @config.attributes = { :doc_type_id => doc_type_id, :params_config_Type_Doc_id => params_config_Type_Doc_id , :answer => true, :doc_config_espec_id => 1 }
                 @config.save!
             end
 
@@ -163,8 +163,8 @@ class MethodologiesController < ApplicationController
     def load_methodologias 
         @methodologias = Methodology.all
     end
-    
-     # Confirms a logged-in user.
+
+    # Confirms a logged-in user.
     def logged_in_user
         unless logged_in?
             store_location

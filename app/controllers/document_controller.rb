@@ -21,7 +21,7 @@ class DocumentController < ApplicationController
         respond_to do |format|
             format.html
             format.pdf do
-                render pdf: "#{@ontology.name}-V.#{@version.id}.pdf", 
+                render pdf: "#{@ontology.name}-V.#{@version.id}",
                 template: 'document/document.pdf.html.erb', 
                 disposition: 'attachment',
                 encoding: 'UTF-8'

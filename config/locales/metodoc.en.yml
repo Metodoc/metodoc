@@ -52,6 +52,8 @@ en:
   login: Login
   logout: Logout
   settings: Settings
+  documents: Documents
+  userManual: User manual
   profile: Profile
   save: Save
   editUser: Edti user
