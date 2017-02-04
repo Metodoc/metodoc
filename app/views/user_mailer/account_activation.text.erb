@@ -2,4 +2,4 @@ Olá <%= @user.name %>,
 
 Seja bem vindo a MetoDoc! Clique no link abaixo para ativar sua conta:
 
-<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= edit_account_activation_url(id: @user.activation_token, email: @user.email) %>
