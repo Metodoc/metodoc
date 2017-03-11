@@ -37,7 +37,7 @@ class DocumentController < ApplicationController
         
         respond_to do |format|
             format.docx do
-                render docx: 'document', filename: "#{@ontology.name}-V.#{@version.id.to_s}.docx"
+                render docx: 'document', filename: "#{@ontology.name}-V.#{@version.id.to_s}"
             end
         end
 
@@ -47,8 +47,9 @@ class DocumentController < ApplicationController
         if request.post?
             if params[:id]
                 @documento = Document.find(params[:id])
-                @documento.update(:artefact_status_id => params[:documento][:artefact_status_id])
-                # @documento.save!
+#                @documento.update(:artefact_status_id => params[:documento][:artefact_status_id])
+                @documento.attributes = params[:documento]
+                @documento.save!
 
                 # :name => params[:methodstep][:name], :inlifecycle => params[:methodstep][:inlifecycle]
                 # @documento.update(:artefact_status_id => params[:documento][:artefact_status_id])
@@ -56,28 +57,30 @@ class DocumentController < ApplicationController
 
                 @documento.doc_artefact.each do |d|
                     param = d.params_config_type_doc_id
-                    @str=params["answer_#{param}"] 
+                    @str = params["answer_#{param}"] 
                     DocArtefact.find_by_sql(['update doc_artefacts set answer = ? where document_id=? and params_config_type_doc_id = ?',@str, @documento.id, param])
                 end
 
-                if params[:responsable1][:user_id].present?
+                if params[:responsable1]
+#                    [:user_id].present?
                     #                    @responsable1 = Responsable.find(:first, :conditions =>['responsables.level=1 and responsables.document_id=?',@documento.id])
                     @responsable1 = Responsable.where("responsables.level = 1 and responsables.document_id = ?", @documento.id).first
                     if @responsable1.nil?
                         @responsable1 = Responsable.new
-                        @responsable1.attributes = { :level => 1, :document_id => @documento.id, :user_id => params[:responsable1][:user_id] }
+                        @responsable1.attributes = { :document_id => @documento.id,  :level => 1}
                         @responsable1.save!
                     else
                         Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 1', params[:responsable1][:user_id], @documento.id])
                     end
                 end
 
-                if params[:responsable2][:user_id].present?
+                if params[:responsable2]
+#                    [:user_id].present?
                     #                    @responsable2 = Responsable.find(:first, :conditions =>['responsables.level=2 and responsables.document_id=?',@documento.id])
                     @responsable2 = Responsable.where("responsables.level = 2 and responsables.document_id = ?", @documento.id).first
                     if @responsable2.nil?
                         @responsable2 = Responsable.new
-                        @responsable2.attributes = { :level => 2, :document_id => @documento.id, :user_id => params[:responsable2][:user_id]}
+                        @responsable2.attributes = { :document_id => @documento.id, :level => 2 }
                         @responsable2.save!
                     else
                         Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 2', params[:responsable2][:user_id],  @documento.id])
@@ -87,8 +90,8 @@ class DocumentController < ApplicationController
                 if @documento.version_id.nil?
                     redirect_to :controller => 'ontology', :action => 'show', :id => @documento.ontology_id
                 else
-                    redirect_to :controller => 'versions', :action => 'show', :id => @documento.version_id, :ontology_id=>@documento.version.ontology_id
-                end
+                    redirect_to :controller => 'versions', :action => 'show', :id => @documento.version_id, :ontology_id => @documento.version.ontology_id
+                end    
             end
         elsif params[:id]
             @documento = Document.find(params[:id])
@@ -102,9 +105,9 @@ class DocumentController < ApplicationController
         else
             @documento = Document.new
             if params[:version_id] 
-                @documento.attributes = {:doc_type_id => params[:doc_type], :version_id => params[:version_id], :ontology_id => params[:ontology_id], :artefact_status_id => 1}
+                @documento.attributes = {:doc_type_id => params[:doc_type], :version_id => params[:version_id], :artefact_status_id => 1}
             else
-                @documento.attributes = {:doc_type_id => params[:doc_type], :version_id => 1, :ontology_id => params[:ontology_id], :artefact_status_id => 1}
+                @documento.attributes = {:doc_type_id => params[:doc_type],  :ontology_id => params[:ontology_id], :artefact_status_id => 1}
             end
             @documento.save!
 
@@ -115,8 +118,8 @@ class DocumentController < ApplicationController
             if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?
 
                 destino = configEspec.doc_config_espec.destination.split(',')
-                #                @documento.attributes = params[:document]
-                #                @documento.save!
+                @documento.attributes = params[:document]
+                @documento.save!
 
 
                 if params[:version_id] 
@@ -130,7 +133,7 @@ class DocumentController < ApplicationController
                     @docArtefact.attributes = { :document_id => @documento.id, :params_config_type_doc_id => d.params_config_Type_Doc_id, :answer => d.params_config_Type_Doc.text_start }
                     @docArtefact.save!
                 end
-                redirect_to :action => 'edit', :id=> @documento.id, :ontology_id => params[:ontology_id]
+                redirect_to :action => 'edit', :id => @documento.id, :ontology_id => params[:ontology_id]
             end
         end
     end
@@ -143,7 +146,7 @@ class DocumentController < ApplicationController
         else
             @documento.attributes = { :doc_type_id => params[:doc_type], :ontology_id => params[:ontology_id], :artefact_status_id => 1 }
         end
-        @documento.save
+        @documento.save!
 
         @doc_type = DocType.find(params[:doc_type])
         configEspec = @doc_type.doc_type_config.first
@@ -151,15 +154,15 @@ class DocumentController < ApplicationController
         if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?
             destino = configEspec.doc_config_espec.destination.split(',')
             @documento.attributes = params[:document]
-            @documento.save
+            @documento.save!
 
             if params[:version_id] 
-                redirect_to :controller=> destino[0], :action=> destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id], :version_id => params[:version_id]
+                redirect_to :controller => destino[0], :action=> destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id], :version_id => params[:version_id]
             else
                 redirect_to :controller=> destino[0], :action=> destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id]
             end
         end
-        redirect_to :controller => 'ontologies', :action => 'show', :id => params[:ontology_id]
+#        redirect_to :controller => 'ontologies', :action => 'show', :id => params[:ontology_id]
     end
 
 

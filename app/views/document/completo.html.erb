@@ -1,8 +1,6 @@
 <style>
     .content-header{
-        margin: 5px -2px 20px 0px;
         font-family: arial,sans-serif;
-        font-size: 12px;
     }
     .cabecalho{
         padding-bottom:30px;
@@ -34,9 +32,10 @@
             </div>
 
             <% @etapas.each do |e| %>
+               <div class="etapa">
                 <b><%=t(:step)%></b>: <%=e.name%><br>
                 <%e.doc_type.each do |d|%>
-                    <b><%=t(:document)%></b>:<%=d.name%><br>
+                    <b><%=t(:document)%></b>: <%=d.name%><br>
                     <%if e.inlifecycle%>
                         <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id]) %>
                         <%@documento = Document.where("documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id).first %>
@@ -55,6 +54,7 @@
                         <%end%>
                     <%end%>
                 <%end%>
+                </div>
             <%end%>
             <%= link_to t(:downloadToWord), {controller: 'document', action: 'html_to_word',  version_id: @version.id}, {class: 'btn btn-success'} %>
             <%= link_to t(:downloadToPDF), {controller: 'document', action: 'html_to_pdf',  version_id: @version.id}, {class: 'btn btn-success'} %>

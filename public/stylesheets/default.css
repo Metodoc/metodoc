@@ -141,9 +141,9 @@ div#mainnav{
 
 }
 .tela{
-    float:right;
-    width:78%;
-    padding-top:-30px;
+    float: left;
+    width: 60%;
+    padding: 15px;
 }
 .content-header, .content{
     width: 95%;
@@ -159,10 +159,6 @@ div#mainnav{
     font-size: 27px;
     display: inline-block;
     font-family: "lato", sans-serif;
-}
-
-.content-header p{
-    line-height: 10px;
 }
 
 #hr{
@@ -222,12 +218,13 @@ div#mainnav{
 
 .menu-lateral{
     border-right:2px solid lightgray;
-    width:20%;
+    min-width:20%;
+    width: auto;
     float:left;
     padding-top:30px;
 
     padding-left:20px;
-    height: 92%;
+    height: auto;
     line-height: 25px;
 }
 .menu-horizontal{
@@ -256,6 +253,9 @@ div#mainnav{
 
 }
 
+table td a {
+    float: left;
+}
 
 .page-menu{
     width: 100%;

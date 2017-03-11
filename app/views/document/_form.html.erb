@@ -1,5 +1,7 @@
 
+<%#=debug @documento %>
 <%@docArtefacts.each do |a|%>
+   
     <label for="version_description_purpose"><%=a.params_config_type_doc.description%></label><br />
     <textarea id="answer_<%=a.params_config_type_doc.id%>" rows="20" cols="100" name="answer_<%=a.params_config_type_doc.id%>" >
         <%=a.answer%>
@@ -10,12 +12,12 @@
 <input type="hidden" name="id" value="<%=params[:id]%>">
 <input type="hidden" name="ontology_id" value="<%=params[:ontology_id]%>">
 
-<div style="margin-top:10px;margin-bottom:10px;float:left;">
+<div style="margin-bottom:10px;float:left;">
     <label for="document_artefact_status_id"><%=t(:status)%>:</label><br>
     <label for="document_responsable_1"><%=t(:responsible)%>:</label><br>
     <label for="document_responsable_2" style="margin-top: 8px;">
-        <%=t(:responsible)%>:<br>
-        (<a href="javascript:mostraEscondeTime('observ')"><%=t(:watcher)%></a>)
+        <%=t(:watcher)%>:<br>
+        (<a href="javascript:mostraEscondeTime('observ')">?</a>)
     </label> 
 </div>
 <div style="margin-top:10px;margin-bottom:10px;">

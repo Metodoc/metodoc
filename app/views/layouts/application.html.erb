@@ -35,7 +35,26 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
         <%= stylesheet_link_tag "default" %>
-        <%=yield :css%> 
+        <% 
+            if logged_in?
+                begin
+                    user_option = UserOption.find_by_user_id(session[:user_id])
+                    user_model = user_option.artefact_model_id
+                    rescue Exception => e
+                        puts e.message
+                end                    
+            end
+        %>
+        
+        <% if user_model == 1 %>
+            <%= stylesheet_link_tag "artefact_model_1" %>
+        <% end %>
+        
+        <% if user_model == 2 %>
+            <%= stylesheet_link_tag "artefact_model_2" %>
+        <% end %>        
+        
+        <%= yield :css%> 
 
 
         <link href="/javascripts/jquery-ui-1.9.2/css/base/jquery-ui-1.9.2.custom.css" rel="stylesheet">

@@ -55,6 +55,7 @@ en:
   documents: Documents
   userManual: User manual
   profile: Profile
+  register: Sign up
   save: Save
   editUser: Edti user
   updateYourProfile: Update your profile
@@ -95,6 +96,7 @@ en:
   new: New
   newActivity: New activity
   document: Document
+  watcher: Watcher
   artefactStatus: Artefact status
   question: Question
   creating: Creating
@@ -174,7 +176,7 @@ en:
   youDoNotHaveOntology: You do not yet have an ontology or you collaborate with the development of one
   notCreated: Not created
   noOntology: No ontology
-  downloadToWord: Download to word
+  downloadToWord: Download editable document
   downloadToPDF: Download to PDF
   account: Account
   checkEmail: Check your email for the activation link.
@@ -198,3 +200,4 @@ en:
   ontologyWasSuccessfullyDestroyed: Ontology was successfully destroyed
   ontologyWasSuccessfullyCreated: Ontology was successfully created
   ontologyWasSuccessfullyUpdated: Ontology was successfully updated
+  documentsForThisStep: Documents for this step

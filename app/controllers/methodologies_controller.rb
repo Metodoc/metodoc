@@ -22,6 +22,7 @@ class MethodologiesController < ApplicationController
     def details
         @methodology = Methodology.find(params[:id])
     end
+    
     def search
         @methodology = Methodology.new
     end
@@ -29,9 +30,9 @@ class MethodologiesController < ApplicationController
     def newetapa
         if params[:name]
             @etapa = Methodstep.new
-            @etapa.attributes = {:name => params[:name], :methodology_id=>params[:id]}
+            @etapa.attributes = {:name => params[:name], :methodology_id => params[:id]}
             @etapa.save!
-            redirect_to :action =>'show', :id => params[:id]
+            redirect_to :action => 'show', :id => params[:id]
         end
     end
 
@@ -47,14 +48,22 @@ class MethodologiesController < ApplicationController
         if params[:etapa_id] and doc_type_id == "new"+params[:etapa_id]
             @doc = DocType.new
             @doc.attributes = { :name => params[:nameDT], :methodstep_id => params[:etapa_id]}
-            @doc.save!	      
+#            begin
+                @doc.save!
+#                rescue Exception => e
+#                    puts e.message
+#            end
         elsif params[:nameDT] == "destroy"
             @doc = DocType.find(doc_type_id)
             @doc.destroy
         else 
             @doc = DocType.find(doc_type_id)
             @doc.attributes = { :name => params[:nameDT], :methodstep_id => params[:etapa_id]}
-            @doc.save!
+#            begin
+                @doc.save!
+#                rescue Exception => e
+#                    puts e.message
+#            end
         end
         redirect_to :action => 'show', :id => params[:id]
     end
@@ -62,8 +71,14 @@ class MethodologiesController < ApplicationController
     def config_etapa
         #parametros da etapa
         @etapa = Methodstep.find(params[:etapa_id])
+#        @etapa.attributes = params[:methodstep]
         @etapa.attributes = {:name => params[:methodstep][:name], :inlifecycle => params[:methodstep][:inlifecycle]}
-        @etapa.save!
+        
+#        begin
+            @etapa.save!
+#            rescue Exception => e
+#                puts e.message
+#        end
 
         #configuração de tipo de documento
         @etapa.doc_type.each do |d|
@@ -77,21 +92,29 @@ class MethodologiesController < ApplicationController
                 params_config_Type_Doc_id = c.split('-')[1]
 
                 @config = DocTypeConfig.new
-                @config.attributes = { :doc_type_id => doc_type_id, :params_config_Type_Doc_id => params_config_Type_Doc_id , :answer => true, :doc_config_espec_id => 1 }
-                @config.save!
+                @config.attributes = { :doc_type_id => doc_type_id, :params_config_Type_Doc_id => params_config_Type_Doc_id , :answer => true, :doc_config_espec_id => nil }
+                
+#                begin
+                    @config.save!
+#                    rescue Exception => e
+#                        puts e.message
+#                end
             end
-
         end
+        
         if params[:especs_ids]
             especs_ids = params[:especs_ids].split(',')
             especs_ids.each do |e|
                 doc_type_id = e.split('-')[0]
                 doc_config_espec_id = e.split('-')[1]
                 @config = DocTypeConfig.new
-                @config.attributes = { :doc_type_id => doc_type_id, :doc_config_espec_id => doc_config_espec_id , :answer =>false}
-                @config.save!
+                @config.attributes = { :doc_type_id => doc_type_id, :doc_config_espec_id => doc_config_espec_id , :answer => false }
+#                begin
+                    @config.save!
+#                    rescue Exception => e
+#                        puts e.message
+#                end
             end
-
         end
         # a configuração acaba aqui
 

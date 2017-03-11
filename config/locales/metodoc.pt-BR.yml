@@ -16,6 +16,7 @@ pt-BR:
     show: Mostrar
     projectname: Nome do projeto
     domain: Domínio
+    watcher: Observador
     visible: Visível nas pesquisas
     formalitydegree: Grau de formalidade
     methodology: Metodologia
@@ -32,6 +33,7 @@ pt-BR:
     password: Senha
     resetPassword: Recuperar senha
     login: Entrar
+    register: Cadastro de usuário
     logout: Sair
     settings: Configurações
     documents: Documentos
@@ -54,7 +56,7 @@ pt-BR:
     activities: Atividades
     infoPerson: Dados pessoais
     yourActivities: Suas atividades pendentes
-    ontologyRelates: Ontology to which it relates
+    ontologyRelates: Ontologias relacionadas
     createMyAccount: Criar minha conta
     userOptions: Opções do usuário
     systemConfigure: Configure o sistema com algumas alterações à sua escolha
@@ -161,7 +163,7 @@ pt-BR:
     youDoNotHaveOntology: Você ainda não possui uma ontologia ou colabora com o desenvolvimento de uma
     notCreated: Não criado
     noOntology: Sem ontologia
-    downloadToWord: Baixar documento para Word
+    downloadToWord: Baixar documento editável
     downloadToPDF: Baixar documento para PDF
     account: Conta
     checkEmail: Veja seu email e clique no link enviado para ativar sua conta

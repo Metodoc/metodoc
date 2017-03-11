@@ -13,20 +13,28 @@
                 <td><%=t(:ontologyRelates)%></td>
             </tr>
             <%if !@atividades.nil?%>
-            <%@atividades.each do |a|%>
-            <tr>
-                <td><%=a.name%></td>
-                <%if !a.document.version_id.nil?%>
-                <td><%=a.document.version.ontology.name%></td>
-                <%else%>
-                <td><%=a.document.ontology.name%></td>
+                <%@atividades.each do |a|%>
+                    <tr>
+                        <td><%=a.name%></td>
+                        <%if !a.document.version_id.nil?%>
+                            <% begin %>
+                                <td><%=a.document.version.ontology.name%></td>
+                                <% rescue Exception => e%>
+                                <% puts e.message %>
+                            <% end %>
+                        <%else%>
+                            <% begin %>
+                                <td><%=a.document.ontology.name%></td>
+                                <% rescue Exception => e%>
+                                <% puts e.message %>
+                            <% end %>
+                        <%end%>
+                    </tr>
                 <%end%>
-            </tr>
-            <%end%>
             <%else%>
-            <tr>
-                <td><%=t(:noActivities)%></td>
-            </tr>
+                <tr>
+                    <td><%=t(:noActivities)%></td>
+                </tr>
             <%end%>
         </table>
     </div>

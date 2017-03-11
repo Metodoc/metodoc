@@ -1,7 +1,7 @@
 class DocTypeConfig < ApplicationRecord
     belongs_to :doc_type
     belongs_to :params_config_Type_Doc
-    belongs_to :doc_config_espec
+    belongs_to :doc_config_espec, optional: true
 
 
     def self.delete1(doc_type_id, params_config_Type_Doc_id)
