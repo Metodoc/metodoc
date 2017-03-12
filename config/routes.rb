@@ -80,6 +80,7 @@ Rails.application.routes.draw do
 
         get '/document/show/:id', to: 'document#show'
         get '/document/newespec/', to: 'document#newespec'
+        post '/document/newespec/', to: 'document#newespec'
         get 'document/completo', to: 'document#completo', as: 'document_completo'
         get 'document/edit', to: 'document#edit', as: 'document_edit_get'
         post 'document/edit', to: 'document#edit', as: 'document_edit_post'

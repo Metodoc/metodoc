@@ -26,8 +26,8 @@
             <%e.doc_type.each do |d|%>
                 <div class="activity texto2">
                     <div class="activity-header">
-                        <b><%=t(:document)%>:</b><%=d.name%><br>
-                        <b><%=t(:status)%>:</b>
+                        <b><%=t(:document)%>: </b><%=d.name%><br>
+                        <b><%=t(:status)%>: </b>
                         <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id]) %>
                         <%@documento = Document.where("documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id).first %>
                         <%if @documento.nil?%>
@@ -38,7 +38,7 @@
                             </span>
                             <div id="projectDescriptionDetails<%=d.id%>" class="info-box">
                                 <b><%=t(:createdAt)%>:</b> <%=my_date(@documento.created_at)%><br>
-                                <b><%=t(:updateddAt)%>:</b> <%=my_date(@documento.updated_at)%>
+                                <b><%=t(:updatedAt)%>:</b> <%=my_date(@documento.updated_at)%>
                             </div>
                             <br>
                             <a href="javascript:mostraEsconde('projectDescriptionDetails<%=d.id%>')">[...]</a>

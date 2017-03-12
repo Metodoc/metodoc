@@ -47,8 +47,8 @@ class DocumentController < ApplicationController
         if request.post?
             if params[:id]
                 @documento = Document.find(params[:id])
-#                @documento.update(:artefact_status_id => params[:documento][:artefact_status_id])
-                @documento.attributes = params[:documento]
+                @documento.attributes = { :artefact_status_id => params[:documento][:artefact_status_id] }
+#                @documento.attributes = params[:documento]
                 @documento.save!
 
                 # :name => params[:methodstep][:name], :inlifecycle => params[:methodstep][:inlifecycle]
@@ -61,26 +61,24 @@ class DocumentController < ApplicationController
                     DocArtefact.find_by_sql(['update doc_artefacts set answer = ? where document_id=? and params_config_type_doc_id = ?',@str, @documento.id, param])
                 end
 
-                if params[:responsable1]
-#                    [:user_id].present?
+                if params[:responsable1][:user_id].present?
                     #                    @responsable1 = Responsable.find(:first, :conditions =>['responsables.level=1 and responsables.document_id=?',@documento.id])
                     @responsable1 = Responsable.where("responsables.level = 1 and responsables.document_id = ?", @documento.id).first
                     if @responsable1.nil?
                         @responsable1 = Responsable.new
-                        @responsable1.attributes = { :document_id => @documento.id,  :level => 1}
+                        @responsable1.attributes = { :document_id => @documento.id,  :level => 1, :user_id => params[:responsable1][:user_id] }
                         @responsable1.save!
                     else
                         Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 1', params[:responsable1][:user_id], @documento.id])
                     end
                 end
 
-                if params[:responsable2]
-#                    [:user_id].present?
+                if params[:responsable2][:user_id].present?
                     #                    @responsable2 = Responsable.find(:first, :conditions =>['responsables.level=2 and responsables.document_id=?',@documento.id])
                     @responsable2 = Responsable.where("responsables.level = 2 and responsables.document_id = ?", @documento.id).first
                     if @responsable2.nil?
                         @responsable2 = Responsable.new
-                        @responsable2.attributes = { :document_id => @documento.id, :level => 2 }
+                        @responsable2.attributes = { :document_id => @documento.id, :level => 2, :user_id => params[:responsable2][:user_id] }
                         @responsable2.save!
                     else
                         Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 2', params[:responsable2][:user_id],  @documento.id])
@@ -118,7 +116,7 @@ class DocumentController < ApplicationController
             if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?
 
                 destino = configEspec.doc_config_espec.destination.split(',')
-                @documento.attributes = params[:document]
+                @documento.attributes = { :ontology_id => params[:ontology_id] }
                 @documento.save!
 
 
@@ -153,7 +151,7 @@ class DocumentController < ApplicationController
 
         if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?
             destino = configEspec.doc_config_espec.destination.split(',')
-            @documento.attributes = params[:document]
+            @documento.attributes = { :doc_reference => params[:document][:doc_reference] }
             @documento.save!
 
             if params[:version_id] 

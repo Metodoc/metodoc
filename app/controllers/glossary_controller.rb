@@ -9,7 +9,6 @@ class GlossaryController < ApplicationController
     before_action :load_artefact_status, :only =>  [ :edit ]
     before_action :load_ontologias
 
-
     def product_xml
 
         #        @types = TermType.find(:all)
@@ -66,9 +65,9 @@ class GlossaryController < ApplicationController
         textxml = builder.to_xml
         name = @ontology.name+"-"+@version.number.to_s+".owl"
         directory = "app/views/glossary/arquivos/"+name
-        File.open(directory, "w") { 
-            |f| f.write(textxml) 
-            }
+        File.open(directory, "w") { |f| 
+            f.write(textxml) 
+        }
         File.open(directory, 'r') do |f|
             send_data f.read, :type => "text/xml", :filename => name
         end

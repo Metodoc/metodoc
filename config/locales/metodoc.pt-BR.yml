@@ -26,7 +26,7 @@ pt-BR:
     welcome: Bem-vindo a ferramenta MetoDoc
     descriptionMetodoc: A MetoDoc é uma ferramenta para auxiliar na construção e documentação de Ontologias
     email: E-mail
-    submit: Enviar
+    submit: Salvar
     forgotPassword: Recuperação de senha
     updatePassword: Atualizar senha
     password_confirmation: Confirme a senha
@@ -94,9 +94,9 @@ pt-BR:
     regular: Regular
     good: Bom
     great: Ótimo
-    empty: Empty
-    text: Text
-    chooseBRGG: Choose (Bad, Regular, Good, Great)
+    empty: Vazio
+    text: Área de texto
+    chooseBRGG: Escolha (Ruim, Regular, Bom, Ótimo)
     newQuestion: Nova questão
     fullDocument: Documento completo
     generateOWL: Gerar OWL
@@ -110,7 +110,7 @@ pt-BR:
     watcherNotAllowed: O responsável observador não tem permissão de edição, apenas de leitura
     ontologieName: Nome da ontologia
     project: Projeto
-    ontologieVersion: Versão da ontologia
+    ontologyVersion: Versões da ontologia
     domain: Domínio
     step: Etapa
     date: Data
@@ -135,7 +135,7 @@ pt-BR:
     manual: Manual
     addOntologie: Adicionar ontologia
     import: Importar
-    searchForPrefix: Search for prefix
+    searchForPrefix: Pesquise por prefixo
     methodologyName: Nome da metodologia
     methodologyDescription: Descrição da metodologia
     isLifecicle: Participa do ciclo de vida (S/N)?

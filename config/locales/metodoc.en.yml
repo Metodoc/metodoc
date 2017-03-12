@@ -111,7 +111,7 @@ en:
   text: Text
   chooseBRGG: Choose (Bad, Regular, Good, Great)
   newQuestion: Nova questão
-  fullDocument: Full document
+  fullDocument: Full documentation
   generateOWL: Generate OWL
   createdAt: Created at
   updatedAt: Updated at
@@ -120,9 +120,9 @@ en:
   referenceDoc: Does it refer to which document?
   watcher: Watcher
   watcherNotAllowed: The watcher is not allowed to edit, read only
-  ontologieName: Ontologie name
+  ontologieName: Ontology name
   project: Project
-  ontologieVersion: Ontologie version
+  ontologyVersion: Ontology versions
   domain: Domain
   step: Step
   date: Date
@@ -145,9 +145,9 @@ en:
   nothingFound: Nothing found
   search: Search
   manual: Manual
-  addOntologie: Adicionar ontologia
+  addOntologie: Add ontology
   import: Import
-  searchForPrefix: Pesquise por prefixo
+  searchForPrefix: Search for prefix
   methodologyName: Methodology name
   methodologyDescription: Methodology description
   isLifecicle: Is this in the life cicle (Y/N)?

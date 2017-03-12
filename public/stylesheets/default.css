@@ -37,7 +37,7 @@ div.username span a{
 #wrap{
     margin:0 auto;
     text-align:left;
-/*    padding: 0px 40px;*/
+    /*    padding: 0px 40px;*/
     position: relative;
 }
 #header{
@@ -253,10 +253,6 @@ div#mainnav{
 
 }
 
-table td a {
-    float: left;
-}
-
 .page-menu{
     width: 100%;
     text-align: right;
@@ -273,13 +269,13 @@ table td a {
 
 .content{
     margin-bottom: 20px;
-/*    padding:1%;*/
-/*
+    /*    padding:1%;*/
+    /*
     background-color: #fff;
     border-radius: 15px;-moz-border-radius: 15px;-webkit-border-radius: 15px;
     -moz-box-shadow: 5px 5px 15px #000;
     -webkit-box-shadow: 5px 5px 15px #000;
-*/
+    */
 }
 .content h2{
     border-bottom: 2px solid rgb(204, 204, 204);
@@ -628,9 +624,12 @@ li.square{
 
 .btmore{
     background: url('../images/icons/more.png') no-repeat left top!important;
-    height:37px!important;
-    width:32px!important;
+    height:37px !important;
+    width:32px !important;
     opacity:0.45;
+    padding: 1px 20px 20px !important;
+    text-decoration: none !important; 
+    margin: 10px !important; 
 }
 .btdocument{
     background: url('../images/icons/document.png') no-repeat left top!important;

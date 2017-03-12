@@ -1,66 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MetoDoc - Ferramenta web para auxílio na construção e documentação de ontologias</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+        <meta name="csrf-param" content="authenticity_token" />
+        <meta name="csrf-token" content="kjZzyFVonvhHT9/IiMau9r34fMKSW683PT2w1j1jqzVvosx/WQsHaqKwUNnuVaC+fUQ/uuDOt0FFVKnH10kPjg==" />
+        <link rel="stylesheet" media="all" href="/assets/application.self-f8894798ead0b588ad373052fcad2893a72a4800d77454a074bce8417f4e4992.css?body=1" data-turbolinks-track="reload" />
+        <link rel="stylesheet" media="all" href="/assets/app.self-12538c77b0578363b48c2ec12c11a2573e0f073fbb901bdccc2d31c19745c435.css?body=1" data-turbolinks-track="reload" />
+        <link rel="stylesheet" media="all" href="/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" data-turbolinks-track="reload" />
+        <link rel="stylesheet" media="all" href="/assets/twitter-bootstrap-static/fontawesome.self-2fe4f8a61d73606fbcb036b41f380591906a4da65a9eb5ec0a210fe6980b2ca7.css?body=1" data-turbolinks-track="reload" />
+        <link rel="stylesheet" media="all" href="/assets/bootstrap_and_overrides.self-9b692ec76c0436a8d02d247efcf622b2af16f8f942bbba5a688b9339c463b1dd.css?body=1" data-turbolinks-track="reload" />
+        <script src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" data-turbolinks-track="reload"></script>
+        <script src="/assets/application.self-afe802b04eaf1de2ea762489c83c08aa4c4ff3ff13c21566e43cb710683f5abc.js?body=1" data-turbolinks-track="reload"></script>
+    </head>
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    <body>
+        <div class="container-fluid">
+            <header class="navbar navbar-inverse">
+                <div class="container-fluid">
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
-
-<body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
-  </div>
-</body>
+                </div>
+            </header>            
+        </div>
+        <h1>Error 500</h1>
+        <a href="/" class="btn btn-large">Back to Home</a>
+    </body>
 </html>

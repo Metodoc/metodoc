@@ -20,7 +20,7 @@
     end%>
     <div class="cabeçalho">
         <b><%=t(:document)%></b>: <%=@documento.doc_type.name%><br>
-        <b><%=t(:ontologieName)%></b>:<%=@ontology_val.name%><br>
+        <b><%=t(:ontologieName)%></b>: <%=@ontology_val.name%><br>
         <b><%=t(:project)%></b>: <%=@ontology_val.project_name%><br>
 
         <%if !@documento.version_id.nil?%>
@@ -28,7 +28,7 @@
         <%end%>
 
         <b><%=t(:createdAt)%></b>: <%=my_date(@documento.created_at)%><br>
-        <b><%=t(:updatedAt)%> </b>: <%=my_date(@documento.updated_at)%><br>
+        <b><%=t(:updatedAt)%></b>: <%=my_date(@documento.updated_at)%><br>
         <b><%=t(:domain)%></b>: <%=@ontology_val.domain%><br>
         <%if !@documento.responsable.empty? %>
         <%@documento.responsable.each do |r|%>

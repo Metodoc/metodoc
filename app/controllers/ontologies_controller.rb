@@ -1,7 +1,7 @@
 class OntologiesController < ApplicationController
     before_action :logged_in_user
     skip_before_action :verify_authenticity_token
-    before_action :check_permission, :except =>[:index, :search, :details, :edit, :new, :create]
+    before_action :check_permission, :except =>[:index, :search, :details, :new, :create]
     before_action :load_formality_degrees, :only => [:new, :index, :edit, :create, :update]
     before_action :load_methodologies, :only => [:new, :index, :edit, :create, :update]
     before_action :load_ontologias
