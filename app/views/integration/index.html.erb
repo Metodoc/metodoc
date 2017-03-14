@@ -37,6 +37,7 @@
         float:left;
         padding-bottom: 18px;
         border-width: 0px 0px 2px;
+        cursor: pointer;
     }
     .h{
         border-style: none none solid;
@@ -133,16 +134,16 @@
                 </div>
             </div>
             <%= form_for :integration, :url => { :action => "adicionar", :document_id => params[:document_id], :version_id => params[:version_id] } do |f| %>
-            <div id="form1" name="form">		
-                <%=render :partial => 'form_pesquisa' %>
-            </div>
-            <div id="form2" name="form" style="display:none;">		
-                <%=render :partial => 'form' %>
-            </div>
-            <div id="buttons" align="center" class="buttons">
-                <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
-            </div>
+                <div id="form1" name="form">		
+                    <%=render :partial => 'form_pesquisa' %>
+                </div>
+                <div id="form2" name="form" style="display:none;">		
+                    <%=render :partial => 'form' %>
+                </div>
+                <div id="buttons" align="center" class="buttons">
+                    <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                    <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+                </div>
             <%end%>
         </div>
     </div>
@@ -154,18 +155,25 @@
 
     $("#btBusca").click(function(ev){
         string = $('#strBusca').val();
-        var url = <%= params[:locale] %> + '/integration/index?version_id='+<%=params[:version_id]%>+'&document_id='+<%=params[:document_id]%>+'&string='+string; 
+        var url = "/integration/index?version_id=<%=params[:version_id]%>&document_id=<%=params[:document_id]%>&string="+string; 
         window.location.href = url;
 
     });
+    
+    $("[name=commit]").attr('style', 'display:none');
+    
     $('.li-a').click(function(){
 
         $("[name=menu]").removeClass('s');
         $(this).addClass('s');
         idform = $(this).attr('role');
         $("[name=form]").attr('style', 'display:none');
+        $("[name=commit]").attr('style', 'display:block');
         $("#"+idform).attr('style', 'display:block');
-
+    });
+    
+    $('.s').click(function(){
+        $("[name=commit]").attr('style', 'display:none');
     });
 
     $('.li-a').hover(function(){
@@ -175,7 +183,7 @@
     });
 
     <%if params[:string]%>
-    openWindow("#janela", "#{t(:addOntologie)}", "");
+        openWindow("#janela", "Adicionar ontologia", "");
     <%end%>
 </script>
 

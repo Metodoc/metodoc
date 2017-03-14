@@ -16,18 +16,22 @@ class IntegrationController < ApplicationController
 
         if params[:string]
             pesquisa = params[:string]
-            html_data = read('http://prefix.cc/'+pesquisa)
-            doc = Nokogiri::HTML(html_data)
-            @entries = doc.css('.namespace-link')
+            url = "http://prefix.cc/" + pesquisa
+            begin
+                @doc = Nokogiri::HTML(open(url))
+                @entries = @doc.css('.namespace-link')
+                rescue Exception => e
+                puts e.message
+            end
         end
     end
 
     def adicionar
         @integracoes = Integration.new
-        @integracoes.update_attributes(:name => params[:integration][:name], :prefix => params[:integration][:prefix], :uri => params[:integration][:uri], :purpose => params[:integration][:purpose])
-        @integracoes.update_attributes(:document_id => params[:document_id])
-        @integracoes.save
-        redirect_to :action=>'index', :document_id=> params[:document_id], :version_id=> params[:version_id]
+        @integracoes.attributes = { :name => params[:integration][:name], :prefix => params[:integration][:prefix], :uri => params[:integration][:uri], :purpose => params[:integration][:purpose] }
+        @integracoes.attributes = { :document_id => params[:document_id] }
+        @integracoes.save!
+        redirect_to :action=>'index', :document_id => params[:document_id], :version_id=> params[:version_id]
     end
 
     def load_ontologias

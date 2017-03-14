@@ -5,11 +5,9 @@
 </div>
 </div>
 <div class="follow">
-<%if !@entries.nil? %>
-     <%@entries.each do |entry|%>
-	<%=radio_button :integration, :uri, entry['href']%><a href="<%=entry['href']%>" target="_blank"><%=entry['href']%></a><br>	
-     <%end%>
-<%else%>
-    <p><%=t(:nothingFound)%></p>
-<%end%>
+    <%if !@entries.nil? %>
+        <%@entries.each do |entry|%>
+            <%=radio_button :integration, :uri, entry['href']%><a href="<%=entry['href']%>" target="_blank"><%=entry['href']%></a><br>	
+        <%end%>
+    <%end%>    
 </div>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     #mount LetsencryptPlugin::Engine, at: '/'  # It must be at root level
     root "pages#show", page: "home"
     resources :account_activations, only: [:edit]
+    get 'integration/index'
 
     scope "/:locale" do
 
