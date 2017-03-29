@@ -8,7 +8,11 @@ class ActivitySheduleController < ApplicationController
 
             @atividade.update_attributes(:name => params[:activity_shedule][:name], :user_id => params[:activity_shedule][:user_id], :description => params[:activity_shedule][:description], :deadline => params[:activity_shedule][:deadline])
             @atividade.update_attributes(:document_id=> params[:document_id])
-            @atividade.save
+            begin 
+                @atividade.save
+                rescue Exception => e
+                puts e.message
+            end 
             @documento = Document.find(params[:document_id])
             redirect_to :action => 'edit', :document_id=> @documento.id
         end
@@ -24,8 +28,13 @@ class ActivitySheduleController < ApplicationController
             @atividade = ActivityShedule.find(params[:id])
             @atividade.update_attributes(:document_id => @documento.id)
             @atividade.update_attributes(:name => params[:activity_shedule][:name], :user_id => params[:activity_shedule][:user_id], :description => params[:activity_shedule][:description], :deadline => params[:activity_shedule][:deadline])
-            @atividade.save!
-
+            
+            begin
+                @atividade.save!
+                rescue Exception => e
+                puts e.message
+            end
+            
             redirect_to :action => 'edit', :document_id => @documento.id
         end
 

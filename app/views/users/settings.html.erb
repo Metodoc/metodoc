@@ -1,17 +1,21 @@
-<%content_for :content_header do%>
-<h1><%=t(:userOptions)%></h1>
-<p><%=t(:systemConfigure)%></p>
-<%end%>
+<% begin %>
+    <%content_for :content_header do%>
+        <h1><%=t(:userOptions)%></h1>
+        <p><%=t(:systemConfigure)%></p>
+    <%end%>
 
-<div class="content">
-    <h2><%=t(:layoutArtifacts)%></h2>
-    <p>
-        <%=t(:chooseCSS)%>
-        <%=t(:chooseLayout)%>: <span><%=@user_option.artefact_model.name%></span>
-    </p>
-    <ul class="page-menu">
-        <% @artefact_models.each do |a| %>
-        <li><%=link_to a[0], :action=>'choose_artefact_model', :id=>a[1]%></li>
-        <%end%>
-    </ul>
-</div>
+    <div class="content">
+        <h2><%=t(:layoutArtifacts)%></h2>
+        <p>
+            <%=t(:chooseCSS)%>
+            <%=t(:chooseLayout)%>: <span><%=@user_option.artefact_model.name%></span>
+        </p>
+        <ul class="page-menu">
+            <% @artefact_models.each do |a| %>
+                <li><%=link_to a[0], :action=>'choose_artefact_model', :id=>a[1]%></li>
+            <%end%>
+        </ul>
+    </div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

@@ -1,54 +1,54 @@
+<% begin %>
+    <%=render :partial => 'form_menus' %>
 
-<%=render :partial => 'form_menus' %>
+    <div class="content">
+
+        <div class="activity-menu texto1">
+            <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
+            <ul>
+                <li><%=link_to '', {:controller=>'document', :action => 'edit', :id => @documento.id}, {:class=>'btdocument-edit-min'}%></li>
+            </ul>
+        </div>
 
 
-<div class="content">
+        <%if @documento.ontology_id.nil? 
+            @ontology_val = @documento.version.ontology
+            @version_val = @documento.version
+            else
+            @ontology_val = @documento.ontology
+        end%>
+        <div class="cabeçalho">
+            <b><%=t(:document)%></b>: <%=@documento.doc_type.name%><br>
+            <b><%=t(:ontologyName)%></b>: <%=@ontology_val.name%><br>
+            <b><%=t(:project)%></b>: <%=@ontology_val.project_name%><br>
 
-    <div class="activity-menu texto1">
-        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
-        <ul>
-            <li><%=link_to '', {:controller=>'document', :action => 'edit', :id => @documento.id}, {:class=>'btdocument-edit-min'}%></li>
-        </ul>
+            <%if !@documento.version_id.nil?%>
+                <b><%=t(:ontologyVersion)%></b>: <%=@documento.version.number%><br>
+            <%end%>
+
+            <b><%=t(:createdAt)%></b>: <%=my_date(@documento.created_at)%><br>
+            <b><%=t(:updatedAt)%></b>: <%=my_date(@documento.updated_at)%><br>
+            <b><%=t(:domain)%></b>: <%=@ontology_val.domain%><br>
+            <%if !@documento.responsable.empty? %>
+                <%@documento.responsable.each do |r|%>
+                    <b><%if r.level == 1 %><%=t(:responsible)%><%end%><%if r.level == 2 %><%=t(:watcher)%><%end%></b>: <%=r.user.name%><br>
+                <%end%>
+            <%end%>
+        </div>
+        <%configEspec = @documento.doc_type.doc_type_config.first%>
+
+        <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
+            <%destino = configEspec.doc_config_espec.destination.split(',')%>
+            <%=render :partial => destino[0]+'/form_document' %>
+        <%else%>
+            <%=render :partial => 'form_document' %>
+        <%end%>
+
     </div>
 
-
-    <%if @documento.ontology_id.nil? 
-        @ontology_val = @documento.version.ontology
-        @version_val = @documento.version
-        else
-        @ontology_val = @documento.ontology
-    end%>
-    <div class="cabeçalho">
-        <b><%=t(:document)%></b>: <%=@documento.doc_type.name%><br>
-        <b><%=t(:ontologieName)%></b>: <%=@ontology_val.name%><br>
-        <b><%=t(:project)%></b>: <%=@ontology_val.project_name%><br>
-
-        <%if !@documento.version_id.nil?%>
-        <b><%=t(:ontologieVersion)%></b>: <%=@documento.version.number%><br>
-        <%end%>
-
-        <b><%=t(:createdAt)%></b>: <%=my_date(@documento.created_at)%><br>
-        <b><%=t(:updatedAt)%></b>: <%=my_date(@documento.updated_at)%><br>
-        <b><%=t(:domain)%></b>: <%=@ontology_val.domain%><br>
-        <%if !@documento.responsable.empty? %>
-        <%@documento.responsable.each do |r|%>
-        <b><%if r.level == 1 %><%=t(:responsible)%><%end%><%if r.level == 2 %><%=t(:watcher)%><%end%></b>: <%=r.user.name%><br>
-        <%end%>
-        <%end%>
-
-
-
-    </div>
-    <%configEspec = @documento.doc_type.doc_type_config.first%>
-
-    <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
-    <%destino = configEspec.doc_config_espec.destination.split(',')%>
-    <%=render :partial => destino[0]+'/form_document' %>
-    <%else%>
-    <%=render :partial => 'form_document' %>
-    <%end%>
-
-</div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 
 <style>
     div.texto3{

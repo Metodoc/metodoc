@@ -1,21 +1,25 @@
-<ul>
-    <li class="circ"><a href="<%=ontologies_path%>" style="color:rgb(77, 77, 77);"><%=t(:ontologies)%></a>
-        <ul>
-            <li class="circ"><a href="<%=ontologies_path%>/show/<%=@ontology.id%>" style="color:rgb(77, 77, 77);"><%=@ontology.name%></a>
-                <ul>
-                    <%@ontology.versions.each do |v|%>
-                        <li class="circ"><%= link_to t(:version)+" #{v.number}", {controller: 'versions', action: 'show', id: v.id, ontology_id: @ontology.id}, {:style=>'color:rgb(77, 77, 77);'} %>
-                            <ul>
-                                <li class="circ"><%=link_to t(:generateOWL), {:controller=>'glossary', :action=>'product_xml', :version_id=>v.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
-                                <li class="circ"><%=link_to t(:fullDocument), {:controller=>'document', :action=>'completo', :version_id=>v.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
-                            </ul>
-                        </li>
-                    <%end%>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul>
+<% begin %>
+    <ul>
+        <li class="circ"><a href="<%=ontologies_path%>" style="color:rgb(77, 77, 77);"><%=t(:ontologies)%></a>
+            <ul>
+                <li class="circ"><a href="<%=ontologies_path%>/show/<%=@ontology.id%>" style="color:rgb(77, 77, 77);"><%=@ontology.name%></a>
+                    <ul>
+                        <%@ontology.versions.each do |v|%>
+                            <li class="circ"><%= link_to t(:version)+" #{v.number}", {controller: 'versions', action: 'show', id: v.id, ontology_id: @ontology.id}, {:style=>'color:rgb(77, 77, 77);'} %>
+                                <ul>
+                                    <li class="circ"><%=link_to t(:generateOWL), {:controller=>'glossary', :action=>'product_xml', :version_id=>v.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
+                                    <li class="circ"><%=link_to t(:fullDocument), {:controller=>'document', :action=>'completo', :version_id=>v.id},{:style=>'color:rgb(77, 77, 77);'}%></li>
+                                </ul>
+                            </li>
+                        <%end%>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 
 
 

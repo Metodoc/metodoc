@@ -1,36 +1,40 @@
-<div class="menu-lateral">
-    <%=render :partial => 'form_menu_lateral' %>
-</div>
+<% begin %>    
+    <div class="menu-lateral">
+        <%=render :partial => 'form_menu_lateral' %>
+    </div>
 
-<div class="tela">
-    <div class="content-header">
+    <div class="tela">
+        <div class="content-header">
 
-        <h1><%=@ontology.name%></h1>
-        <div class="aba">
-            <%=render :partial => 'menu' %>
+            <h1><%=@ontology.name%></h1>
+            <div class="aba">
+                <%=render :partial => 'menu' %>
+            </div>
+            <hr id="hr">
         </div>
-        <hr id="hr">
-    </div>
 
-    <div class="content">
-        <h2><%=t(:project)%></h2>
-        <p><%=@ontology.project_name%></p>
-        <h2><%=t(:nameOntology)%></h2>
-        <p><%=@ontology.name%></p>
-        <h2><%=t(:domain)%></h2>
-        <p><%=@ontology.domain%></p>
-        <h2><%=t(:formalitydegree)%></h2>
-        <p><%=@ontology.formality_degree.name%></p>
-        <h2><%=t(:currentVersion)%></h2>
-        <% if @current_version.nil? %>
-        <p><%=t(:noVersion)%></p>
-        <%else%>
-        <p><%=@current_version.number%></p>
-        <%end%>
-        <h2><%=t(:collaborator)%></h2>
-        <ul>
-            <% @ontology.user.each do |u|%>
-            <li><%=u.name%></li>
+        <div class="content">
+            <h2><%=t(:project)%></h2>
+            <p><%=@ontology.project_name%></p>
+            <h2><%=t(:nameOntology)%></h2>
+            <p><%=@ontology.name%></p>
+            <h2><%=t(:domain)%></h2>
+            <p><%=@ontology.domain%></p>
+            <h2><%=t(:formalitydegree)%></h2>
+            <p><%=@ontology.formality_degree.name%></p>
+            <h2><%=t(:currentVersion)%></h2>
+            <% if @current_version.nil? %>
+            <p><%=t(:noVersion)%></p>
+            <%else%>
+            <p><%=@current_version.number%></p>
             <%end%>
-        </ul>
-    </div>
+            <h2><%=t(:collaborator)%></h2>
+            <ul>
+                <% @ontology.user.each do |u|%>
+                <li><%=u.name%></li>
+                <%end%>
+            </ul>
+        </div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

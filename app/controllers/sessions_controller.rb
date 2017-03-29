@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+    
+#    include Recaptcha::ClientHelper # where you need recaptcha_tags
+#    include Recaptcha::Verify # where you need verify_recaptcha
+    
     def new
     end
 

@@ -1,48 +1,43 @@
-<%if @documento.doc_reference.nil?%>
+<% begin %>
+    <%if @documento.doc_reference.nil?%>
+        <%  @questoes = @documento.questions%>
+        <div style="margin-left: 10px;">
+            <table style="clear: left;">
+                <%@questoes.each do |q|%>
+                <tr id="tr<%=q.id%>">
+                    <td><%=q.question%></td>
+                </tr>
+                <%end%>
+            </table>
+        </div>
+    <%else%>
+        <%doc_reference = Document.find(@documento.doc_reference)%>
+        <%@questoes = doc_reference.questions%>
+        <%@respostas = @documento.answer%>
+            <div style="margin-left: 10px;">
+                <table style="clear: left;">
+                    <%@questoes.each do |q|%>
 
-<%  @questoes = @documento.questions%>
-
-<div style="margin-left: 10px;">
-
-    <table style="clear: left;">
-
-        <%@questoes.each do |q|%>
-        <tr id="tr<%=q.id%>">
-            <td><%=q.question%></td>
-        </tr>
+                        <%@resposta = @respostas.select { |r| r.question_id == q.id }%>
+                        <tr id="tr<%=q.id%>">
+                            <td><%=t(:question)%>: <%=q.question%></td>
+                        </tr>
+                        <tr>
+                            <%@resposta.each do |r|%>
+                                <%if q.answer_type == 3 %>
+                                    <td><%=r.type_answer.description.html_safe%></td>
+                                <%else%>
+                                    <td><%=r.answer.html_safe%></td>
+                                <%end%>
+                            <%end%>
+                        </tr>
+                    <%end%>
+                </table>
+            </div>
         <%end%>
-    </table>
-</div>
-<%else%>
-<%doc_reference = Document.find(@documento.doc_reference)%>
-<%@questoes = doc_reference.questions%>
-<%@respostas = @documento.answer%>
-
-<div style="margin-left: 10px;">
-
-    <table style="clear: left;">
-
-        <%@questoes.each do |q|%>
-
-        <%@resposta = @respostas.select { |r| r.question_id == q.id }%>
-        <tr id="tr<%=q.id%>">
-            <td><%=t(:question)%>: <%=q.question%></td>
-        </tr>
-        <tr>
-            <%@resposta.each do |r|%>
-            <%if q.answer_type == 3 %>
-            <td><%=r.type_answer.description.html_safe%></td>
-            <%else%>
-            <td><%=r.answer.html_safe%></td>
-            <%end%>
-            <%end%>
-        </tr>
-        <%end%>
-    </table>
-</div>
-
-<%end%>
-
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 <style>
     table{
         width: 100%;

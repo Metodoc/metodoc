@@ -1,14 +1,19 @@
-<%@atividades = @documento.activity_shedule%>
+<% begin %>
+    <%@atividades = @documento.activity_shedule%>
 
-<div style="margin-left: 10px;">
-    <table>
-        <%@atividades.each do |a|%>
-            <tr id="tr<%=a.id%>">
-                <td><%=a.name%></td>
-                <td><%=a.description%></td>
-                <td><%=a.deadline.to_s%></td>
-            </tr>
-        <%end%>
+    <div style="margin-left: 10px;">
+        <table>
+            <%@atividades.each do |a|%>
+                <tr id="tr<%=a.id%>">
+                    <td><%=a.name%></td>
+                    <td><%=a.description%></td>
+                    <td><%=a.deadline.to_s%></td>
+                </tr>
+            <%end%>
 
-    </table>
-</div>
+        </table>
+    </div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
+    

@@ -1,7 +1,17 @@
-<ul>
-    <li><a class="btshow tooltipM" href="<%=ontologies_path%>/show/<%=@ontology.id%>"><span><%=t(:viewOntology)%></span></a></li>
-    <li><a class="btaddU tooltipM" href="<%=ontologies_path%>/add_user/<%=@ontology.id%>"> <span><%=t(:addContributor)%></span></a></li>
-    <li><a class="btdt tooltipM" href="<%=ontologies_path%>/details/<%=@ontology.id%>"><span><%=t(:details)%></span></a></li>
-    <li><a class="bted tooltipM" href="<%=ontologies_path%>/<%=@ontology.id%>/edit"><span><%=t(:edit)%></span></a></li>
-    <li><a class="btex tooltipM" href="<%=ontologies_path%>/destroy/<%=@ontology.id%>"><span><%=t(:destroy)%></span></a></li>
-</ul>
+<% begin %>
+    <% @ontoUser = OntologyUser.where(user_id: session['user_id']).first %>
+ 
+    <ul>
+        <li><a class="btshow tooltipM" href="<%=ontologies_path%>/show/<%=@ontology.id%>"><span><%=t(:viewOntology)%></span></a></li>
+        <% if @ontoUser.paper_id == 1 or @ontoUser.paper_id == 2 %>
+            <li><a class="btaddU tooltipM" href="<%=ontologies_path%>/add_user/<%=@ontology.id%>"> <span><%=t(:addContributor)%></span></a></li>
+        <% end %>
+        <li><a class="btdt tooltipM" href="<%=ontologies_path%>/details/<%=@ontology.id%>"><span><%=t(:details)%></span></a></li>
+        <% if @ontoUser.paper_id == 1 or @ontoUser.paper_id == 2 %>
+            <li><a class="bted tooltipM" href="<%=ontologies_path%>/<%=@ontology.id%>/edit"><span><%=t(:edit)%></span></a></li>
+            <li><a class="btex tooltipM" href="<%=ontologies_path%>/destroy/<%=@ontology.id%>"><span><%=t(:destroy)%></span></a></li>
+        <% end %>
+    </ul>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

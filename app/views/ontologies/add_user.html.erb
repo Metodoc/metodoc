@@ -34,114 +34,118 @@
     </style>
 <%end%>
 
-<div class="menu-lateral">
-    <%=render :partial => 'form_menu_lateral' %>
-</div>
-
-<div class="tela">
-    <div class="content-header">
-        <h1><%=@ontology.name%></h1>
-        <div class="aba">
-            <%= render :partial => 'menu' %>
-        </div>
-        <hr id="hr">
+<% begin %>
+    <div class="menu-lateral">
+        <%=render :partial => 'form_menu_lateral' %>
     </div>
 
-
-    <div class="content">
-        <div style="margin-bottom:10px;">
-            <div id=Busca>
-                <div class="search">
-                    <input type="text" id="strBusca" class="input-search" placeholder="Pesquisa">
-                    <input type="button" id="btBusca" class="button-search">
-                </div>
-                <br><br>
-                <div>
-                    <input type="radio" name="optionsBusca" id="user" value="user" <%if params[:key] == 'user'%>checked<%end%> ><%=t(:user)%><br>
-                    <input type="radio" name="optionsBusca" id="Paper" value="paper" <%if params[:key] == 'paper'%>checked<%end%>><%=t(:paper)%>
-                </div>
-
+    <div class="tela">
+        <div class="content-header">
+            <h1><%=@ontology.name%></h1>
+            <div class="aba">
+                <%= render :partial => 'menu' %>
             </div>
-            <div class="ontology-users">
-                <table>
-                    <caption><%=t(:ontologyCollaborators)%></caption>
-                    <tr>
-                        <th><%=t(:name)%></th>
-                        <th><%=t(:paper)%></th>
-                        <th><%=t(:option)%></th>
-                    </tr>
-                    <%if !@ontologyUser.empty?                        
-                        for ontology_user in @ontologyUser
-                            @ontology_id = ontology_user.ontology_id
-                            @userP = ontology_user.user.paper %>
+            <hr id="hr">
+        </div>
 
+
+        <div class="content">
+            <div style="margin-bottom:10px;">
+                <div id=Busca>
+                    <div class="search">
+                        <input type="text" id="strBusca" class="input-search" placeholder="Pesquisa">
+                        <input type="button" id="btBusca" class="button-search">
+                    </div>
+                    <br><br><br>
+                    <div>
+                        <input type="radio" name="optionsBusca" id="user" value="user" <%if params[:key] == 'user'%>checked<%end%> ><%=t(:user)%><br>
+                        <input type="radio" name="optionsBusca" id="Paper" value="paper" <%if params[:key] == 'paper'%>checked<%end%>><%=t(:paper)%>
+                    </div>
+
+                </div>
+                <div class="ontology-users">
+                    <table>
+                        <caption><%=t(:ontologyCollaborators)%></caption>
+                        <tr>
+                            <th><%=t(:name)%></th>
+                            <th><%=t(:paper)%></th>
+                            <th><%=t(:option)%></th>
+                        </tr>
+                        <%if !@ontologyUser.empty?                        
+                            for ontology_user in @ontologyUser
+                                @ontology_id = ontology_user.ontology_id
+                                @userP = ontology_user.user.paper %>
+
+                                <tr>
+                                    <td><%=link_to ontology_user.user.name, :controller => 'users', :action => 'show', :id => ontology_user.user.id%></td>
+                                    <td id="<%=ontology_user.user_id%>-<%=ontology_user.paper_id%>"><%=ontology_user.paper.paper%></td>
+                                    <td>
+
+                                        <%=link_to 'Editar', "#janela1", :id => ontology_user.user.id, :titulo => ontology_user.user.name , :rel => 'modal', :editar => 'sim'%>
+                                        <% if session[:user_id] != ontology_user.user.id %>/
+                                        <%=link_to "Remover", action: "editing_user", id: ontology_user.ontology_id, user_id: ontology_user.user_id, paper_id: ontology_user.paper_id, option: 'del' %>
+                                        <%end%>
+                                    </td>
+                                </tr>
+                            <%end%>
+                        <%else%>
+                            <tr><td colspan="3"><%=t(:nothingFound)%></td></tr>
+                        <%end%>
+                    </table>
+                </div>
+
+                <div class="users">
+                    <table>
+                        <caption><%=t(:systemUsers)%></caption>
+                        <tr>
+                            <th><%=t(:name)%></th>
+                            <th><%=t(:option)%></th>
+                        </tr>
+
+                        <% @users.each do |u|%>
                             <tr>
-                                <td><%=link_to ontology_user.user.name, :controller => 'users', :action => 'show', :id => ontology_user.user.id%></td>
-                                <td id="<%=ontology_user.user_id%>-<%=ontology_user.paper_id%>"><%=ontology_user.paper.paper%></td>
+                                <td><%=link_to u.name, :controller => 'users', :action => 'show', :id => u.id%></td>
                                 <td>
-
-                                    <%=link_to 'Editar', "#janela1", :id => ontology_user.user.id, :titulo => ontology_user.user.name , :rel => 'modal', :editar => 'sim'%>
-                                    <% if session[:user_id] != ontology_user.user.id %>/
-                                    <%=link_to "Remover", action: "editing_user", id: ontology_user.ontology_id, user_id: ontology_user.user_id, paper_id: ontology_user.paper_id, option: 'del' %>
+                                    <% if @ontology.user.include?(u) %>
+                                        -
+                                    <%else%>
+                                    <%=link_to t(:add), "#janela1", :id => u.id, :titulo => u.name , :rel => 'modal'%>
                                     <%end%>
                                 </td>
                             </tr>
                         <%end%>
-                    <%else%>
-                        <tr><td colspan="3"><%=t(:nothingFound)%></td></tr>
-                    <%end%>
-                </table>
-            </div>
-
-            <div class="users">
-                <table>
-                    <caption><%=t(:systemUsers)%></caption>
-                    <tr>
-                        <th><%=t(:name)%></th>
-                        <th><%=t(:option)%></th>
-                    </tr>
-
-                    <% @users.each do |u|%>
-                        <tr>
-                            <td><%=link_to u.name, :controller => 'users', :action => 'show', :id => u.id%></td>
-                            <td>
-                                <% if @ontology.user.include?(u) %>
-                                    -
-                                <%else%>
-                                <%=link_to t(:add), "#janela1", :id => u.id, :titulo => u.name , :rel => 'modal'%>
-                                <%end%>
-                            </td>
-                        </tr>
-                    <%end%>
-                </table>
-            </div>
-
-
-            <div id="janela1" class="window middle" >
-                <div class="modal-titulo"><%t(:title)%></div>
-                <p><%=t(:perfomingRole)%></p>
-                <div class="content">
-                    <table id="tablePapers">
-                        <% @papers.each do |p|%>
-                            <tr>
-                                <td style="text-align: left;"><input id="paper-<%=p.id%>" name="papers" type="checkbox" style="margin-right:5px;"><%=p.paper%></td>
-                            </tr>
-                        <%end%>
                     </table>
-                    <div id="buttons" align="center" class="buttons">
-                        <%=link_to t(:cancel), { }, {:id =>  'fecharWindow', :class => 'button'}%>
-                        <%=link_to t(:add), { }, {:id => 'adicionar', :class => 'button'}%>
+                </div>
+
+
+                <div id="janela1" class="window middle" >
+                    <div class="modal-titulo"><%t(:title)%></div>
+                    <p><%=t(:perfomingRole)%></p>
+                    <div class="content">
+                        <table id="tablePapers">
+                            <% @papers.each do |p|%>
+                                <tr>
+                                    <td style="text-align: left;"><input id="paper-<%=p.id%>" name="papers" type="checkbox" style="margin-right:5px;"><%=p.paper%></td>
+                                </tr>
+                            <%end%>
+                        </table>
+                        <div id="buttons" align="center" class="buttons">
+                            <%=link_to t(:cancel), { }, {:id =>  'fecharWindow', :class => 'button'}%>
+                            <%=link_to t(:add), { }, {:id => 'adicionar', :class => 'button'}%>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="clear"></div>
+
+            <div align="center" class="buttons">
+                <%#=link_to 'Voltar', {:action=>'show' , :id => @ontology_id},{:class=>'button'} %>
+            </div>	
         </div>
-        <div class="clear"></div>
-
-        <div align="center" class="buttons">
-            <%#=link_to 'Voltar', {:action=>'show' , :id => @ontology_id},{:class=>'button'} %>
-        </div>	
-    </div>
-
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
+   
     <script type="text/javascript">
 
         $('#btBusca').click(function(ev){

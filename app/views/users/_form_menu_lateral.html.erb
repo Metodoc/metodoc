@@ -1,7 +1,11 @@
-<ul>
-    <li class="circ"><a href="<%=user_path%>" style="color:rgb(77, 77, 77);"><%=t(:infoPerson)%></a></li>
-    <li class="circ"><%= link_to t(:activities), "#{users_path}/atividades/#{session[:user_id]}", class: "linkMenu" %></li>
-</ul>
+<% begin %>    
+    <ul>
+        <li class="circ"><a href="<%=user_path%>" style="color:rgb(77, 77, 77);"><%=t(:infoPerson)%></a></li>
+        <li class="circ"><%= link_to t(:activities), "#{users_path}/atividades/#{session[:user_id]}", class: "linkMenu" %></li>
+    </ul>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 <style>
     .linkMenu {
         color: rgb(77, 77, 77);

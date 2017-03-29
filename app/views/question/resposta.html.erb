@@ -1,18 +1,48 @@
-<%=render :partial => 'document/form_menus' %>
+<% begin %>
+    <%=render :partial => 'document/form_menus' %>
 
+    <div class="content">
+        <div class="activity-menu texto1">
+            <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
+            <ul>
+                <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
+            </ul>
+        </div>
 
+        <% 
+            begin 
+                @responsables = Responsable.where(user_id: session['user_id']).all 
 
-<div class="content">
+                if @documento.ontology.nil?
+                    v_id = Version.where(id: @documento.version_id).first
+                    @ontoUser = OntologyUser.where(ontology_id: v_id.ontology_id, user_id: session['user_id']).first
+                else
+                    @ontoUser = OntologyUser.where(ontology_id: @documento.ontology_id, user_id: session['user_id']).first
+                end
 
+                @responsables.each do | r | 
+                    if ( r.document_id == @documento.id ) or ( @ontoUser.paper_id == 1 or @ontoUser.paper_id == 2 or @ontoUser.paper_id == 3 )
+                        $ok = true
+                        break
+                    else
+                        $ok = false
+                    end
+                end
+                rescue Exception => e
+                puts e.message
+            end
+        %>
 
-    <div class="activity-menu texto1">
-        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
-        <ul>
-            <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
-        </ul>
+        <% if $ok %>
+            <%= form_tag :action => 'resposta', :document_id=>@documento.id, :version_id=>params[:version_id] do %>
+                <%=render :partial => 'form_resposta'%>
+            <% end %>
+        <% else %>
+            <div class="left alert alert-danger">
+                <%=t(:notPermission)%>
+            </div>
+        <% end %>
     </div>
-
-    <%= form_tag :action => 'resposta', :document_id=>@documento.id, :version_id=>params[:version_id] do %>
-    <%=render :partial => 'form_resposta'%>
-    <% end %>
-</div>
+<% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

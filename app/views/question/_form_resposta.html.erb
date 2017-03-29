@@ -1,38 +1,41 @@
-<%@questoes.each do |q|%>
-<br><br><label><%=q.question%></label><br>
+<% begin %>
+    <%@questoes.each do |q|%>
+        <br><br><label><%=q.question%></label><br>
 
-<%if q.answer_type == 3 %>
-<%@respostas.each do |r|
-    if r.question_id == q.id
-        @checked = r.type_answer_id
-    end%>
-<%end%>
-<input type="radio" name= "answer_<%=q.id%>" value="1" <%if (@checked == 1) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "#{t(:bad)}" %><br>
-<input type="radio" name= "answer_<%=q.id%>" value="2" <%if (@checked == 2) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "#{t(:regular)}" %><br>
-<input type="radio" name= "answer_<%=q.id%>" value="3" <%if (@checked == 3) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "#{t(:good)}" %><br>
-<input type="radio" name= "answer_<%=q.id%>" value="4" <%if (@checked == 4) %>checked<%end%> >
-<%= label :answer, :type_answer_id, "#{t(:great)}" %><br>
+        <%if q.answer_type == 3 %>
+            <%@respostas.each do |r|
+                if r.question_id == q.id
+                    @checked = r.type_answer_id
+                end%>
+            <%end%>
+            
+            <input type="radio" name= "answer_<%=q.id%>" value="1" <%if (@checked == 1) %>checked<%end%> >
+            <%= label :answer, :type_answer_id, "#{t(:bad)}" %><br>
+            <input type="radio" name= "answer_<%=q.id%>" value="2" <%if (@checked == 2) %>checked<%end%> >
+            <%= label :answer, :type_answer_id, "#{t(:regular)}" %><br>
+            <input type="radio" name= "answer_<%=q.id%>" value="3" <%if (@checked == 3) %>checked<%end%> >
+            <%= label :answer, :type_answer_id, "#{t(:good)}" %><br>
+            <input type="radio" name= "answer_<%=q.id%>" value="4" <%if (@checked == 4) %>checked<%end%> >
+            <%= label :answer, :type_answer_id, "#{t(:great)}" %><br>
 
 
-<%else%>
-<textarea id="answer_<%=q.id%>" rows="20" cols="100" name="answer_<%=q.id%>" >
-
-    <%@respostas.each do |r|
-    if r.question_id == q.id%>
-    <%=r.answer%>
+        <%else%>
+            <textarea id="answer_<%=q.id%>" rows="20" cols="100" name="answer_<%=q.id%>" >
+                <%@respostas.each do |r|
+                    if r.question_id == q.id%>
+                        <%=r.answer%>
+                    <%end%>
+                <%end%>
+            </textarea>
+        <%end%>
     <%end%>
-    <%end%>
-</textarea>
-<%end%>
-<%end%>
-
-
-<div class="buttons" style="margin-top:50px;">
-    <%= submit_tag "#{t(:save)}", :class=>'button'%>
-</div>
+   
+    <div class="buttons" style="margin-top:50px;">
+        <%= submit_tag "#{t(:save)}", :class=>'button'%>
+    </div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 
 <style language="text/css">
     select{

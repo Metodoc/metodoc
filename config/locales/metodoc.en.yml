@@ -70,6 +70,7 @@ en:
   select: Select
   nameOntology: Name Ontology
   documents: Documents
+  notPermission: You do not have permission to edit this document
   activities: Activities
   infoPerson: Profile
   yourActivities: Your pending activities
@@ -120,7 +121,7 @@ en:
   referenceDoc: Does it refer to which document?
   watcher: Watcher
   watcherNotAllowed: The watcher is not allowed to edit, read only
-  ontologieName: Ontology name
+  ontologyName: Ontology name
   project: Project
   ontologyVersion: Ontology versions
   domain: Domain

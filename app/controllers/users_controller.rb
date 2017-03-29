@@ -85,8 +85,7 @@ class UsersController < ApplicationController
 
     def atividades
         @user = User.find(session[:user_id])
-        #    @atividades = ActivityShedule.find(:all, :conditions=>["user_id=?",session[:user_id]])
-        @atividades = ActivityShedule.where("user_id = ?", session[:user_id]).all
+        @responsables = Responsable.where(user_id: session['user_id']).all  
     end
 
     private

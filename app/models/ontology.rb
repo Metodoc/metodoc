@@ -22,7 +22,7 @@ class Ontology < ApplicationRecord
 
     def self.find_own_ontologies(user_id)
         #    Ontology.find(:all, :include => [ :user], :conditions =>["ontology_users.user_id=?",user_id])
-        Ontology.joins(:ontology_user).where("ontology_users.user_id = ?", user_id)
+        Ontology.joins(:ontology_user).where("ontology_users.user_id = ?", user_id).all
     end
 
     def self.find_visible_ontologies

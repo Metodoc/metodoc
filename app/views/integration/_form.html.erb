@@ -1,8 +1,12 @@
-<label for="integration_name"><%=t(:name)%>:</label><br>
-<%=text_field :integration, :name%><br />
-<label for="integration_prefix"><%=t(:prefix)%>:</label><br>
-<%=text_field :integration, :prefix%><br />
-<label for="integration_uri"><%=t(:uri)%>:</label><br>
-<%=text_field :integration, :uri%><br />
-<label for="integration_purpose"><%=t(:purpose)%>:</label><br>
-<%=text_field :integration, :purpose%><br />
+<% begin %>
+    <label for="integration_name"><%=t(:name)%>:</label><br>
+    <%=text_field :integration, :name%><br />
+    <label for="integration_prefix"><%=t(:prefix)%>:</label><br>
+    <%=text_field :integration, :prefix%><br />
+    <label for="integration_uri"><%=t(:uri)%>:</label><br>
+    <%=text_field :integration, :uri%><br />
+    <label for="integration_purpose"><%=t(:purpose)%>:</label><br>
+    <%=text_field :integration, :purpose%><br />
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

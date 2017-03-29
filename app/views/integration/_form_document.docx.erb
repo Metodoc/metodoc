@@ -1,7 +1,11 @@
-<% @integracoes = @documento.integration%>
-<%@integracoes.each do |integracao|%>
-    <p><strong><%=t(:name)%></strong>: <%=integracao.name%></p>
-    <p><strong><%=t(:prefix)%></strong>: <%=integracao.prefix%></p>
-    <p><strong><%=t(:uri)%></strong>: <a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></p>
-    <p><strong><%=t(:purpose)%></strong>: <%=integracao.purpose%></p>
-<%end%>
+<% begin %>
+    <% @integracoes = @documento.integration%>
+    <%@integracoes.each do |integracao|%>
+        <p><strong><%=t(:name)%></strong>: <%=integracao.name%></p>
+        <p><strong><%=t(:prefix)%></strong>: <%=integracao.prefix%></p>
+        <p><strong><%=t(:uri)%></strong>: <a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></p>
+        <p><strong><%=t(:purpose)%></strong>: <%=integracao.purpose%></p>
+    <%end%>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

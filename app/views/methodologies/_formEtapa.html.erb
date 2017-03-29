@@ -1,4 +1,8 @@
-<label for="methodsteps_name"><%=t(:step)%>:</label><br />
-<%=text_field :methodstep, :name %><br />
-<label for="methodsteps_inlifecycle"><%=t(:isLifecicle)%></label>
-<%= check_box :methodstep, :inlifecycle%><br><br>
+<% begin %>
+    <label for="methodsteps_name"><%=t(:step)%>:</label><br />
+    <%=text_field :methodstep, :name %><br />
+    <label for="methodsteps_inlifecycle"><%=t(:isLifecicle)%></label>
+    <%= check_box :methodstep, :inlifecycle%><br><br>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

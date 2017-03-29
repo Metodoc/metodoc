@@ -3,7 +3,7 @@ class DocumentController < ApplicationController
     before_action :load_artefact_status, :only => [:edit]
     before_action :load_users, :only => [:edit]
     before_action :load_ontologias
-    respond_to :docx
+#    respond_to :odt
 
     def show
         @documento = Document.find(params[:id])
@@ -17,7 +17,7 @@ class DocumentController < ApplicationController
             @version = Version.find(params[:version_id])
             @ontology = @version.ontology
         end
-        
+
         respond_to do |format|
             format.html
             format.pdf do
@@ -34,7 +34,7 @@ class DocumentController < ApplicationController
             @version = Version.find(params[:version_id])
             @ontology = @version.ontology
         end
-        
+
         respond_to do |format|
             format.docx do
                 render docx: 'document', filename: "#{@ontology.name}-V.#{@version.id.to_s}"
@@ -48,8 +48,13 @@ class DocumentController < ApplicationController
             if params[:id]
                 @documento = Document.find(params[:id])
                 @documento.attributes = { :artefact_status_id => params[:documento][:artefact_status_id] }
-#                @documento.attributes = params[:documento]
-                @documento.save!
+                #                @documento.attributes = params[:documento]
+
+                begin
+                    @documento.save!
+                rescue Exception => e
+                    puts e.message
+                end
 
                 # :name => params[:methodstep][:name], :inlifecycle => params[:methodstep][:inlifecycle]
                 # @documento.update(:artefact_status_id => params[:documento][:artefact_status_id])
@@ -67,7 +72,12 @@ class DocumentController < ApplicationController
                     if @responsable1.nil?
                         @responsable1 = Responsable.new
                         @responsable1.attributes = { :document_id => @documento.id,  :level => 1, :user_id => params[:responsable1][:user_id] }
-                        @responsable1.save!
+
+                        begin
+                            @responsable1.save!
+                        rescue Exception => e
+                            puts e.message
+                        end
                     else
                         Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 1', params[:responsable1][:user_id], @documento.id])
                     end
@@ -79,7 +89,12 @@ class DocumentController < ApplicationController
                     if @responsable2.nil?
                         @responsable2 = Responsable.new
                         @responsable2.attributes = { :document_id => @documento.id, :level => 2, :user_id => params[:responsable2][:user_id] }
-                        @responsable2.save!
+
+                        begin
+                            @responsable2.save!
+                        rescue Exception => e
+                            puts e.message
+                        end
                     else
                         Responsable.find_by_sql(['update responsables set user_id = ? where document_id = ? and level = 2', params[:responsable2][:user_id],  @documento.id])
                     end
@@ -107,9 +122,15 @@ class DocumentController < ApplicationController
             else
                 @documento.attributes = {:doc_type_id => params[:doc_type],  :ontology_id => params[:ontology_id], :artefact_status_id => 1}
             end
-            @documento.save!
 
-            @doc_type = DocType.find(params[:doc_type])
+
+            begin
+                @documento.save!
+            rescue Exception => e
+                puts e.message
+            end
+
+            @doc_type = DocType.find(params[:doc_type_id])
             configEspec = @doc_type.doc_type_config.first
 
             #            render :text => @documento.idI
@@ -117,7 +138,12 @@ class DocumentController < ApplicationController
 
                 destino = configEspec.doc_config_espec.destination.split(',')
                 @documento.attributes = { :ontology_id => params[:ontology_id] }
-                @documento.save!
+
+                begin
+                    @documento.save!
+                rescue Exception => e
+                    puts e.message
+                end
 
 
                 if params[:version_id] 
@@ -129,7 +155,12 @@ class DocumentController < ApplicationController
                 @doc_type.doc_type_config.each do |d|
                     @docArtefact = DocArtefact.new
                     @docArtefact.attributes = { :document_id => @documento.id, :params_config_type_doc_id => d.params_config_Type_Doc_id, :answer => d.params_config_Type_Doc.text_start }
-                    @docArtefact.save!
+
+                    begin
+                        @docArtefact.save!
+                    rescue Exception => e
+                        puts e.message
+                    end
                 end
                 redirect_to :action => 'edit', :id => @documento.id, :ontology_id => params[:ontology_id]
             end
@@ -160,7 +191,7 @@ class DocumentController < ApplicationController
                 redirect_to :controller=> destino[0], :action=> destino[1] , :document_id => @documento.id, :ontology_id => params[:ontology_id]
             end
         end
-#        redirect_to :controller => 'ontologies', :action => 'show', :id => params[:ontology_id]
+        #        redirect_to :controller => 'ontologies', :action => 'show', :id => params[:ontology_id]
     end
 
 
@@ -217,5 +248,4 @@ class DocumentController < ApplicationController
             redirect_to login_url
         end
     end
-
 end

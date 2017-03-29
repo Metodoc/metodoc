@@ -8,43 +8,45 @@
     .cabecalho{
         padding-bottom:30px;
     }
-
 </style>
+<% begin %>
+    <%@etapas = @ontology.methodology.methodstep%>
 
-<%@etapas = @ontology.methodology.methodstep%>
 
-
-<div class="tela">
-    <div class="content-header">
+    <div class="tela">
         <div class="content-header">
-            <h1><%=@version.ontology.name%> - V. <%=@version.number%></h1>
+            <div class="content-header">
+                <h1><%=@version.ontology.name%> - V. <%=@version.number%></h1>
 
-            <p><b><%=t(:ontologieName)%></b>: <%=@ontology.name%><br></p>
-            <p><b><%=t(:project)%></b>: <%=@ontology.project_name%><br></p>
-            <p><b><%=t(:ontologieVersion)%></b>: <%=@version.number%><br></p>
-            <p><b><%=t(:domain)%></b>: <%=@ontology.domain%><br></p>
+                <p><b><%=t(:ontologieName)%></b>: <%=@ontology.name%><br></p>
+                <p><b><%=t(:project)%></b>: <%=@ontology.project_name%><br></p>
+                <p><b><%=t(:ontologieVersion)%></b>: <%=@version.number%><br></p>
+                <p><b><%=t(:domain)%></b>: <%=@ontology.domain%><br></p>
 
-            <% @etapas.each do |e| %>
-                <b><%=t(:step)%></b>: <%=e.name%><br>
-                <%e.doc_type.each do |d|%>
-                    <b><%=t(:document)%></b>:<%=d.name%><br>
-                    <%if e.inlifecycle%>
-                        <%@documento = Document.where("documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id).first %>
-                    <%else%>
-                        <%@documento = Document.where("documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id).first %>
-                    <%end%>
-
-                    <%if !@documento.nil?%>
-                        <%configEspec = d.doc_type_config.first%>
-                        <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
-                            <%destino = configEspec.doc_config_espec.destination.split(',')%>
-                            <%=render :partial => destino[0]+'/form_document' %>
+                <% @etapas.each do |e| %>
+                    <b><%=t(:step)%></b>: <%=e.name%><br>
+                    <%e.doc_type.each do |d|%>
+                        <b><%=t(:document)%></b>:<%=d.name%><br>
+                        <%if e.inlifecycle%>
+                            <%@documento = Document.where("documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id).first %>
                         <%else%>
-                            <%=render :partial => 'form_document' %>
+                            <%@documento = Document.where("documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id).first %>
+                        <%end%>
+
+                        <%if !@documento.nil?%>
+                            <%configEspec = d.doc_type_config.first%>
+                            <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
+                                <%destino = configEspec.doc_config_espec.destination.split(',')%>
+                                <%=render :partial => destino[0]+'/form_document' %>
+                            <%else%>
+                                <%=render :partial => 'form_document' %>
+                            <%end%>
                         <%end%>
                     <%end%>
                 <%end%>
-            <%end%>
+            </div>
         </div>
     </div>
-</div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

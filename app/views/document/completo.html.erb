@@ -6,56 +6,59 @@
         padding-bottom:30px;
     }
 </style>
+<% begin %>
+    <%@etapas = @ontology.methodology.methodstep%>
 
-<%@etapas = @ontology.methodology.methodstep%>
+    <div class="menu-lateral">
+        <%=render :partial => 'versions/form_menu_lateral' %>
+    </div>
 
-<div class="menu-lateral">
-    <%=render :partial => 'versions/form_menu_lateral' %>
-</div>
-
-<div class="tela">
-    <div class="content-header">
-        <%= link_to "#{t(:ontologies)}", :controller => 'ontologies', :action => 'index' %> >>
-        <%= link_to @version.ontology.name, :controller=>'ontologies', :action=>'show', :id=>@version.ontology.id %> >>
-        <%= link_to 'V.'+ @version.number.to_s, :controller => 'versions', :action => 'show', :id => @version.id, :ontology_id => @version.ontology.id%> >> <%=t(:fullDocument)%>
-
+    <div class="tela">
         <div class="content-header">
-            <h1 style="margin-bottom:0px;"><%=@version.ontology.name%> - V. <%=@version.number%></h1>
-        </div>
+            <%= link_to "#{t(:ontologies)}", :controller => 'ontologies', :action => 'index' %> >>
+            <%= link_to @version.ontology.name, :controller=>'ontologies', :action=>'show', :id=>@version.ontology.id %> >>
+            <%= link_to 'V.'+ @version.number.to_s, :controller => 'versions', :action => 'show', :id => @version.id, :ontology_id => @version.ontology.id%> >> <%=t(:fullDocument)%>
 
-        <div id="content" class="content">
-            <div class="cabecalho">
-                <b><%=t(:ontologieName)%></b>: <%=@ontology.name%><br>
-                <b><%=t(:project)%></b>: <%=@ontology.project_name%><br>
-                <b><%=t(:ontologieVersion)%></b>: <%=@version.number%><br>
-                <b><%=t(:domain)%></b>: <%=@ontology.domain%><br>
+            <div class="content-header">
+                <h1 style="margin-bottom:0px;"><%=@version.ontology.name%> - V. <%=@version.number%></h1>
             </div>
 
-            <% @etapas.each do |e| %>
-               <div class="etapa">
-                <b><%=t(:step)%></b>: <%=e.name%><br>
-                <%e.doc_type.each do |d|%>
-                    <b><%=t(:document)%></b>: <%=d.name%><br>
-                    <%if e.inlifecycle%>
-                        <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id]) %>
-                        <%@documento = Document.where("documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id).first %>
-                    <%else%>
-                        <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id]) %>
-                        <%@documento = Document.where("documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id).first %>
-                    <%end%>
-                    <%if !@documento.nil?%>
-                        <%configEspec = d.doc_type_config.first%>
+            <div id="content" class="content">
+                <div class="cabecalho">
+                    <b><%=t(:ontologyName)%></b>: <%=@ontology.name%><br>
+                    <b><%=t(:project)%></b>: <%=@ontology.project_name%><br>
+                    <b><%=t(:ontologyVersion)%></b>: <%=@version.number%><br>
+                    <b><%=t(:domain)%></b>: <%=@ontology.domain%><br>
+                </div>
 
-                        <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
-                            <%destino = configEspec.doc_config_espec.destination.split(',')%>
-                            <%=render :partial => destino[0]+'/form_document' %>
+                <% @etapas.each do |e| %>
+                   <div class="etapa">
+                    <b><%=t(:step)%></b>: <%=e.name%><br>
+                    <%e.doc_type.each do |d|%>
+                        <b><%=t(:document)%></b>: <%=d.name%><br>
+                        <%if e.inlifecycle%>
+                            <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id]) %>
+                            <%@documento = Document.where("documents.doc_type_id = ? and documents.version_id = ?", d.id, @version.id).first %>
                         <%else%>
-                            <%=render :partial => 'form_document' %>
+                            <%#@documento = Document.find(:first,:conditions=>["documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id]) %>
+                            <%@documento = Document.where("documents.doc_type_id = ? and documents.ontology_id = ?", d.id, @ontology.id).first %>
+                        <%end%>
+                        <%if !@documento.nil?%>
+                            <%configEspec = d.doc_type_config.first%>
+
+                            <%if !configEspec.nil? and !configEspec.doc_config_espec_id.nil?%>
+                                <%destino = configEspec.doc_config_espec.destination.split(',')%>
+                                <%=render :partial => destino[0]+'/form_document' %>
+                            <%else%>
+                                <%=render :partial => 'form_document' %>
+                            <%end%>
                         <%end%>
                     <%end%>
+                    </div>
                 <%end%>
-                </div>
-            <%end%>
-            <%= link_to t(:downloadToWord), {controller: 'document', action: 'html_to_word',  version_id: @version.id}, {class: 'btn btn-success'} %>
-            <%= link_to t(:downloadToPDF), {controller: 'document', action: 'html_to_pdf',  version_id: @version.id}, {class: 'btn btn-success'} %>
-        </div>
+                <%= link_to t(:downloadToWord), {controller: 'document', action: 'html_to_word',  version_id: @version.id}, {class: 'btn btn-success'} %>
+                <%= link_to t(:downloadToPDF), {controller: 'document', action: 'html_to_pdf',  version_id: @version.id}, {class: 'btn btn-success'} %>
+            </div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

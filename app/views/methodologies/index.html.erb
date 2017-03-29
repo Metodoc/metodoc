@@ -4,62 +4,34 @@
         width: 92%;
     }
 </style>
-<div class="menu-lateral">
-    <div class="listaPerfil">
-        <a href="<%=new_methodology_path%>" style="color:rgb(77, 77, 77);" class="perfil"><%=t(:new)%></a>
+<% begin %>
+    <div class="menu-lateral">
+        <div class="listaPerfil">
+            <a href="<%=new_methodology_path%>" style="color:rgb(77, 77, 77);" class="perfil"><%=t(:new)%></a>
+        </div>
     </div>
-</div>
-<div class="tela">
-    <div class="content-header">
-        <h1 style="margin-bottom: 0px;" ><%=t(:methodologies)%></h1>
-    </div>
-
-    <% if @methodologies.size > 0 %>
-    <% @methodologies.each do |m| %>
-    <div class="content">
-        <h2><%=m.name%></h2>
-        <%@methodology = m%>
-
-        <div class="page-menu">
-            <%=render :partial => 'menu' %>
+    <div class="tela">
+        <div class="content-header">
+            <h1 style="margin-bottom: 0px;" ><%=t(:methodologies)%></h1>
         </div>
 
+        <% if @methodologies.size > 0 %>
+            <% @methodologies.each do |m| %>
+                <div class="content">
+                    <h2><%=m.name%></h2>
+                    <%@methodology = m%>
+                    <div class="page-menu">
+                        <%=render :partial => 'menu' %>
+                    </div>
+                </div>
+            <%end%>
+        <% else %>
+            <div class="content">
+                <h2><%=t(:noMethodologyRegistered)%></h2>
+                <p><%=t(:thereIsNoMethodology)%></p>
+            </div>
+        <% end %>
     </div>
-
-    <%end%>
-    <% else %>
-    <div class="content">
-        <h2><%=t(:noMethodologyRegistered)%></h2>
-        <p><%=t(:thereIsNoMethodology)%></p>
-    </div>
-    <% end %>
-
-</div>
-
-
-<!--
-
-<h1>Methodologies</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <%# @methodologies.each do |methodology| %>
-        <tr>
-            <td><%#= link_to 'Show', methodology %></td>
-            <td><%#= link_to 'Edit', edit_methodology_path(methodology) %></td>
-            <td><%#= link_to 'Destroy', methodology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <%# end %>
-    </tbody>
-</table>
-
-<br>
-
-<%#= link_to 'New Methodology', new_methodology_path %>
--->
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

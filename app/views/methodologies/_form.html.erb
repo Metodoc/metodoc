@@ -1,26 +1,30 @@
-<%= form_for(methodology) do |f| %>
-<% if methodology.errors.any? %>
-<div id="error_explanation">
-    <h2><%#= pluralize(methodology.errors.count, "error") %> <%#=t(:prohibited)%>:</h2>
+<% begin %>
+    <%= form_for(methodology) do |f| %>
+        <% if methodology.errors.any? %>
+            <div id="error_explanation">
+                <h2><%#= pluralize(methodology.errors.count, "error") %> <%#=t(:prohibited)%>:</h2>
 
-    <ul>
-        <%# methodology.errors.full_messages.each do |message| %>
-        <li><%#= message %></li>
-        <%# end %>
-    </ul>
-</div>
-<% end %>
-<div class="actions">
-    <label for="methodology_name"><%=t(:methodologyName)%>:</label><br />
-    <%= f.text_field :name %><br />
-</div>
+                <ul>
+                    <%# methodology.errors.full_messages.each do |message| %>
+                    <li><%#= message %></li>
+                    <%# end %>
+                </ul>
+            </div>
+        <% end %>
+        <div class="actions">
+            <label for="methodology_name"><%=t(:methodologyName)%>:</label><br />
+            <%= f.text_field :name %><br />
+        </div>
 
-<div class="actions">
-    <label for="methodology_description"><%=t(:methodologyDescription)%>:</label><br />
-    <%= f.text_area :description, :rows => 20, :cols =>100%><br />
-</div>
+        <div class="actions">
+            <label for="methodology_description"><%=t(:methodologyDescription)%>:</label><br />
+            <%= f.text_area :description, :rows => 20, :cols =>100%><br />
+        </div>
 
-<div class="actions">
-    <%= f.submit t(:submit) %>
-</div>
+        <div class="actions">
+            <%= f.submit t(:submit) %>
+        </div>
+    <% end %>
+    <% rescue Exception => e %>
+    <% puts e.message %>
 <% end %>

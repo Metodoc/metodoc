@@ -1,41 +1,52 @@
-<div class="menu-lateral">
-    <%=render :partial => 'form_menu_lateral' %>
-</div>
-<div class="tela">
-    <div class="content-header">
-        <h1><%=@user.name%></h1>
-        <hr id="hr">
+<% begin %>    
+    <div class="menu-lateral">
+        <%=render :partial => 'form_menu_lateral' %>
     </div>
-    <div class="content">
-        <table>
-            <tr>
-                <td class="tituloTable"><%=t(:yourActivities)%></td>
-                <td><%=t(:ontologyRelates)%></td>
-            </tr>
-            <%if !@atividades.nil?%>
-                <%@atividades.each do |a|%>
+    <div class="tela">
+        <div class="content-header">
+            <% begin %>
+                <h1><%=@user.name%></h1>
+                <% rescue Exception => e %>
+                <% puts e.message %>
+            <% end %>
+            <hr id="hr">
+        </div>
+        <div class="content">       
+            <table>
+                <%if !@responsables.empty?%>
                     <tr>
-                        <td><%=a.name%></td>
-                        <%if !a.document.version_id.nil?%>
-                            <% begin %>
-                                <td><%=a.document.version.ontology.name%></td>
-                                <% rescue Exception => e%>
-                                <% puts e.message %>
-                            <% end %>
-                        <%else%>
-                            <% begin %>
-                                <td><%=a.document.ontology.name%></td>
-                                <% rescue Exception => e%>
-                                <% puts e.message %>
-                            <% end %>
-                        <%end%>
+                        <td class="tituloTable"><%=t(:yourActivities)%></td>
+                        <td><%=t(:ontologyRelates)%></td>
                     </tr>
-                <%end%>
-            <%else%>
+                    <%@responsables.each do |a|%>
+                        <% begin %>
+                            <tr> 
+                                <td><%=a.document.doc_type.name%></td>
+                                <%if !a.document.version_id.nil?%>
+                                    <% begin %>
+                                        <td><%=a.document.version.ontology.name%></td>
+                                        <% rescue Exception => e%>
+                                        <% puts e.message %>
+                                    <% end %>
+                                <%else%>
+                                    <% begin %>
+                                        <td><%=a.document.ontology.name%></td>
+                                        <% rescue Exception => e %>
+                                        <% puts e.message %>
+                                    <% end %>
+                                <%end%>
+                            </tr>
+                            <% rescue Exception => e %>
+                            <% puts e.message %>
+                        <% end %>
+                    <%end%>
+                <%else%>
                 <tr>
                     <td><%=t(:noActivities)%></td>
                 </tr>
-            <%end%>
-        </table>
-    </div>
-
+                <%end%>
+            </table>
+        </div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

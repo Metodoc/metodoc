@@ -77,79 +77,107 @@
     }
 
 </style>
+<% begin %>
+    <%=render :partial => 'document/form_menus' %>
 
-<%=render :partial => 'document/form_menus' %>
-
-<div class="content">
-
-
-    <div class="activity-menu texto1">
-        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
-        <ul>
-            <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
-        </ul>
-    </div>
+    <div class="content">
 
 
-    <div class="listaPerfil">
-        <ul>
-            <li><%=link_to "#{t(:import)}", "#janela", {:titulo=> "#{t(:addOntologie)}", :rel => 'modal', :class=>'perfil'}%></li>
-        </ul>
-    </div>
+        <div class="activity-menu texto1">
+            <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
+            <ul>
+                <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
+            </ul>
+        </div>
 
+        <% 
+            begin 
+                @responsables = Responsable.where(user_id: session['user_id']).all 
 
+                if @documento.ontology.nil?
+                    v_id = Version.where(id: @documento.version_id).first
+                    @ontoUser = OntologyUser.where(ontology_id: v_id.ontology_id, user_id: session['user_id']).first
+                else
+                    @ontoUser = OntologyUser.where(ontology_id: @documento.ontology_id, user_id: session['user_id']).first
+                end
 
-    <table>
-        <thead>
-            <tr>
-                <th><%=t(:name)%></th>
-                <th><%=t(:prefix)%></th>
-                <th><%=t(:uri)%></th>
-                <th><%=t(:purpose)%></th>
-            </tr>
-        </thead>
-        <tbody>
-            <%@integracoes.each do |integracao|%>
-            <tr>
-                <td><%=integracao.name%></td>
-                <td><%=integracao.prefix%></td>
-                <td><a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></td>
-                <td><%=integracao.purpose%></td>
-            </tr>
-            <%end%>
-        </tbody>
-    </table>
+                @responsables.each do | r | 
+                    if ( r.document_id == @documento.id ) or ( @ontoUser.paper_id == 1 or @ontoUser.paper_id == 2 )
+                        $ok = true
+                        break
+                    else
+                        $ok = false
+                    end
+                end
+                rescue Exception => e
+                puts e.message
+            end
+        %>
 
-    <div id="janela" class="window middle" >
-        <div class="modal-titulo"><%=t(:title)%></div>
-        <div class="content">
-            <div class="menujanela">
-                <div class="ul" style="" role="tablist" tabindex="0">
-                    <div name="menu" class="li-a s" role="form1" style="-moz-user-select: none;" aria-selected="true">
-                        <div class="a"><%=t(:search)%></div>
+        <% if $ok %>
+            <div class="listaPerfil">
+                <ul>
+                    <li><%=link_to "#{t(:import)}", "#janela", {:titulo=> "#{t(:addOntologie)}", :rel => 'modal', :class=>'perfil'}%></li>
+                </ul>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th><%=t(:name)%></th>
+                        <th><%=t(:prefix)%></th>
+                        <th><%=t(:uri)%></th>
+                        <th><%=t(:purpose)%></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%@integracoes.each do |integracao|%>
+                    <tr>
+                        <td><%=integracao.name%></td>
+                        <td><%=integracao.prefix%></td>
+                        <td><a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></td>
+                        <td><%=integracao.purpose%></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+
+            <div id="janela" class="window middle" >
+                <div class="modal-titulo"><%=t(:title)%></div>
+                <div class="content">
+                    <div class="menujanela">
+                        <div class="ul" style="" role="tablist" tabindex="0">
+                            <div name="menu" class="li-a s" role="form1" style="-moz-user-select: none;" aria-selected="true">
+                                <div class="a"><%=t(:search)%></div>
+                            </div>
+                            <div name="menu" class="li-a" role="form2" style="-moz-user-select: none;" aria-selected="true">
+                                <div class="a"><%=t(:manual)%></div>
+                            </div>  
+                        </div>
                     </div>
-                    <div name="menu" class="li-a" role="form2" style="-moz-user-select: none;" aria-selected="true">
-                        <div class="a"><%=t(:manual)%></div>
-                    </div>  
+                    <%= form_for :integration, :url => { :action => "adicionar", :document_id => params[:document_id], :version_id => params[:version_id] } do |f| %>
+                        <div id="form1" name="form">		
+                            <%=render :partial => 'form_pesquisa' %>
+                        </div>
+                        <div id="form2" name="form" style="display:none;">		
+                            <%=render :partial => 'form' %>
+                        </div>
+                        <div id="buttons" align="center" class="buttons">
+                            <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                            <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+                        </div>
+                    <%end%>
                 </div>
             </div>
-            <%= form_for :integration, :url => { :action => "adicionar", :document_id => params[:document_id], :version_id => params[:version_id] } do |f| %>
-                <div id="form1" name="form">		
-                    <%=render :partial => 'form_pesquisa' %>
-                </div>
-                <div id="form2" name="form" style="display:none;">		
-                    <%=render :partial => 'form' %>
-                </div>
-                <div id="buttons" align="center" class="buttons">
-                    <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                    <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
-                </div>
-            <%end%>
-        </div>
+        <% else %>
+            <div class="left alert alert-danger">
+                <%=t(:notPermission)%>
+            </div>
+        <% end %>
     </div>
-
-</div>
-
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 
 <script language="javascript">
 

@@ -1,11 +1,15 @@
-<ul>
-    <% if session[:user_id] == @methodology.user_id %>
-        <li><a class="btcf tooltipM" href="<%=methodologies_path%>/<%=@methodology.id%>"><span><%=t(:setup)%></span></a></li>
-    <% end %>
-    <li><a class="btdt tooltipM"href="<%=methodologies_path%>/details/<%=@methodology.id%>"><span><%=t(:details)%></span></a></li>
-    <% if session[:user_id] == @methodology.user_id %>
-        <li><a class="bted tooltipM" href="<%=methodologies_path%>/<%=@methodology.id%>/edit/"><span><%=t(:edit)%></span></a></li>
-        <li><a class="btex tooltipM" href="<%=methodologies_path%>/destroy/<%=@methodology.id%>"><span><%=t(:destroy)%></span></a></li>
-    <% end %>
-</ul>
+<% begin %>
+    <ul>
+        <% if session[:user_id] == @methodology.user_id %>
+            <li><a class="btcf tooltipM" href="<%=methodologies_path%>/<%=@methodology.id%>"><span><%=t(:setup)%></span></a></li>
+        <% end %>
+        <li><a class="btdt tooltipM"href="<%=methodologies_path%>/details/<%=@methodology.id%>"><span><%=t(:details)%></span></a></li>
+        <% if session[:user_id] == @methodology.user_id %>
+            <li><a class="bted tooltipM" href="<%=methodologies_path%>/<%=@methodology.id%>/edit/"><span><%=t(:edit)%></span></a></li>
+            <li><a class="btex tooltipM" href="<%=methodologies_path%>/destroy/<%=@methodology.id%>"><span><%=t(:destroy)%></span></a></li>
+        <% end %>
+    </ul>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 

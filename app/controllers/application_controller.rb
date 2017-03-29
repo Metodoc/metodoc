@@ -4,9 +4,8 @@ class ApplicationController < ActionController::Base
     before_action :default_url_options
     protect_from_forgery with: :exception
 
-    include SessionsHelper    
-
-
+    include SessionsHelper
+    
     def load_artefact_status
         @artefact_status = ArtefactStatus.all.collect { |u| [u.description, u.id] }
     end

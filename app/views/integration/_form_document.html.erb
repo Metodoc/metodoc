@@ -1,31 +1,33 @@
+<% begin %>
+    <%  @integracoes = @documento.integration%>
 
-<%  @integracoes = @documento.integration%>
-
-<div style="margin-left: 10px;">
-    <table>
-        <thead>
-            <tr>
-                <th><%=t(:name)%></th>
-                <th><%=t(:prefix)%></th>
-                <th><%=t(:uri)%></th>
-                <th><%=t(:purpose)%></th>
-            </tr>
-        </thead>
-        <tbody>
-            <%@integracoes.each do |integracao|%>
-            <tr>
-                <td><%=integracao.name%></td>
-                <td><%=integracao.prefix%></td>
-                <td><a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></td>
-                <td><%=integracao.purpose%></td>
-            </tr>
-            <%end%>
-        </tbody>
-    </table>
-</div>
+    <div style="margin-left: 10px;">
+        <table>
+            <thead>
+                <tr>
+                    <th><%=t(:name)%></th>
+                    <th><%=t(:prefix)%></th>
+                    <th><%=t(:uri)%></th>
+                    <th><%=t(:purpose)%></th>
+                </tr>
+            </thead>
+            <tbody>
+                <%@integracoes.each do |integracao|%>
+                <tr>
+                    <td><%=integracao.name%></td>
+                    <td><%=integracao.prefix%></td>
+                    <td><a href="<%=integracao.uri%>" target="_blank"><%=integracao.uri%></a></td>
+                    <td><%=integracao.purpose%></td>
+                </tr>
+                <%end%>
+            </tbody>
+        </table>
+    </div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 
 <style>
-
     table{
         width: 100%;
         max-width: 100%;

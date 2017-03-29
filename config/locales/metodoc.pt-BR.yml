@@ -107,8 +107,8 @@ pt-BR:
     status: Status
     referenceDoc: Faz referencia a qual documento?
     watcher: Observador
-    watcherNotAllowed: O responsável observador não tem permissão de edição, apenas de leitura
-    ontologieName: Nome da ontologia
+    watcherNotAllowed: O observador não tem permissão de edição, apenas de leitura
+    ontologyName: Nome da ontologia
     project: Projeto
     ontologyVersion: Versões da ontologia
     domain: Domínio
@@ -176,6 +176,7 @@ pt-BR:
     accountActivated: Conta ativada
     invalidActivationLink: Link de ativação inválido
     accessDenied: Acesso negado
+    notPermission: Você não tem permissão para editar este documento
     errorToDestroy: Erro ao excluir
     passwordResetHasExpired: Link expirado
     asswordHasBeenReset: Senha foi alterada

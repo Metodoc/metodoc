@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170119033345) do
+ActiveRecord::Schema.define(version: 20170318052300) do
 
   create_table "activity_shedules", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -78,10 +78,12 @@ ActiveRecord::Schema.define(version: 20170119033345) do
   end
 
   create_table "doc_types", force: :cascade do |t|
-    t.string   "name",          limit: 255
+    t.string   "name",               limit: 255
     t.integer  "methodstep_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "doc_type_config_id"
+    t.index ["doc_type_config_id"], name: "index_doc_types_on_doc_type_config_id"
   end
 
   create_table "documents", force: :cascade do |t|

@@ -30,8 +30,13 @@ class QuestionController < ApplicationController
                         @resposta.update_attributes(:type_answer_id => @str)
                     else
                         @resposta.update_attributes(:answer => @str)
-                    end 
-                    @resposta.save
+                    end
+                    begin
+                        @resposta.save
+                        rescue Exception => e
+                        puts e.message
+                    end
+                    
                 else
 
                     if q.answer_type == 3
@@ -63,7 +68,13 @@ class QuestionController < ApplicationController
         if request.post?
             @questao = Question.find(params[:id])
             @questao.attributes = {:question => params[:question][:question], :answer_type =>  params[:question][:answer_type]}
-            @questao.save!
+            
+            begin
+                @questao.save!
+                rescue Exception => e
+                puts e.message
+            end
+            
             redirect_to :action =>'index', :document_id => @questao.document_id
         end
     end

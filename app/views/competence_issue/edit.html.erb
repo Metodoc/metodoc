@@ -1,13 +1,13 @@
 <%content_for :content_header do%>
 <h1>
-  <% if @competence_issue.new_record? %><%=t(:creating)%><% else %><%=t(:editing)%>o<% end %>
-  <%=t(:competenseIssue)%>
+    <% if @competence_issue.new_record? %><%=t(:creating)%><% else %><%=t(:editing)%>o<% end %>
+    <%=t(:competenseIssue)%>
 </h1>
 <p><%=t(:formuleCompetenseIssue)%></p>
 <%end%>
 
 <div class="content">
-  <% form_tag :action => 'edit', :id => @competence_issue do %>
+    <% form_tag :action => 'edit', :id => @competence_issue do %>
     <%=render :partial => 'form' %>
-  <% end %>
+    <% end %>
 </div>

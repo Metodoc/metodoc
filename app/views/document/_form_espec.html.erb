@@ -1,3 +1,7 @@
-<label for="document_reference" autofocus><%= t(:referenceDoc) %></label><br />
-<%= select :document, :doc_reference, @docs %><br />
-<%= @docs %>
+<% begin %>
+    <label for="document_reference" autofocus><%= t(:referenceDoc) %></label><br />
+    <%= select :document, :doc_reference, @docs %><br />
+    <%= @docs %>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>

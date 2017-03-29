@@ -11,94 +11,124 @@
             <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
         </ul>
     </div>
+    
+    <% 
+        begin 
+            @responsables = Responsable.where(user_id: session['user_id']).all 
+        
+            if @documento.ontology.nil?
+                v_id = Version.where(id: @documento.version_id).first
+                @ontoUser = OntologyUser.where(ontology_id: v_id.ontology_id, user_id: session['user_id']).first
+            else
+                @ontoUser = OntologyUser.where(ontology_id: @documento.ontology_id, user_id: session['user_id']).first
+            end
+            
+            @responsables.each do | r | 
+                if ( r.document_id == @documento.id ) or ( @ontoUser.paper_id == 1 or @ontoUser.paper_id == 2 )
+                    $ok = true
+                    break
+                else
+                    $ok = false
+                end
+            end
+            rescue Exception => e
+            puts e.message
+        end
+    %>
+    
+    <% if $ok %>
+        <%if !@atividades.nil?%>
+        <div>
+            <div class="divSelect">
+                <span role="checkbox" class="checkSelect" style="line-height: 5px;"></span>
+                <a class="linkSelect" href="javascript:mostraEsconde('selectMarcadores')"></a>
 
-    <%if !@atividades.nil?%>
-    <div>
-        <div class="divSelect">
-            <span role="checkbox" class="checkSelect" style="line-height: 5px;"></span>
-            <a class="linkSelect" href="javascript:mostraEsconde('selectMarcadores')"></a>
-
-            <div id="selectMarcadores" class="selectMarcadores">
-                <ul class="testando">
-                    <li class="testando" id="label1"><a href="#"><label><%=t(:selectAll)%></label></a></li>
-                    <li class="testando" id="label2" ><a href="#"><label><%=t(:star)%></label></a></li>
-                    <li class="testando" id="label3"><a href="#"><label><%=t(:noStar)%></label></a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="divMarcadores" class="divSelect" style="display:none;">
-            <span class="marcador" ></span>
-            <a class="linkSelect" href="javascript:mostraEsconde('selectMarcadores2')"></a>
-            <a href="javascript:listaLixo()"><span class="lixo" style="border-left:2px solid lightgray;"></span></a>
-            <div id="selectMarcadores2" class="selectMarcadores" style="margin-left: 70px;width:220px;">
-                <ul class="testando">
-                    <li class="testando" id="label4"><a href="#"><label><%=t(:markPriority)%></label></a></li>
-                    <li class="testando" id="label5" ><a href="#"><label><%=t(:markDone)%></label></a></li>
-                    <li class="testando" id="label6"><a href="#"><label><%=t(:markInProgress)%></label></a></li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-
-
-    <table style="clear: left;">
-
-        <%@atividades.each do |a|%>
-        <tr id="tr<%=a.id%>">
-            <td><span class="checkSelect"></span></td>
-            <td><span name="prioridade" class="prioridade-1"></span></td>
-            <td><%=link_to a.name, "#janela"+a.id.to_s , {:titulo => a.name, :rel=>'modal'}%></td>
-            <td><%=a.description.html_safe%></td>
-            <td><%=a.deadline%></td>
-        </tr>
-
-        <div id="janela<%=a.id%>" class="window middle" >
-            <div class="modal-titulo"><%=t(:title)%></div>
-            <div class="content">
-                <%@activity_shedule = a%>
-                <%= form_tag :action => 'edit', :id=>@activity_shedule , :document_id=>a.document_id do %>
-
-                <%=render :partial => 'form', :locals => { :activity_shedule => @activity_shedule }%>
-
-                <div id="buttons" align="center" class="buttons">
-                    <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                    <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+                <div id="selectMarcadores" class="selectMarcadores">
+                    <ul class="testando">
+                        <li class="testando" id="label1"><a href="#"><label><%=t(:selectAll)%></label></a></li>
+                        <li class="testando" id="label2" ><a href="#"><label><%=t(:star)%></label></a></li>
+                        <li class="testando" id="label3"><a href="#"><label><%=t(:noStar)%></label></a></li>
+                    </ul>
                 </div>
-                <% end %>
+            </div>
+
+            <div id="divMarcadores" class="divSelect" style="display:none;">
+                <span class="marcador" ></span>
+                <a class="linkSelect" href="javascript:mostraEsconde('selectMarcadores2')"></a>
+                <a href="javascript:listaLixo()"><span class="lixo" style="border-left:2px solid lightgray;"></span></a>
+                <div id="selectMarcadores2" class="selectMarcadores" style="margin-left: 70px;width:220px;">
+                    <ul class="testando">
+                        <li class="testando" id="label4"><a href="#"><label><%=t(:markPriority)%></label></a></li>
+                        <li class="testando" id="label5" ><a href="#"><label><%=t(:markDone)%></label></a></li>
+                        <li class="testando" id="label6"><a href="#"><label><%=t(:markInProgress)%></label></a></li>
+                    </ul>
+
+                </div>
             </div>
         </div>
 
 
+        <table style="clear: left;">
+
+            <%@atividades.each do |a|%>
+            <tr id="tr<%=a.id%>">
+                <td><span class="checkSelect"></span></td>
+                <td><span name="prioridade" class="prioridade-1"></span></td>
+                <td><%=link_to a.name, "#janela"+a.id.to_s , {:titulo => a.name, :rel=>'modal'}%></td>
+                <td><%=a.description.html_safe%></td>
+                <td><%=a.deadline%></td>
+            </tr>
+
+            <div id="janela<%=a.id%>" class="window middle" >
+                <div class="modal-titulo"><%=t(:title)%></div>
+                <div class="content">
+                    <%@activity_shedule = a%>
+                    <%= form_tag :action => 'edit', :id=>@activity_shedule , :document_id=>a.document_id do %>
+
+                    <%=render :partial => 'form', :locals => { :activity_shedule => @activity_shedule }%>
+
+                    <div id="buttons" align="center" class="buttons">
+                        <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                        <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+
+
+            <%end%>
+        </table>
+
+        <%else%>
+            <%=t(:noActivities)%>
         <%end%>
-    </table>
-
-    <%else%>
-        <%=t(:noActivities)%>
-    <%end%>
-    <div class="listaPerfil">
-        <ul >
-            <li><%=link_to "#{t(:new)}", "#janela", {:titulo=> "#{t(:newActivity)}", :rel=>'modal', :class=>'perfil'}%></li>
-        </ul>
-    </div>
-</div>
-<div id="janela" class="window middle" >
-    <div class="modal-titulo"><%=(:title)%></div>
-    <div class="content">
-        <%@activity_shedule = ActivityShedule.new%>
-
-        <%= form_tag :action => 'nova', :id=>@activity_shedule , :document_id=>params[:document_id]  do %>
-
-        <%=render :partial => 'form', :locals => { :activity_shedule => @activity_shedule }%>
-
-        <div id="buttons" align="center" class="buttons">
-            <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-            <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+        <div class="listaPerfil">
+            <ul >
+                <li><%=link_to "#{t(:new)}", "#janela", {:titulo=> "#{t(:newActivity)}", :rel=>'modal', :class=>'perfil'}%></li>
+            </ul>
         </div>
-        <% end %>
     </div>
-</div>
+    <div id="janela" class="window middle" >
+        <div class="modal-titulo"><%=(:title)%></div>
+        <div class="content">
+            <%@activity_shedule = ActivityShedule.new%>
+
+            <%= form_tag :action => 'nova', :id=>@activity_shedule , :document_id=>params[:document_id]  do %>
+
+            <%=render :partial => 'form', :locals => { :activity_shedule => @activity_shedule }%>
+
+            <div id="buttons" align="center" class="buttons">
+                <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+            </div>
+            <% end %>
+        </div>
+    </div>
+<% else %>
+    <div class="left alert alert-danger">
+        <%=t(:notPermission)%>
+    </div>
+<% end %>
 <style>
 
     .listaPerfil{

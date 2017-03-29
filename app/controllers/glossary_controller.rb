@@ -64,7 +64,8 @@ class GlossaryController < ApplicationController
         end
         textxml = builder.to_xml
         name = @ontology.name+"-"+@version.number.to_s+".owl"
-        directory = "app/views/glossary/arquivos/"+name
+#        directory = "app/views/glossary/arquivos/"+name
+        directory ||= "#{Rails.root}/app/views/glossary/arquivos/"+name
         File.open(directory, "w") { |f| 
             f.write(textxml) 
         }
@@ -105,23 +106,23 @@ class GlossaryController < ApplicationController
         end
     end
 
-    def arquivo
-        @documento = Document.find(params[:document_id])
-        #        @glossary = Term.find(:all, :conditions=>["version_id = ?", params[:version_id]])
-        @glossary = Term.find("version_id = ?", params[:version_id]).all
-        if request.post?
-            @documento = Document.find(params[:document_id])
-            name = params[:upload][:file].original_filename
-            directory = "app/views/glossary/arquivos"
-            path = File.join(directory, name)
-            new_name = @documento.id.to_s + ".owl"
-            File.open(path, "wb") { |f| f.write(params[:upload][:file].read) 
-                File.rename(path, directory + "/" + new_name )
-                redirect_to :action=>'arquivo', :document_id=>@documento.id, :version_id=>params[:version_id]
-                }
-        end
-        flash[:notice] = "File uploaded"
-    end
+#    def arquivo
+#        @documento = Document.find(params[:document_id])
+#        #        @glossary = Term.find(:all, :conditions=>["version_id = ?", params[:version_id]])
+#        @glossary = Term.find("version_id = ?", params[:version_id]).all
+#        if request.post?
+#            @documento = Document.find(params[:document_id])
+#            name = params[:upload][:file].original_filename
+#            directory = "app/views/glossary/arquivos"
+#            path = File.join(directory, name)
+#            new_name = @documento.id.to_s + ".owl"
+#            File.open(path, "wb") { |f| f.write(params[:upload][:file].read) 
+#                File.rename(path, directory + "/" + new_name )
+#                redirect_to :action=>'arquivo', :document_id=>@documento.id, :version_id=>params[:version_id]
+#                }
+#        end
+#        flash[:notice] = "File uploaded"
+#    end
 
     def edit
 

@@ -90,7 +90,12 @@ class OntologiesController < ApplicationController
             papersUser.each do |p|
                 @ontologyUser = OntologyUser.new
                 @ontologyUser.attributes = {:ontology_id => params[:id], :user_id => params[:user_id], :paper_id => p} 
-                @ontologyUser.save!
+                
+                begin
+                    @ontologyUser.save!
+                    rescue Exception => e
+                    puts e.message
+                end
                 #ontology.users << User.find(params[:user_id]) unless User.find(params[:user_id]).nil?
             end
         else
@@ -115,7 +120,12 @@ class OntologiesController < ApplicationController
                 #                ontoId = Ontology.where(name: @ontology.name).select("id").first
                 #                userId = session[:user_id];
                 #                OntologyUser.find_by_sql("insert into ontology_users (ontology_id, user_id, paper_id) values ('#{ontoId.id}', '#{userId}', 1)")
-                @ontologyUser.save!
+                
+                begin
+                    @ontologyUser.save!
+                    rescue Exception => e
+                    puts e.message
+                end
                 format.html { redirect_to @ontology, notice: t(:ontologyWasSuccessfullyCreated) }
                 format.json { render :show, status: :created, location: @ontology }
             else

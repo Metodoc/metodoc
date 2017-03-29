@@ -1,67 +1,102 @@
-<%=render :partial => 'document/form_menus' %>
+<% begin %>
+    <%=render :partial => 'document/form_menus' %>
 
-<div class="content">
-    <div class="activity-menu texto1">
-        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
-        <ul>
-            <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
-        </ul>
-    </div>
+    <div class="content">
+        <div class="activity-menu texto1">
+            <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
+            <ul>
+                <li><%=link_to '', {:controller=>'document', :action => 'show', :id => @documento.id}, {:class=>'btdocument-min'}%></li>
+            </ul>
+        </div>
 
-    <%@types.each do |term_type|%>
-        <div class="lista_termos">
-            <%@termos = @glossary.select { |g| g.term_type_id == term_type.id }%>
-            <%if !@termos.empty?%>
-                <p class="termosfont"><b><%=term_type.description%> (<%=@termos.count%>):</b></p>
-            <%end%>
+        <% 
+            begin 
+                @responsables = Responsable.where(user_id: session['user_id']).all 
 
-            <%@termos.each do |t| %>
-                <%if term_type.id == t.term_type_id %>
-                    <%=link_to t.name, "#janela"+t.id.to_s , {:titulo=> t.name, :rel=>'modal'}%>
-                    <div id="janela<%=t.id%>" class="window middle" >
-                        <div class="modal-titulo"><%=t(:title)%></div>
-                        <div class="content">
-                            <%@term = t %>
+                if @documento.ontology.nil?
+                    v_id = Version.where(id: @documento.version_id).first
+                    @ontoUser = OntologyUser.where(ontology_id: v_id.ontology_id, user_id: session['user_id']).first
+                else
+                    @ontoUser = OntologyUser.where(ontology_id: @documento.ontology_id, user_id: session['user_id']).first
+                end
 
-                            <%= form_tag action: 'manualEdit', id: t.id, document_id: @documento.id, version_id: params[:version_id] do %>
-                                <%=render :partial => 'form'%>
-                                <div id="buttons" align="center" class="buttons">
-                                    <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                                    <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+                @responsables.each do | r | 
+                    if ( r.document_id == @documento.id ) or ( @ontoUser.paper_id == 1 or @ontoUser.paper_id == 2 )
+                        $ok = true
+                        break
+                    else
+                        $ok = false
+                    end
+                end
+                rescue Exception => e
+                puts e.message
+            end
+        %>
+
+        <% if $ok %>
+            <%@types.each do |term_type|%>
+                <div class="lista_termos">
+                    <%@termos = @glossary.select { |g| g.term_type_id == term_type.id }%>
+                    <%if !@termos.empty?%>
+                        <p class="termosfont"><b><%=term_type.description%> (<%=@termos.count%>):</b></p>
+                    <%end%>
+
+                    <%@termos.each do |t| %>
+                        <%if term_type.id == t.term_type_id %>
+                            <%=link_to t.name, "#janela"+t.id.to_s , {:titulo=> t.name, :rel=>'modal'}%>
+                            <div id="janela<%=t.id%>" class="window middle" >
+                                <div class="modal-titulo"><%=t(:title)%></div>
+                                <div class="content">
+                                    <%@term = t %>
+
+                                    <%= form_tag action: 'manualEdit', id: t.id, document_id: @documento.id, version_id: params[:version_id] do %>
+                                        <%=render :partial => 'form'%>
+                                        <div id="buttons" align="center" class="buttons">
+                                            <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                                            <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+                                        </div>
+                                    <%end%> 
                                 </div>
-                            <%end%> 
-                        </div>
-                    </div>
-                <%end%>
+                            </div>
+                        <%end%>
+                    <%end%>
+
+                </div>
             <%end%>
 
-        </div>
-    <%end%>
-
-    <div class="listaPerfil">
-        <ul>
-            <li><%=link_to "#{t(:new)}", "#janela", {:titulo => "#{t(:newTerm)}", :rel => 'modal', :class => 'perfil'}%></li>
-        </ul>
-    </div>
-
-    <div id="janela" class="window middle" >
-        <div class="modal-titulo"><%=t(:title)%></div>
-        <div class="content">
-            <%@termo = Term.new%>
-
-
-            <%= form_tag action: 'manual', document_id: @documento.id, version_id: params[:version_id] do %>
-
-            <%=render :partial => 'form', :locals => { :term => @termo }%>
-
-            <div id="buttons" align="center" class="buttons">
-                <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
-                <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+            <div class="listaPerfil">
+                <ul>
+                    <li><%=link_to "#{t(:new)}", "#janela", {:titulo => "#{t(:newTerm)}", :rel => 'modal', :class => 'perfil'}%></li>
+                </ul>
             </div>
-            <%end%>
-        </div>
+
+            <div id="janela" class="window middle" >
+                <div class="modal-titulo"><%=t(:title)%></div>
+                <div class="content">
+                    <%@termo = Term.new%>
+
+
+                    <%= form_tag action: 'manual', document_id: @documento.id, version_id: params[:version_id] do %>
+
+                    <%=render :partial => 'form', :locals => { :term => @termo }%>
+
+                    <div id="buttons" align="center" class="buttons">
+                        <%=link_to "#{t(:cancel)}", { }, {:id =>  'fecharWindow', :class => 'button  fecharWindow'}%>
+                        <input value='<%=t(:add)%>' name='commit' type='submit' class ='button'>
+                    </div>
+                    <%end%>
+                </div>
+            </div>
+        <% else %>
+            <div class="left alert alert-danger">
+                <%=t(:notPermission)%>
+            </div>
+        <% end %>
     </div>
-</div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
+
 <style>
     .lista_termos{
         margin-top:15px;

@@ -24,53 +24,56 @@
         border:0px;
     }
 </style>
-<div class="menu-lateral">
-    <%=render :partial => 'menu_lateral' %>
-</div>
-<div class="tela">
-    <div class="content-header">
 
-        <h1><%=@methodology.name%></h1>
-        <div class="aba">
-            <%=render :partial => 'menu' %>
-        </div>
-        <hr id="hr">
-
+<% begin %>
+    <div class="menu-lateral">
+        <%=render :partial => 'menu_lateral' %>
     </div>
-    <div class="content">
-        <p id="notice"><%= notice %></p>
-        <div id="tabs">
-            <ul>
+    <div class="tela">
+        <div class="content-header">
+            <h1><%=@methodology.name%></h1>
+            <div class="aba">
+                <%=render :partial => 'menu' %>
+            </div>
+            <hr id="hr">
+        </div>
+        <div class="content">
+            <p id="notice"><%= notice %></p>
+            <div id="tabs">
+                <ul>
+                    <% @methodology.methodstep.each_with_index do |etapa, index|%>
+                        <li><a href="#tabs-<%=index%>"><%=etapa.name%></a></li>
+                    <%end%>
+                    <li><a href="#tabs-nova">+</a></li>
+                </ul>
                 <% @methodology.methodstep.each_with_index do |etapa, index|%>
-                    <li><a href="#tabs-<%=index%>"><%=etapa.name%></a></li>
-                <%end%>
-                <li><a href="#tabs-nova">+</a></li>
-            </ul>
-            <% @methodology.methodstep.each_with_index do |etapa, index|%>
-                <div id="tabs-<%=index%>">
-                    <%@methodstep = etapa%>
-                    <a class="btex tooltipM" href="<%=methodologies_path%>/destroyEtapa/<%=@methodology.id%>?etapa_id=<%=etapa.id%>"><span><%=t(:destroy)%></span></a>
+                    <div id="tabs-<%=index%>">
+                        <%@methodstep = etapa%>
+                        <a class="btex tooltipM" href="<%=methodologies_path%>/destroyEtapa/<%=@methodology.id%>?etapa_id=<%=etapa.id%>"><span><%=t(:destroy)%></span></a>
 
-                    <%= form_tag :action => 'config_etapa', :id => @methodology.id, :etapa_id => etapa.id do %>
-                    <%=render :partial => 'formEtapa' %>
-                    <%=render :partial => 'formEtapa2' %>
-                    <div id="buttons" class="buttons">
-                        <%= submit_tag "#{t(:save)}", :class => 'button' %>
+                        <%= form_tag :action => 'config_etapa', :id => @methodology.id, :etapa_id => etapa.id do %>
+                        <%=render :partial => 'formEtapa' %>
+                        <%=render :partial => 'formEtapa2' %>
+                        <div id="buttons" class="buttons">
+                            <%= submit_tag "#{t(:save)}", :class => 'button' %>
+                        </div>
+                        <%end%>
                     </div>
+                <%end%>
+                <div id="tabs-nova" style="height:100px;">
+                    <%= form_tag :action => 'newetapa', :id => @methodology.id do %>
+                        <div class="new" style="width:auto;">
+                            <input id="new-etapa" type="text" class="input-new" placeholder="<%=t(:newStep)%>">
+                            <input id="btnew-etapa" type="button" class="button-input btnew">
+                        </div>
                     <%end%>
                 </div>
-            <%end%>
-            <div id="tabs-nova" style="height:100px;">
-                <%= form_tag :action => 'newetapa', :id => @methodology.id do %>
-                    <div class="new" style="width:auto;">
-                        <input id="new-etapa" type="text" class="input-new" placeholder="<%=t(:newStep)%>">
-                        <input id="btnew-etapa" type="button" class="button-input btnew">
-                    </div>
-                <%end%>
             </div>
         </div>
     </div>
-</div>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
 
 <script language="javascript">
 

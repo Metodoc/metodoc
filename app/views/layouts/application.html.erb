@@ -1,27 +1,3 @@
-<!--<!DOCTYPE html>
-<html >
-<head>
-
-
-</head>
-
-<body>
-<div class="container">
-<%#= render 'layouts/header' %>
-<%# flash.each do |message_type, message| %>
-<%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-<%# end %>
-<%#= yield %>
-<%#= render 'layouts/footer' %>
-<% #debug(params) if Rails.env.development? %>
-</div>
-<%#= tinymce_assets %>
-<%#= tinymce %>
-</body>
-</html>-->
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -81,16 +57,15 @@
                     <div class="clear">  
                     </div> 
                     <% if logged_in? %>
-                    <div id="mainnav">
-                        <ul>
-                            <!-- <li><%#=link_to 'Perfil', :controller=>'user', :action=>'perfil', :id=>session[:user_id]%></li>-->
-                            <li><%= link_to t(:projects), ontologies_path %></li>
-                            <li><%= link_to t(:methodologies), methodologies_path %></li>
-                            <li><%= link_to t(:documents), "#{users_path}/settings/#{session[:user_id]}" %></li>
-                            <li><%= link_to t(:activities), "#{users_path}/atividades/#{session[:user_id]}" %></li>
+                        <div id="mainnav">
+                            <ul>
+                                <li><%= link_to t(:projects), ontologies_path %></li>
+                                <li><%= link_to t(:methodologies), methodologies_path %></li>
+                                <li><%= link_to t(:documents), "#{users_path}/settings/#{session[:user_id]}" %></li>
+                                <li><%= link_to t(:activities), "#{users_path}/atividades/#{session[:user_id]}" %></li>
 
-                        </ul>
-                    </div>  
+                            </ul>
+                        </div>  
                     <% end %>
                     <div id="header">
 
@@ -101,20 +76,17 @@
                                 <%=yield :content_header%>
                             </div>
                             <% flash.each do |message_type, message| %>
-                            <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+                                <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
                             <% end %>
                             <%=yield%>
                             <%#= render 'layouts/footer' %>
                         </div>
-
                     </div>
                 </div>
                 <div id="mascara"></div>
             </div>
         </div>
     </body>
-
-    <%#= javascript_include_tag 'tiny_mce/tiny_mce.js' %>
 
     <%= javascript_include_tag 'jquery-ui-1.9.2/js/jquery-1.8.3.js' %>
     <%= javascript_include_tag 'jquery-ui-1.9.2/js/jquery-ui-1.9.2.custom.js' %>
@@ -136,6 +108,7 @@
             content_css: '//www.tinymce.com/css/codepen.min.css'
         });
     </script>
+    
     <!--    Script das abas das etapas da versao -->
     <script type="text/javascript">
         $(document).ready(function(){

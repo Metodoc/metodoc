@@ -1,14 +1,67 @@
 <%=render :partial => 'form_menus' %>
 
 <div class="content">
-    <div class="activity-menu texto1">
-        <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
-        <ul>
-            <li><%=link_to '', {controller: 'document', action: 'show', id: @documento.id}, {:class=>'btdocument-min'}%></li>
-        </ul>
-    </div>
-
-    <%= form_tag :action => 'edit', :id => @document do %>
-        <%= render :partial => 'form' %>
+    <% begin %>
+        <div class="activity-menu texto1">
+            <%=t(:document)%>: <b class="texto2"><%=@documento.doc_type.name%></b>
+            <ul>
+                <li><%=link_to '', {controller: 'document', action: 'show', id: @documento.id}, {:class=>'btdocument-min'}%></li>
+            </ul>
+        </div>
+    
+        <% rescue Exception => e %>
+        <% puts e.message %>
+    <% end %>
+    
+    <% 
+        begin 
+            @responsables = Responsable.where(user_id: session['user_id']).all 
+        
+            if @documento.ontology.nil?
+                v_id = Version.where(id: @documento.version_id).first
+                @ontoUser = OntologyUser.where(ontology_id: v_id.ontology_id, user_id: session['user_id']).first
+            else
+                @ontoUser = OntologyUser.where(ontology_id: @documento.ontology_id, user_id: session['user_id']).first
+            end
+            
+            @responsables.each do | r | 
+                if ( r.document_id == @documento.id ) or ( @ontoUser.paper_id == 1 or @ontoUser.paper_id == 2 )
+                    $ok = true
+                    break
+                else
+                    $ok = false
+                end
+            end
+            rescue Exception => e
+            puts e.message
+        end
+    %>
+    <% if $ok %>
+        <%= form_tag :action => 'edit', :id => @document do %>
+            <%= render :partial => 'form' %>
+        <% end %>
+    <% else %>
+        <div class="left alert alert-danger">
+            <%=t(:notPermission)%>
+        </div>
     <% end %>
 </div>
+
+
+<% begin %>
+    <% @ontologyUser = OntologyUser.where(user_id: session['user_id']).first %>
+ 
+    <ul>
+        <li><a class="btshow tooltipM" href="<%=ontologies_path%>/show/<%=@ontology.id%>"><span><%=t(:viewOntology)%></span></a></li>
+        <% if @ontologyUser.paper_id == 1 or @ontologyUser.paper_id == 2 %>
+            <li><a class="btaddU tooltipM" href="<%=ontologies_path%>/add_user/<%=@ontology.id%>"> <span><%=t(:addContributor)%></span></a></li>
+        <% end %>
+        <li><a class="btdt tooltipM" href="<%=ontologies_path%>/details/<%=@ontology.id%>"><span><%=t(:details)%></span></a></li>
+        <% if @ontologyUser.paper_id == 1 or @ontologyUser.paper_id == 2 %>
+            <li><a class="bted tooltipM" href="<%=ontologies_path%>/<%=@ontology.id%>/edit"><span><%=t(:edit)%></span></a></li>
+            <li><a class="btex tooltipM" href="<%=ontologies_path%>/destroy/<%=@ontology.id%>"><span><%=t(:destroy)%></span></a></li>
+        <% end %>
+    </ul>
+    <% rescue Exception => e %>
+    <% puts e.message %>
+<% end %>
