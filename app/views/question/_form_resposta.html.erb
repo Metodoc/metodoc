@@ -9,6 +9,8 @@
                 end%>
             <%end%>
             
+            <input type="radio" name= "answer_<%=q.id%>" value="5" <%if (@checked == 5) %>checked<%end%> >
+            <%= label :answer, :type_answer_id, "#{t(:terrible)}" %><br>
             <input type="radio" name= "answer_<%=q.id%>" value="1" <%if (@checked == 1) %>checked<%end%> >
             <%= label :answer, :type_answer_id, "#{t(:bad)}" %><br>
             <input type="radio" name= "answer_<%=q.id%>" value="2" <%if (@checked == 2) %>checked<%end%> >

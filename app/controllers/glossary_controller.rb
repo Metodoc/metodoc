@@ -63,19 +63,18 @@ class GlossaryController < ApplicationController
                 end
         end
         textxml = builder.to_xml
-        name = @ontology.name+"-"+@version.number.to_s+".owl"
-#        directory = "app/views/glossary/arquivos/"+name
-        directory ||= "#{Rails.root}/app/views/glossary/arquivos/"+name
-        File.open(directory, "w") { |f| 
-            f.write(textxml) 
-        }
-        File.open(directory, 'r') do |f|
-            send_data f.read, :type => "text/xml", :filename => name
+#        name = @ontology.name+"-"+@version.number.to_s+".owl"
+        time = Date.today
+        name = "Ontology-" + time.to_s
+        
+        File.open(Rails.root.join('public/files', name), 'w') do |file|
+            file.write(textxml)
         end
-
-
+        
+        File.open(Rails.root.join('public/files', name), 'r') do |file|
+            send_data file.read, :type => 'text/xml', :filename => name
+        end
     end
-
 
     def manual
         @documento = Document.find(params[:document_id])
@@ -106,23 +105,23 @@ class GlossaryController < ApplicationController
         end
     end
 
-#    def arquivo
-#        @documento = Document.find(params[:document_id])
-#        #        @glossary = Term.find(:all, :conditions=>["version_id = ?", params[:version_id]])
-#        @glossary = Term.find("version_id = ?", params[:version_id]).all
-#        if request.post?
-#            @documento = Document.find(params[:document_id])
-#            name = params[:upload][:file].original_filename
-#            directory = "app/views/glossary/arquivos"
-#            path = File.join(directory, name)
-#            new_name = @documento.id.to_s + ".owl"
-#            File.open(path, "wb") { |f| f.write(params[:upload][:file].read) 
-#                File.rename(path, directory + "/" + new_name )
-#                redirect_to :action=>'arquivo', :document_id=>@documento.id, :version_id=>params[:version_id]
-#                }
-#        end
-#        flash[:notice] = "File uploaded"
-#    end
+    #    def arquivo
+    #        @documento = Document.find(params[:document_id])
+    #        #        @glossary = Term.find(:all, :conditions=>["version_id = ?", params[:version_id]])
+    #        @glossary = Term.find("version_id = ?", params[:version_id]).all
+    #        if request.post?
+    #            @documento = Document.find(params[:document_id])
+    #            name = params[:upload][:file].original_filename
+    #            directory = "app/views/glossary/arquivos"
+    #            path = File.join(directory, name)
+    #            new_name = @documento.id.to_s + ".owl"
+    #            File.open(path, "wb") { |f| f.write(params[:upload][:file].read) 
+    #                File.rename(path, directory + "/" + new_name )
+    #                redirect_to :action=>'arquivo', :document_id=>@documento.id, :version_id=>params[:version_id]
+    #                }
+    #        end
+    #        flash[:notice] = "File uploaded"
+    #    end
 
     def edit
 

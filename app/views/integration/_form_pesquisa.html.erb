@@ -10,7 +10,10 @@
             <%@entries.each do |entry|%>
                 <%#=radio_button :integration, :uri, entry['href']%><a href="<%=entry['href']%>" target="_blank"> <%=entry['href']%></a><br>	
             <%end%>
-        <%end%>    
+        <%end%> 
+        <%if !@flag.nil? %>
+            <p><%=t(:nothingFound)%></p>
+        <% end %>
     </div>
     <% rescue Exception => e %>
     <% puts e.message %>

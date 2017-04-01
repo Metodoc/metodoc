@@ -120,7 +120,7 @@ class DocumentController < ApplicationController
             if params[:version_id] 
                 @documento.attributes = {:doc_type_id => params[:doc_type], :version_id => params[:version_id], :artefact_status_id => 1}
             else
-                @documento.attributes = {:doc_type_id => params[:doc_type],  :ontology_id => params[:ontology_id], :artefact_status_id => 1}
+                @documento.attributes = {:doc_type_id => params[:doc_type], :version_id => 1,  :ontology_id => params[:ontology_id], :artefact_status_id => 1}
             end
 
 
@@ -130,7 +130,7 @@ class DocumentController < ApplicationController
                 puts e.message
             end
 
-            @doc_type = DocType.find(params[:doc_type_id])
+            @doc_type = DocType.find(params[:doc_type])
             configEspec = @doc_type.doc_type_config.first
 
             #            render :text => @documento.idI

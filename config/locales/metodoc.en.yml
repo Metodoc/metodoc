@@ -80,6 +80,7 @@ en:
   userOptions: User options
   systemConfigure: Configure the system with some changes of your choice
   layoutArtifacts: Artefacts' layout
+  terrible: Terrible
   chooseCSS: Choose the CSS model to style the documentation artifacts of the ontology.
   chooseLayout: The chosen layout is
   formContains: The form contains

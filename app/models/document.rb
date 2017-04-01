@@ -1,7 +1,7 @@
 class Document < ApplicationRecord
-    belongs_to :doc_type
+    belongs_to :doc_type, optional: true
     belongs_to :ontology, optional: true
-    belongs_to :version
+    belongs_to :version, optional: true
     belongs_to :artefact_status
 
     has_many :doc_artefact

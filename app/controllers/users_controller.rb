@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
+        if @user.save && verify_recaptcha(model: @user, message: 'Error in passing CAPTCHA.')
             @user.send_activation_email
             flash[:info] = t(:pleaseCheckEmail)
             redirect_to root_url

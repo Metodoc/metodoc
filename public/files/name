@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+  <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+  <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+  <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+  <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+  <Declaration>
+    <Class IRI="#Atividade_Complementar"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Atividade_Extensao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Atividade_Monitoria"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Atividade_Pesquisa"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Componente_Curricular"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Conteudo"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Conteudo_Basico"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Conteudo_Complementar"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Conteudo_Humanista"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Conteudo_Suplementar"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Conteudo_Tecnologico"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_De_Area_Concentracao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_De_Area_Concentracao_Engenharia_De_Software"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_De_Area_Concentracao_Sistemas_Distribuidos"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_De_Perfil_Complementar"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_De_Perfil_Complementar_Automacao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_De_Perfil_Complementar_Empreendedorismo_em_Informatica"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_De_Perfil_Complementar_Informatica_na_Educacao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_Livre"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Disciplina_Obrigatoria"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Docente"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Estagio_Supervisionado"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Evento_Cientifico"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Evento_Cultural"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Grupo_Academico"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Grupo_Extensao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Grupo_Pesquisa"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_ArquiteturaDeComputadores"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_Automacao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_BancoDeDados"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_Compiladores"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_ComputacaoEAlgoritmos"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_ComputacaoGrafica"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_Empreendedorismo"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_EngenhariaDeSoftware"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_Estatistica"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_EticaComputadorSociedade"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_Fisica"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_InformaticaNaEducacao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_InglesTecnico"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_InteligenciaArtificial"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_Matematica"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_MetodologiaDePesquisa"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_Programacao"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_RedesDeComputadores"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_SistemasDistribuidos"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_SistemasMultimidia"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Materia_SistemasOperacionais"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Natureza_Obrigatoria"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Natureza_Optativa"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Natureza_do_Componente_Curricular"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Projeto_Academico"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#Trabalho_de_Conclusao_de_Curso"/>
+  </Declaration>
+  <Declaration>
+    <Class IRI="#wl:Thing"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#coordena"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_composto_por"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_coordenado_por"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_estimulada_por"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_habilitado"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_habilitado_brandamente"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_habilitado_fortemente"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_habilitado_fracamente"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_pre-requisito"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_pre-requisito_recomendado"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#eh_promovida_por"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#estah_inserido"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#estimula_brandamente"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#estimula_competencia"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#estimula_fortemente"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#estimula_fracamente"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#faz_parte_de"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#formada_por"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#participa_de"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#pertence"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#possui_conteudo"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#possui_projeto"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#promove"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#recomenda-se_brandamente_ser_ministrada"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#recomenda-se_fortemente_ser_ministrada"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#recomenda-se_fracamente_ser_ministrada"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#recomenda-se_ser_ministrada"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#tem_afinidade_com"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#tem_forte_afinidade_com"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#tem_fraca_afinidade_com"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#tem_moderada_afinidade_com"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#tem_natureza"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#tem_pre-requisito"/>
+  </Declaration>
+  <Declaration>
+    <ObjectProperty IRI="#tem_pre-requisito_recomendado"/>
+  </Declaration>
+</Ontology>

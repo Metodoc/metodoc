@@ -16,12 +16,18 @@ class IntegrationController < ApplicationController
 
         if params[:string]
             pesquisa = params[:string]
-            url = "http://prefix.cc/" + pesquisa
-
+            
+            url = "http://prefix.cc/" + pesquisa.downcase
             begin
-                @doc = Nokogiri::HTML(open(url))
-                @entries = @doc.css('.namespace-link')
+                html = open(url).read
                 rescue Exception => e
+                puts e.message
+                @flag = "Oi"
+            end
+            begin
+                @doc = Nokogiri::HTML(html)
+                @entries = @doc.css('.namespace-link')
+            rescue Exception => e
                 puts e.message
             end
         end
@@ -31,13 +37,13 @@ class IntegrationController < ApplicationController
         @integracoes = Integration.new
         @integracoes.attributes = { :name => params[:integration][:name], :prefix => params[:integration][:prefix], :uri => params[:integration][:uri], :purpose => params[:integration][:purpose] }
         @integracoes.attributes = { :document_id => params[:document_id] }
-                
+
         begin
             @integracoes.save!
-            rescue Exception => e
+        rescue Exception => e
             puts e.message
         end        
-        
+
         redirect_to :action=>'index', :document_id => params[:document_id], :version_id=> params[:version_id]
     end
 
@@ -62,6 +68,20 @@ class IntegrationController < ApplicationController
 
     def integration_params
         params.require(:integration).permit(:name, :prefix, :uri, :purpose, :document_id)
+    end
+
+    private
+
+
+    def sanitize_filename(filename)
+        filename.strip.tap do |name|
+            # NOTE: File.basename doesn't work right with Windows paths on Unix
+            # get only the filename, not the whole path
+            name.sub! /\A.*(\\|\/)/, ''
+            # Finally, replace all non alphanumeric, underscore
+            # or periods with underscore
+            name.gsub! /[^\w\.\-]/, '_'
+        end
     end
 
 end
