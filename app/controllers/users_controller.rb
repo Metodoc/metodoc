@@ -18,9 +18,9 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save && verify_recaptcha(model: @user, message: 'Error in passing CAPTCHA.')
-            @user.send_activation_email
-            flash[:info] = t(:pleaseCheckEmail)
+        if @user.save # && verify_recaptcha(model: @user, message: 'Error in passing CAPTCHA.')
+#            @user.send_activation_email
+            flash[:info] = t(:sigupSuccess)
             redirect_to root_url
         else
             render 'new'
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update_attributes(user_params)
-            flash[:success] = t(:profileUptated)
+            flash[:success] = t(:sigupSuccess)
             redirect_to @user
         else
             render 'edit'
@@ -95,7 +95,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation).merge(activated: true) 
     end
 
     # Before filters

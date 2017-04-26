@@ -2,8 +2,8 @@ class PasswordResetsController < ApplicationController
     before_action :get_user,   only: [:edit, :update]
     before_action :valid_user, only: [:edit, :update]
     before_action :check_expiration, only: [:edit, :update]    # Case (1)
-    
-#    include Recaptcha::ClientHelper # where you need recaptcha_tags
+
+    #    include Recaptcha::ClientHelper # where you need recaptcha_tags
     include Recaptcha::Verify # where you need verify_recaptcha
 
     def new
@@ -12,14 +12,14 @@ class PasswordResetsController < ApplicationController
     def create
         @user = User.find_by(email: params[:password_reset][:email].downcase)
         if @user
-            if verify_recaptcha(model: @user, message: 'Error in passing CAPTCHA.')
-                @user.create_reset_digest
-                @user.send_password_reset_email
-                flash[:info] = t(:emailSentWithPasswordResetInstructions)
-                redirect_to root_url
-            else
-                render 'new'
-            end
+            #            if verify_recaptcha(model: @user, message: 'Error in passing CAPTCHA.')
+            @user.create_reset_digest
+            @user.send_password_reset_email
+            flash[:info] = t(:emailSentWithPasswordResetInstructions)
+            redirect_to root_url
+            #            else
+            #                render 'new'
+            #            end
         else
             flash.now[:danger] = t(:emailAddressNotFound)
             render 'new'

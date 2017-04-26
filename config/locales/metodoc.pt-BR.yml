@@ -135,6 +135,7 @@ pt-BR:
     search: Pesquisar
     manual: Manual
     addOntologie: Adicionar ontologia
+    sigupSuccess: Cadastro realizado com sucesso. Efetue login!
     import: Importar
     searchForPrefix: Pesquise por prefixo
     methodologyName: Nome da metodologia
@@ -169,7 +170,7 @@ pt-BR:
     account: Conta
     checkEmail: Veja seu email e clique no link enviado para ativar sua conta
     accountActivated: Conta ativada
-    invalidCombination: Combinação email/password inválida
+    invalidCombination: Combinação email/senha inválida
     pleaseCheckEmail: Por favor veja seu email para ativar a conta
     profileUpdated: Perfil atualizado
     userDeleted: Usuário deletado

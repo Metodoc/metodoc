@@ -56,7 +56,7 @@
                     <%end%>
                     </div>
                 <%end%>
-                <%= link_to t(:downloadToWord), {controller: 'document', action: 'html_to_word',  version_id: @version.id}, {class: 'btn btn-success'} %>
+                <%#= link_to t(:downloadToWord), {controller: 'document', action: 'html_to_word',  version_id: @version.id}, {class: 'btn btn-success'} %>
                 <%= link_to t(:downloadToPDF), {controller: 'document', action: 'html_to_pdf',  version_id: @version.id}, {class: 'btn btn-success'} %>
             </div>
     <% rescue Exception => e %>

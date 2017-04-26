@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-    default from: "metodocufba@gmail.com"
+    default from: "noreply-metodoc@ufba.br"
     layout 'mailer'
 end

@@ -31,18 +31,17 @@ Rails.application.configure do
 
     #config.action_mailer.delivery_method = :test #added
     # Don't use this literally; use your local dev host instead
-    config.action_mailer.default_url_options = { host: "localhost:3000", protocol: 'http' }
+    config.action_mailer.default_url_options = { host: "localhost:3000", protocol: 'https' }
     # Default Mailer Host
     Rails.application.routes.default_url_options[:host] = 'localhost:3000'
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-        address:              'smtp.gmail.com',
-        port:                 587,
-        domain:               'gmail.com',
-        user_name:            'metodocufba@gmail.com',
-        password:             'metodoc2017',
-        authentication:       'plain',
-        enable_starttls_auto: true  
+        address:              'smtp3.ufba.br',
+        port:                 465,
+        domain:               'ufba.br',
+        user_name:            'noreply-metodoc',
+        password:             'M3t0DUfb@26',
+        authentication:       'login'
     }
 
     config.action_mailer.perform_caching = false
